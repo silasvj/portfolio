@@ -1,0 +1,763 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Saúde Mental</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+
+	table.collection-content {
+		width: 100%;
+		table-layout: fixed;
+	}
+
+	table.collection-content th,
+	table.collection-content td {
+		overflow-wrap: anywhere;
+	}
+
+	table.collection-content td > .user,
+	table.collection-content td > time {
+		white-space: pre-wrap;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content-wrapper {
+	overflow-x: auto;
+}
+
+@media only print {
+	.collection-content-wrapper {
+		overflow-x: visible;
+	}
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	gap: 46px;
+}
+
+.column {
+	min-width: 0;
+	overflow: hidden;
+}
+
+.column > *:first-child {
+	margin-top: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+table {
+	border-collapse: collapse;
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol.numbered-list.numbered-list-digits-2 {
+	padding-inline-start: 2em;
+}
+
+ol.numbered-list.numbered-list-digits-3plus {
+	padding-inline-start: 2.4em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="a604923e-9652-43b6-99c0-17cc12f20129" class="page sans"><header><img class="page-cover-image" src="Untitled%2010.png" style="object-position:center 14.229999999999999%"/><div class="page-header-icon page-header-icon-with-cover"><span class="icon">🧠</span></div><h1 class="page-title" dir="auto"><strong><strong>Saúde Mental</strong></strong></h1><p class="page-description" dir="auto"></p><table class="properties"><tbody><tr class="property-row property-row-text"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/description_gray.svg" style="width:14px;height:14px;display:block"/></span>Project Overview</th><td>A Squad foi formada com o objetivo de buscar novos produtos para a empresa. Já contávamos com atendimento presencial, aplicativo, site… o quê mais poderia ser feito? No aplicativo, um dos grandes desafios seria incentivar o seu uso diário… Bem, aqui eu explico como e porque adicionamos uma funcionalidade de cuidado em saúde mental.</td></tr><tr class="property-row property-row-select"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/arrow-circle-down_gray.svg" style="width:14px;height:14px;display:block"/></span>Category</th><td><span class="selected-value select-value-color-green">Mobile Design</span></td></tr><tr class="property-row property-row-date"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/calendar_gray.svg" style="width:14px;height:14px;display:block"/></span>Date</th><td><time>23 de fevereiro de 2022</time></td></tr><tr class="property-row property-row-multi_select"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/list_gray.svg" style="width:14px;height:14px;display:block"/></span>My Role</th><td><span class="selected-value select-value-color-gray">UI Design</span><span class="selected-value select-value-color-gray">UX Design</span></td></tr></tbody></table></header><div class="page-body"><div style="display:contents" dir="ltr"><figure id="6ff27813-da3a-4122-a185-05468902094c" class="image"><a href="Untitled.png"><img style="width:691.96875px" src="Untitled.png"/></a><figcaption>Desenvolvimento de novo produto para app.</figcaption></figure></div><div style="display:contents" dir="auto"><p id="e380fc57-25f7-4faf-92b7-950ee7e3f2ba" class="">
+</p></div><div style="display:contents" dir="auto"><h2 id="f31beb30-42f7-43e0-9aec-3e055b67df18" class="block-color-yellow"><strong><strong>A necessidade</strong></strong></h2></div><div style="display:contents" dir="auto"><p id="5b6109a1-5053-459c-9334-46e1af3f5256" class="">
+</p></div><div style="display:contents" dir="auto"><p id="1a264e08-36ed-4f94-8d98-4d768bc7706e" class="">A Squad foi formada com o objetivo de buscar novos produtos para a empresa. Já contávamos com atendimento presencial, aplicativo, site… o quê mais poderia ser feito? No aplicativo, um dos grandes desafios seria incentivar o seu uso diário… Bem, aqui eu explico como e porque adicionamos uma funcionalidade de cuidado em saúde mental.</p></div><div style="display:contents" dir="auto"><p id="daa67c29-fc63-4722-b5da-c599dfa5fda1" class="">
+</p></div><div style="display:contents" dir="auto"><h2 id="6290e535-7239-440d-9e1e-743651c557e0" class="block-color-yellow"><strong><strong>Meu papel</strong></strong></h2></div><div style="display:contents" dir="auto"><p id="1e7ad73e-275c-48b3-812c-9ef9b6503c8a" class="">
+</p></div><div style="display:contents" dir="auto"><p id="112b31a8-c6cc-4d07-8b0e-ff895a3c7256" class="">Atuei como UX e UI designer, segui o design system da época, fiz benchmarks, além dos papéis em todas as cerimônias ágeis.</p></div><div style="display:contents" dir="auto"><blockquote id="de4e2aa9-c487-4870-a5e1-eebba4554dcc" class="">Meu principal desafio aqui foi construir um diário de humor, onde o usuário iria poder registrar o dia a dia da sua saúde mental.</blockquote></div><div style="display:contents" dir="auto"><p id="932359bb-56a2-4c25-b263-b352628986fd" class="">
+</p></div><div style="display:contents" dir="auto"><h2 id="8278afb6-6c09-4bcc-8b39-ece306015b3d" class="block-color-yellow"><strong><strong>Resultados</strong></strong></h2></div><div style="display:contents" dir="auto"><p id="7ed5cd32-b402-45b3-9aea-7159b0737848" class="">
+</p></div><div style="display:contents" dir="auto"><p id="64240e85-58d5-41ea-92f3-6669cf8971c3" class="">Sobre os resultados… esse filho, infelizmente, não nasceu pra mim.Nas semanas anteriores à publicação da nova versão do app com a nova funcionalidade, fui desligado por motivos de reorganização corporativa.</p></div><div style="display:contents" dir="auto"><p id="6f982d20-2889-4460-ad3d-bb0a97c6f5e9" class="">O que tive de resultado foi poder ver as funcionalidades sendo colocadas em uma versão beta do app, e o pessoal que testou gostando do visual e do fluxo.</p></div><div style="display:contents" dir="auto"><p id="73ffe148-166d-40ff-a364-791291b00a2f" class="">O mockup estará aqui (coloco quando sair a versão nas lojas de app, por motivos). Mas vou colocar os prints da versão anterior à final.</p></div><div style="display:contents" dir="auto"><p id="bfc8908e-5445-4b2e-8cc8-e4caa13c37e7" class="">
+</p></div><div style="display:contents" dir="auto"><h3 id="ae015bbd-484f-43c6-9b0b-e784dfc907bc" class="block-color-yellow">Métricas:</h3></div><div style="display:contents" dir="auto"><p id="a27a8ef8-fd42-4ef5-8d74-ad6396beb5e3" class="">Usuários ativos; taxa de utilização; tempo de utilização; conversão em agendamentos.</p></div><div style="display:contents" dir="auto"><h2 id="1ea13b84-8fe8-4017-abf6-5b2114c8a833" class="block-color-yellow"><strong><strong>História</strong></strong></h2></div><div style="display:contents" dir="auto"><p id="44d95d58-fc03-44a8-a718-a55956c1f6a2" class="">
+</p></div><div style="display:contents" dir="auto"><p id="d7e021f4-d7b1-4f26-930f-f0a904c6ed12" class="">Aqui eu vou detalhar o trabalho nessa squad…</p></div><div style="display:contents" dir="auto"><p id="22026a9a-4590-4ae4-8831-c72c2fe9f810" class="">Começamos como um time focado em trazer novas funcionalidades. No período que estive presente, desenvolvemos a parte de saúde mental no app e começamos a <em>inception</em> para um produto de saúde nutricional.</p></div><div style="display:contents" dir="auto"><p id="718089b8-0dbc-4fe2-b0f9-d383f7c62d2e" class="">Na saúde mental, teríamos 3 grandes tarefas: fazer o agendamento para consultas presenciais e online (essa parte eu recebi ‘pronto’), fazer um diário de humor para acompanhamento da pessoa e disponibilizar pacotes de desconto em consultas (parece pouca coisa, mas envolve pensar em <em>copywriting</em>, <em>ux writing</em> e UI).</p></div><div style="display:contents" dir="auto"><p id="94fd8bed-6e76-4863-b452-2af7ef20c765" class="">
+</p></div><div style="display:contents" dir="auto"><div id="06644c2a-d4b7-4583-a59c-26b343f83434" class="column-list"><div style="display:contents" dir="auto"><div id="8958137e-dcdd-4b6c-bc78-7196ee8dfc3c" style="width:18.75%" class="column"><div style="display:contents" dir="ltr"><figure id="3b003e57-1c3e-409d-b90a-d30c402a5238" class="image"><a href="Untitled%201.png"><img style="width:84px" src="Untitled%201.png"/></a></figure></div></div></div><div style="display:contents" dir="auto"><div id="0fccfc1f-48bd-471e-8c81-781cc2d86f9b" style="width:81.25%" class="column"><div style="display:contents" dir="ltr"><figure id="80ee6acd-3691-4932-8f76-1cdd17cbbd21" class="image"><a href="Untitled%202.png"><img style="width:521.859375px" src="Untitled%202.png"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="abecd260-daf8-4cfa-a0cf-72ac640164a7" class="image"><a href="Untitled%203.png"><img style="width:521.84375px" src="Untitled%203.png"/></a></figure></div></div></div></div></div><div style="display:contents" dir="auto"><p id="08543d0e-23d9-4beb-acb8-22156379c6c1" class="">Benchmark, algumas funcionalidades desejadas, e quadro de requisitos.</p></div><div style="display:contents" dir="auto"><p id="74da1839-bbe7-4597-9c1e-996fe9c0fd4d" class="">
+</p></div><div style="display:contents" dir="auto"><p id="2c043a60-7032-47e1-8f6d-a8d69b600810" class="">Comecei com um <em>benchmark </em>bem extenso para ver que estava rolando no mundo dos apps de diário de humor (eu deixei a imagem pequena de propósito, pra ver a extensão). Selecionei algumas funcionalidades que achei bem interessantes e diferenciadas — ainda que talvez não fossem aplicáveis ao nosso caso. Depois, fiz um quadro de requisitos, baseado no briefing que recebi do PO do que seria o nosso produto e de ideias que achei interessante colocar. Daqui pra frente tive a ajuda de duas estagiárias que já podiam ser contratadas sem medo: a Luciana e a Isabela (meu muito obrigado!).</p></div><div style="display:contents" dir="ltr"><figure id="a3c0d07b-c39e-433a-b13b-e8670a99b463" class="image"><a href="Untitled%204.png"><img style="width:432px" src="Untitled%204.png"/></a><figcaption>Esboço de fluxo</figcaption></figure></div><div style="display:contents" dir="auto"><p id="245cff6c-e5ab-4e1f-aa4f-82ec079cf35c" class="">
+</p></div><div style="display:contents" dir="auto"><p id="80b02de0-0dcc-45c7-8126-6ac792dc86a9" class="">Uma vez que os requisitos foram levantados, comecei a trabalhar em um protótipo simples de baixa fidelidade, mas visual, pra poder validar como seria o fluxo. A equipe aprovou e comecei a fazer as telas:</p></div><div style="display:contents" dir="ltr"><figure id="491219c9-2178-4fbd-a1b3-0a737364d2ef" class="image"><a href="Untitled%205.png"><img style="width:691.96875px" src="Untitled%205.png"/></a><figcaption>Algumas das telas, misturado com os pacotes</figcaption></figure></div><div style="display:contents" dir="auto"><p id="84812414-c639-4db1-a40a-b77d7ede00c1" class="">
+</p></div><div style="display:contents" dir="auto"><p id="a70bd58b-e78d-4c8e-b879-37e5c3e9cfc1" class="">Também fiz estudos de caso, para conseguir mais informações sobre o que os usuários pensam sobre saúde mental. A conclusão que cheguei é que esse é um terreno arriscado, as pessoas ainda estão se acostumando a tudo ser online, muitas sentem falta do presencial e, em alguns casos, existem justificativas bem válidas para que a consulta seja olho no olho. De toda forma, talvez seja algo bem comum para as gerações futuras.</p></div><div style="display:contents" dir="auto"><p id="85e0f481-23a4-4692-8964-1eb617070dc9" class="">
+</p></div><div style="display:contents" dir="ltr"><figure id="16da9468-afb2-42e8-a3d4-7eaddaf5f122" class="image"><a href="Untitled%206.png"><img style="width:691.984375px" src="Untitled%206.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="9553375f-6bac-44a9-b15f-ecc6f94991c7" class="">
+</p></div><div style="display:contents" dir="auto"><p id="aa7afa43-7c2c-43ca-88d2-7de106067f30" class="">Já para os pacotes de consultas, desenhei um fluxo para saber onde melhor se encaixa e o quê melhor se encaixa. Dessa forma consegui ter uma melhor noção do trabalho e dos pontos onde deveria tocar e do conteúdo em cada ponto. Logo após, comecei a colocar nas telas, como já foi mostrado nos prints anteriores.</p></div><div style="display:contents" dir="auto"><p id="6eeb9f31-7a50-4593-82c9-caa80a81c28a" class="">
+</p></div><div style="display:contents" dir="ltr"><figure id="c49b0a86-89d5-45de-9349-b3efaaabc0bd" class="image"><a href="Untitled%207.png"><img style="width:691.953125px" src="Untitled%207.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="53e9267d-4f1a-4d36-90ee-1bfb193dda76" class="">
+</p></div><div style="display:contents" dir="auto"><p id="4bfffa24-6589-4c70-8a37-51bde4ba02c4" class="">Também gerei os cards de chamada aos pacotes, cards dos pacotes menores e os cards maiores com todas as informações (além de uma variação de apresentação, na próxima imagem, mais à direita). Precisei usar <em>copy</em> aqui pois a ideia é que o texto capturasse a curiosidade para os pacotes, sem atrapalhar o fluxo normal. Um detalhe aqui, nas telas de pagamento eu evitei usar qualquer um dos cards pois isso poderia tirar o foco da pessoa finalizar a compra da consulta — um negativo pros negócios. O nome dos pacotes também foi pensado levando em consideração o seu conteúdo e aplicando o guia de UX Writing da empresa (que eu participei da criação com muito orgulho!).</p></div><div style="display:contents" dir="auto"><p id="36d68ce4-587e-4329-acdf-2a47dd0f82e7" class="">
+</p></div><div style="display:contents" dir="ltr"><figure id="a957116e-452a-4d06-bb51-0b9485d4b6d2" class="image"><a href="Untitled%208.png"><img style="width:691.953125px" src="Untitled%208.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="fdd7d34c-4d1a-4678-896f-078cc5fe3485" class="">
+</p></div><div style="display:contents" dir="auto"><p id="48c30d2f-06b4-4dbc-abd1-d8310bc726e2" class="">Meu trabalho nessa squad terminou aqui, mas antes de encerrar, vou comentar sobre as outras coisas feitas em paralelo. Fizemos uma <em>inception </em><br/>para descobrir qual seria o nosso novo produto, para ser feito após o saúde mental. Após a discussão em algumas reuniões e a formação desse quadro a seguir, decidimos por saúde nutricional.</p></div><div style="display:contents" dir="auto"><p id="04d0ab31-54a3-4e5b-ba88-676288113173" class="">
+</p></div><div style="display:contents" dir="ltr"><figure id="a98daced-614e-46d4-ada0-c0338f67e31c" class="image"><a href="Untitled%209.png"><img style="width:691.984375px" src="Untitled%209.png"/></a><figcaption>Algumas ideias de novos produtos</figcaption></figure></div><div style="display:contents" dir="auto"><p id="bfdc306c-b342-4874-82c5-bd189da74225" class="">
+</p></div><div style="display:contents" dir="auto"><p id="9aeb699c-06e7-4dd3-b620-7b105de9fd53" class="">Até comecei a pesquisar e fazer um novo bench, mas o trabalho findou.</p></div><div style="display:contents" dir="auto"><p id="3335eb91-86c3-4171-800e-c5b67ade1ad5" class="">Mas quem sabe ele continua em uma outra oportunidade…</p></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

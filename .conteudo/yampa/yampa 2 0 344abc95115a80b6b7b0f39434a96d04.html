@@ -1,0 +1,748 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>yampa 2.0</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+
+	table.collection-content {
+		width: 100%;
+		table-layout: fixed;
+	}
+
+	table.collection-content th,
+	table.collection-content td {
+		overflow-wrap: anywhere;
+	}
+
+	table.collection-content td > .user,
+	table.collection-content td > time {
+		white-space: pre-wrap;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content-wrapper {
+	overflow-x: auto;
+}
+
+@media only print {
+	.collection-content-wrapper {
+		overflow-x: visible;
+	}
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	gap: 46px;
+}
+
+.column {
+	min-width: 0;
+	overflow: hidden;
+}
+
+.column > *:first-child {
+	margin-top: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+table {
+	border-collapse: collapse;
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol.numbered-list.numbered-list-digits-2 {
+	padding-inline-start: 2em;
+}
+
+ol.numbered-list.numbered-list-digits-3plus {
+	padding-inline-start: 2.4em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="344abc95-115a-80b6-b7b0-f39434a96d04" class="page sans"><header><img class="page-cover-image" src="image.png" style="object-position:center 34%"/><div class="page-header-icon page-header-icon-with-cover"><span class="icon">💵</span></div><h1 class="page-title" dir="auto">yampa 2.0</h1><p class="page-description" dir="auto"></p><table class="properties"><tbody><tr class="property-row property-row-text"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/description_gray.svg" style="width:14px;height:14px;display:block"/></span>Project Overview</th><td>Nesse projeto descrevo a trajetória do processo de discovery e entrega de uma plataforma unificadora da operação.</td></tr><tr class="property-row property-row-select"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/arrow-circle-down_gray.svg" style="width:14px;height:14px;display:block"/></span>Category</th><td><span class="selected-value select-value-color-blue">Web Design</span></td></tr><tr class="property-row property-row-date"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/calendar_gray.svg" style="width:14px;height:14px;display:block"/></span>Date</th><td><time>20 de abril de 2023</time></td></tr><tr class="property-row property-row-multi_select"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/list_gray.svg" style="width:14px;height:14px;display:block"/></span>My Role</th><td><span class="selected-value select-value-color-red">Product Designer</span><span class="selected-value select-value-color-gray">UI/UX</span></td></tr></tbody></table></header><div class="page-body"><div style="display:contents" dir="ltr"><figure id="344abc95-115a-8051-8b53-fde9d9980fe3" class="image"><a href="80bb8dae-9482-4f77-8a3b-06797c3ddd33.png"><img style="width:590.0600240096038px" src="80bb8dae-9482-4f77-8a3b-06797c3ddd33.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="344abc95-115a-80b4-864f-fddef96a2755" class="">
+</p></div><div style="display:contents" dir="auto"><h2 id="344abc95-115a-8087-aeee-cdc1ff015d7d" class="block-color-yellow">Feitos Realizados</h2></div><div style="display:contents" dir="auto"><ul id="344abc95-115a-8032-9994-f8f6c68ee884" class="bulleted-list"><li style="list-style-type:disc">Reformulação completa do onboarding do zero, resolvendo problemas críticos de usabilidade identificados em testes com usuários.</li></ul></div><div style="display:contents" dir="auto"><ul id="344abc95-115a-8083-a23b-c4d5ba5ce766" class="bulleted-list"><li style="list-style-type:disc">Criação da arquitetura de navegação por &quot;Áreas de Atuação&quot; (Controle, Monitore, Entenda, Execute), alinhada com a jornada mental do usuário — não com estrutura técnica de ERP.</li></ul></div><div style="display:contents" dir="auto"><ul id="344abc95-115a-8072-9712-c1cd4897ed7b" class="bulleted-list"><li style="list-style-type:disc">Concepção e desenvolvimento de dois agentes de IA (Yago e Yana) com personalities distintas, funcionando como &quot;assistente financeiro&quot; e &quot;consultora estratégica&quot;.</li></ul></div><div style="display:contents" dir="auto"><ul id="344abc95-115a-800b-a03b-cdb05c670559" class="bulleted-list"><li style="list-style-type:disc">Implementação do sistema de permissões granulares, permitindo delegação segura de tarefas em pequenas empresas.</li></ul></div><div style="display:contents" dir="auto"><ul id="344abc95-115a-8021-965d-ff57966510a2" class="bulleted-list"><li style="list-style-type:disc">Estruturação de ciclos trimestrais de pesquisa (Discovery Q1-Q4 2025) com metodologia reprodutível — incluindo entrevistas, testes de usabilidade, enquetes e síntese por IA.</li></ul></div><div style="display:contents" dir="auto"><ul id="344abc95-115a-809e-9107-fa694cfe7eac" class="bulleted-list"><li style="list-style-type:disc">Design do &quot;Importador Universal de Dados&quot; — funcionalidade que ingere cualquier arquivo (PDF, Excel, imagem) e classifica automaticamente via IA.</li></ul></div><div style="display:contents" dir="auto"><h2 id="344abc95-115a-80ac-88a6-dfe5409ba52f" class="block-color-yellow">Panorama do projeto:</h2></div><div style="display:contents" dir="auto"><p id="344abc95-115a-80ef-8ed4-d6e4841dd6b5" class=""><strong>Produto:</strong> Yampa App — plataforma de gestão e análise financeira para PMEs brasileiras.</p></div><div style="display:contents" dir="auto"><p id="344abc95-115a-80e6-af86-fc31f3bf9ca8" class=""><strong>Minha função:</strong> Product Designer (end-to-end).</p></div><div style="display:contents" dir="auto"><p id="344abc95-115a-80bb-a829-f1f34b087834" class=""><strong>Contexto:</strong></p></div><div style="display:contents" dir="auto"><p id="344abc95-115a-809f-bcea-f54d962684da" class="">O Yampa é uma plataforma de gestão e análise financeira para pequenas e médias empresas brasileiras. Ao longo de 2023 a 2026, o produto evoluiu de um sistema de controle financeiro tradicional para uma plataforma de transformação financeira — um sistema que não apenas organiza dados, mas entrega inteligência de decisão para empresário que, em sua maioria, não têm formação contábil e operavam no &quot;achismo&quot;.</p></div><div style="display:contents" dir="auto"><p id="344abc95-115a-8059-a52b-d29eae5316cf" class="">Essa evolução só foi possível porque houve uma estrutura de pesquisa e design por trás de cada decisão. Não estamos falando de melhorias incrementais — estamos falando de uma reformulação completa da arquitetura de navegação, da criação de agentes de IA com personalidades específicas, e de um novo modelo de diagnóstico financeiro (ISF 2.0) que contextualiza a saúde do negócio para cada usuário.</p></div><div style="display:contents" dir="auto"><p id="344abc95-115a-80ed-916e-d7148df3b902" class=""><strong>Período de atuação:</strong> 2023-2026</p></div><div style="display:contents" dir="auto"><h2 id="344abc95-115a-80e8-9e8c-df7dab91381a" class="block-color-yellow">Definição do problema:</h2></div><div style="display:contents" dir="auto"><h3 id="344abc95-115a-80ed-9837-da40912e3a0e" class="">Problema Central</h3></div><div style="display:contents" dir="auto"><p id="344abc95-115a-8033-bf5d-d6d4d97f02f5" class="">Pequenos empresários no Brasil não conseguem entender suas próprias finanças. O problema não é só &quot;falta de dados&quot; — é falta de consciência financeira. A maioria opera no &quot;achismo&quot; e tem medo dos números.</p></div><div style="display:contents" dir="auto"><h3 id="344abc95-115a-8010-a297-c173deeb19d1" class="">Dores Identificadas em Pesquisa</h3></div><div style="display:contents" dir="auto"><ol type="1" id="344abc95-115a-80e0-97f7-c0ce604c626b" class="numbered-list" start="1"><li><strong>Onboarding confuso</strong> — Usuários não entendiam a navegação, terminologia era ambígua.<div style="display:contents" dir="auto"><blockquote id="344abc95-115a-807c-b0af-ec028f5c5f3f" class="">&quot;Eu fiquei perdida. Meu Deus, o que que é isso?&quot; — Larissa, beta tester</blockquote></div></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="344abc95-115a-8070-84f9-dac2fd62593c" class="numbered-list" start="2"><li><strong>Tempo excessivo em lançamentos manuais</strong> — Quem tem múltiplos bancos não Conseguia Manter o sistema atualizado.<div style="display:contents" dir="auto"><blockquote id="344abc95-115a-80a0-9a81-f43ab3393543" class="">&quot;Principal dor é o gasto de tempo com os lançamentos manuais. Faço controle manual de 5 bancos.&quot; — Thays Helena</blockquote></div></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="344abc95-115a-8078-bced-c6a13f63d3a3" class="numbered-list" start="3"><li><strong>Falta de contexto no diagnóstico</strong> — O ISF (Índice de Saúde Financiera) era uma nota isolada, sem path de melhoria.<div style="display:contents" dir="auto"><blockquote id="344abc95-115a-801e-90d0-d037e520e326" class="">&quot;Várias pessoas perguntam o motivo da nota, querem mais informação.&quot; — Lauren</blockquote></div></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="344abc95-115a-8015-9a3b-f2f37b7d0520" class="numbered-list" start="4"><li><strong>Impossibilidade de delegar</strong> — Empresas não Conseguiam dar acesso limitado para funcionários.</li></ol></div><div style="display:contents" dir="auto"><p id="344abc95-115a-80f8-8538-da2713ea8539" class="">
+</p></div><div style="display:contents" dir="ltr"><figure id="344abc95-115a-80a7-afaa-dc167297d50d" class="image"><a href="Captura_de_tela_2026-04-16_161552-horz.png"><img style="width:864px" src="Captura_de_tela_2026-04-16_161552-horz.png"/></a><figcaption>Sequência de telas do novo onboarding, focado em coleta rápida de dados para entrega de valor cedo.</figcaption></figure></div><div style="display:contents" dir="auto"><p id="344abc95-115a-80c8-ac9b-c5844f04686e" class="">
+</p></div><div style="display:contents" dir="auto"><h2 id="344abc95-115a-8033-b9b4-df0be96c8abd" class="block-color-yellow">Desafios:</h2></div><div style="display:contents" dir="auto"><h3 id="344abc95-115a-807e-b1bc-f54e8bb045cb" class="">Desafio 1: Traduzir complexidade financeira para linguagem simples</h3></div><div style="display:contents" dir="auto"><p id="344abc95-115a-802f-8346-efd3bfa53cd4" class="">O público-alvo não tem formação financeira. Cada decisão de design precisava ser validada com usuários reais — não assumir baseado em achismo.</p></div><div style="display:contents" dir="auto"><blockquote id="344abc95-115a-803c-8cdd-ff3faee95bf0" class=""><strong>Abordagem:</strong> &quot;Teste do Sem Manual&quot; — critério de usabilidade onde o usuário deve conseguir sair do cadastro e Chegar ao primeiro dashboard guiado apenas pelo sistema, sem suporte humano.</blockquote></div><div style="display:contents" dir="auto"><h3 id="344abc95-115a-803c-a625-c9de15eb04da" class="">Desafio 2: Criar arquitetura que refletisse o Método Yampa</h3></div><div style="display:contents" dir="auto"><p id="344abc95-115a-8044-89f2-e9c44318e347" class="">ERPs são organizados por módulo (contas a pagar, contas a receber, estoque...). O Yampa precisava de um modelo que fizesse sentido para alguém que não Entende de contabilidade.</p></div><div style="display:contents" dir="auto"><blockquote id="344abc95-115a-8000-baa5-eb040968f110" class=""><strong>Abordagem:</strong> Navegação por &quot;Áreas de Atuação&quot; — Controle (onde o caos vira dados), Monitore (acompanhamento diário), Entenda (diagnóstico), Execute (ação).</blockquote></div><div style="display:contents" dir="auto"><h3 id="344abc95-115a-80ed-a66b-d93dec962662" class="">Desafio 3: Escalar pesquisa sem perder qualidade</h3></div><div style="display:contents" dir="auto"><p id="344abc95-115a-80b4-a834-e44e7575e9cd" class="">Entrevistas em profundidade levam horas para analizar. Como transformer insights em ações sem gargalo na análise?</p></div><div style="display:contents" dir="auto"><blockquote id="344abc95-115a-80ef-be67-c9a2e62beaee" class=""><strong>Abordagem:</strong> Infraestrutura de ResearchOps — transcrição automatizada (FasterWhisper), análise por LLMs, repositório centralizado (Obsidian), roteiros padronizados.</blockquote></div><div style="display:contents" dir="auto"><h3 id="344abc95-115a-80d1-83aa-ed58695a2a24" class="">Desafio 4: Design de agentes com &quot;personalidade&quot;</h3></div><div style="display:contents" dir="auto"><p id="344abc95-115a-80eb-b19b-cae2e32bc8a1" class="">IA não é só recurso técnico — é experiência do usuário. Como criar um agente que soa como um consultor financeiro amigável, não um robô?</p></div><div style="display:contents" dir="auto"><blockquote id="344abc95-115a-803a-8d27-ff391fbab3da" class=""><strong>Abordagem:</strong> Definição de personalidades específicas para cada agente (Yago = operacional/guardião; Yana = estratégico/consultor), com tom de voz documentado no Brandbook.</blockquote></div><div style="display:contents" dir="auto"><p id="344abc95-115a-80f8-be5b-fb2bcc0ac49a" class="">
+</p></div><div style="display:contents" dir="ltr"><figure id="344abc95-115a-8086-a320-ef3c51a0ece8" class="image"><a href="582901726_18137054659462405_7238560801657388066_n-horz.png"><img style="width:691.96875px" src="582901726_18137054659462405_7238560801657388066_n-horz.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="344abc95-115a-8005-b827-e35cc87aac75" class="">
+</p></div><div style="display:contents" dir="auto"><h2 id="344abc95-115a-80b8-aff1-fd5fe9627c45" class="block-color-yellow">Métricas:</h2></div><div style="display:contents" dir="auto"><h3 id="344abc95-115a-80b3-9a57-e7cf5c82f548" class="">Quais metricas guiaram meu trabalho:</h3></div><div style="display:contents" dir="auto"><ul id="344abc95-115a-8062-a6d6-eb7e5b07cbcb" class="bulleted-list"><li style="list-style-type:disc"><strong>Taxa de conclusão do onboarding</strong> — Usuário Conseguiu chegar ao primeiro dashboard?</li></ul></div><div style="display:contents" dir="auto"><ul id="344abc95-115a-801b-b76e-f87fc22949a4" class="bulleted-list"><li style="list-style-type:disc"><strong>Tempo para primeiro insight</strong> — Em menos de 10 segundos, o usuário Entende se teve lucro ou prejuízo?</li></ul></div><div style="display:contents" dir="auto"><ul id="344abc95-115a-803a-a3ef-de284b5aeb93" class="bulleted-list"><li style="list-style-type:disc"><strong>Tempo semanal no sistema</strong> — meta: menos de 15 minutos por semana para manter o controle em dia (pós-setup inicial).</li></ul></div><div style="display:contents" dir="auto"><ul id="344abc95-115a-8030-a958-ea80e91205e2" class="bulleted-list"><li style="list-style-type:disc"><strong>Net Promoter Score (NPS)</strong> — Usuários Recomendariam o Yampa?</li></ul></div><div style="display:contents" dir="auto"><ul id="344abc95-115a-80ba-9c95-d26740f96b3b" class="bulleted-list"><li style="list-style-type:disc"><strong>Índice de uso de funcionalidades proativas</strong> — Usuários interagem com os agentes de IA? Usam os alertas?</li></ul></div><div style="display:contents" dir="auto"><h3 id="344abc95-115a-8053-9e0d-e2a473f168f0" class="">Métricas do Produto:</h3></div><div style="display:contents" dir="auto"><ul id="344abc95-115a-80c1-9e28-dc921d2a6cd4" class="bulleted-list"><li style="list-style-type:disc"><strong>+3.000 empresas clientes ativas</strong> em todo o Brasil.</li></ul></div><div style="display:contents" dir="auto"><ul id="344abc95-115a-80d8-80e3-e3fd9086ed35" class="bulleted-list"><li style="list-style-type:disc"><strong>+28.000 empresários impactados</strong> pela clareza das informações.</li></ul></div><div style="display:contents" dir="auto"><ul id="344abc95-115a-8097-8a91-ff7b3a4d4083" class="bulleted-list"><li style="list-style-type:disc">Redução de tickets de suporte por dúvida de navegação (pós-novo onboarding).</li></ul></div><div style="display:contents" dir="auto"><h2 id="344abc95-115a-802f-912d-c33466b11f9d" class="block-color-yellow">Processo de Design:</h2></div><div style="display:contents" dir="auto"><h3 id="344abc95-115a-80da-9291-fba24b8c92b9" class="">Fase 1: Discovery (Pesquisa)</h3></div><div style="display:contents" dir="auto"><p id="344abc95-115a-808d-b05d-cb7eed6d6ba8" class=""><strong>O que faço:</strong></p></div><div style="display:contents" dir="auto"><ul id="344abc95-115a-8052-bc95-d19553822dba" class="bulleted-list"><li style="list-style-type:disc">Análise de mercado e concorrência (desk research).</li></ul></div><div style="display:contents" dir="auto"><ul id="344abc95-115a-80e6-9bf6-da7e89d89612" class="bulleted-list"><li style="list-style-type:disc">Entrevistas em profundidade (5-10 usuários por ciclo).</li></ul></div><div style="display:contents" dir="auto"><ul id="344abc95-115a-80d4-b768-cbda3dc55ff6" class="bulleted-list"><li style="list-style-type:disc">Testes de usabilidade com MVP.</li></ul></div><div style="display:contents" dir="auto"><ul id="344abc95-115a-80af-a084-d0f6d1515f64" class="bulleted-list"><li style="list-style-type:disc">Enquetes para validação quantitativa.</li></ul></div><div style="display:contents" dir="auto"><p id="344abc95-115a-8044-a227-e181ef02f0b3" class=""><strong>Frameworks utilizados:</strong></p></div><div style="display:contents" dir="auto"><ul id="344abc95-115a-80af-9103-fc4abb85f25e" class="bulleted-list"><li style="list-style-type:disc">Jobs to be Done (JTBD) — Entender o &quot;job/tarefa&quot; que o usuário contrata o produto para fazer.</li></ul></div><div style="display:contents" dir="auto"><ul id="344abc95-115a-80ef-ab44-ceeb5df74014" class="bulleted-list"><li style="list-style-type:disc">Jobs Stories — Quem / O Que / Por Que.</li></ul></div><div style="display:contents" dir="auto"><ul id="344abc95-115a-801c-8960-ee21430019ad" class="bulleted-list"><li style="list-style-type:disc">Three-Column Assessment — Problema, Solução, Resultado Desejado.</li></ul></div><div style="display:contents" dir="auto"><p id="344abc95-115a-8023-aa96-d1cb04102397" class=""><strong>Ferramentas:</strong></p></div><div style="display:contents" dir="auto"><ul id="344abc95-115a-80a9-8e92-fb9ea6b42664" class="bulleted-list"><li style="list-style-type:disc">Roteiros semiestruturados.</li></ul></div><div style="display:contents" dir="auto"><ul id="344abc95-115a-80c0-b155-e2bf5492770e" class="bulleted-list"><li style="list-style-type:disc">Transcrição automática (FasterWhisper + LLMs para resumos).</li></ul></div><div style="display:contents" dir="auto"><h3 id="344abc95-115a-8050-b19d-f112bb9909c2" class="">Fase 2: Síntese</h3></div><div style="display:contents" dir="auto"><p id="344abc95-115a-80d6-be79-e0e567cfa9ab" class=""><strong>O que faço:</strong></p></div><div style="display:contents" dir="auto"><ul id="344abc95-115a-80c5-836e-c820911012a9" class="bulleted-list"><li style="list-style-type:disc">Codificação de padrões (análise temática).</li></ul></div><div style="display:contents" dir="auto"><ul id="344abc95-115a-8061-94c4-cb2fd2f07853" class="bulleted-list"><li style="list-style-type:disc">Matriz de priorização (RICE, MoSCoW).</li></ul></div><div style="display:contents" dir="auto"><ul id="344abc95-115a-8024-946c-dd46ee287eaa" class="bulleted-list"><li style="list-style-type:disc">Consolidação em PRD com critérios de aceitação claros.</li></ul></div><div style="display:contents" dir="auto"><p id="344abc95-115a-80e4-8885-d2db8f178925" class=""><strong>Entregável:</strong></p></div><div style="display:contents" dir="auto"><ul id="344abc95-115a-80b7-86b9-da493c33745d" class="bulleted-list"><li style="list-style-type:disc">PRD (Product Requirements Document) com validação metodológica.</li></ul></div><div style="display:contents" dir="auto"><ul id="344abc95-115a-80d4-bb08-fca8860021dc" class="bulleted-list"><li style="list-style-type:disc">FRD (Functional Requirements Document).</li></ul></div><div style="display:contents" dir="auto"><h3 id="344abc95-115a-8048-b1da-e62f442908bf" class="">Fase 3: Ideação</h3></div><div style="display:contents" dir="auto"><p id="344abc95-115a-801d-ad0a-ebb07cf937eb" class=""><strong>O que faço:</strong></p></div><div style="display:contents" dir="auto"><ul id="344abc95-115a-80dd-8966-d2f0c60e56ef" class="bulleted-list"><li style="list-style-type:disc">Brainstorming com Product e Tecnologia.</li></ul></div><div style="display:contents" dir="auto"><ul id="344abc95-115a-804e-b74c-c4bddeb593d6" class="bulleted-list"><li style="list-style-type:disc">Mapeamento de solução baseada em evidências.</li></ul></div><div style="display:contents" dir="auto"><ul id="344abc95-115a-80ac-88a8-c5e1215e8c48" class="bulleted-list"><li style="list-style-type:disc">Definição de arquitetura de informação.</li></ul></div><div style="display:contents" dir="auto"><h3 id="344abc95-115a-80c5-a63d-e7188c6bb676" class="">Fase 4: Validação</h3></div><div style="display:contents" dir="auto"><p id="344abc95-115a-8024-aaed-c78e42ce9290" class=""><strong>O que faço:</strong></p></div><div style="display:contents" dir="auto"><ul id="344abc95-115a-8011-be7b-fd8666a38778" class="bulleted-list"><li style="list-style-type:disc">Testes de usabilidade com protótipo Figma/vibecode.</li></ul></div><div style="display:contents" dir="auto"><ul id="344abc95-115a-80da-a82c-d05d5f8527d7" class="bulleted-list"><li style="list-style-type:disc">Feedback iterativo.</li></ul></div><div style="display:contents" dir="auto"><ul id="344abc95-115a-80b9-a85b-c4dab75e8bee" class="bulleted-list"><li style="list-style-type:disc">Ajustes antes do desenvolvimento.</li></ul></div><div style="display:contents" dir="auto"><h3 id="344abc95-115a-8078-9d2f-c81536e66808" class="">Fase 5: Construção (Vibe Coding)</h3></div><div style="display:contents" dir="auto"><p id="344abc95-115a-8009-b0f1-de480266ddbd" class=""><strong>O que faço:</strong></p></div><div style="display:contents" dir="auto"><p id="344abc95-115a-80c7-9f1f-cf817c0333aa" class="">Quando a solução validada exige ajustes pontuais no front-end, utilizo vibe coding para entregar código diretamente — sem gargalo com a squad de desenvolvimento.</p></div><div style="display:contents" dir="auto"><ul id="344abc95-115a-80de-bf9e-d8518238b5ad" class="bulleted-list"><li style="list-style-type:disc">Geração de código via LLMs (Claude, Gemini) a partir de especificações do PRD.</li></ul></div><div style="display:contents" dir="auto"><ul id="344abc95-115a-8060-913c-ffb947d801ae" class="bulleted-list"><li style="list-style-type:disc">Iteração rápida com o modelo até o código atender aos critérios de aceitação.</li></ul></div><div style="display:contents" dir="auto"><ul id="344abc95-115a-80bf-8e2e-eb98dc740e44" class="bulleted-list"><li style="list-style-type:disc">Criação de PRs direto no repositório (GitHub) para revisão e merge.</li></ul></div><div style="display:contents" dir="auto"><ul id="344abc95-115a-803f-9bec-f7253f5fc634" class="bulleted-list"><li style="list-style-type:disc">Colaboração com devs para ajustes finos ou dúvidas técnicas.</li></ul></div><div style="display:contents" dir="auto"><p id="344abc95-115a-8096-bd7f-d30bbbad1fb4" class=""><strong>Por que isso funciona:</strong></p></div><div style="display:contents" dir="auto"><ul id="344abc95-115a-80eb-a0c0-d9000ba30666" class="bulleted-list"><li style="list-style-type:disc">Designer que cria código entende melhor as limitações técnicas — proposals mais realistas.</li></ul></div><div style="display:contents" dir="auto"><ul id="344abc95-115a-80a5-8fc2-ca6f462f56a2" class="bulleted-list"><li style="list-style-type:disc">Reduz dependência externa para mudanças visuais pequenas.</li></ul></div><div style="display:contents" dir="auto"><ul id="344abc95-115a-80c7-9185-e371f9544abb" class="bulleted-list"><li style="list-style-type:disc">Ciclo de feedback curto entre validação e lançamento.</li></ul></div><div style="display:contents" dir="auto"><h3 id="344abc95-115a-80c3-b350-c50268ffd6c9" class="">Fase 6: Lançamento e Aprendizado</h3></div><div style="display:contents" dir="auto"><p id="344abc95-115a-80f3-97c0-fb527dab6dea" class=""><strong>O que faço:</strong></p></div><div style="display:contents" dir="auto"><ul id="344abc95-115a-80d6-840b-d2ad71558ac0" class="bulleted-list"><li style="list-style-type:disc">Monitoramento de métricas pós-lançamento.</li></ul></div><div style="display:contents" dir="auto"><ul id="344abc95-115a-8063-96ae-c7fe145d10d5" class="bulleted-list"><li style="list-style-type:disc">Coleta de feedback contínuo.</li></ul></div><div style="display:contents" dir="auto"><ul id="344abc95-115a-800d-9189-e4407ac35736" class="bulleted-list"><li style="list-style-type:disc">Início do próximo ciclo de pesquisa.</li></ul></div><div style="display:contents" dir="auto"><h2 id="344abc95-115a-80aa-bc3c-f8f93dc50075" class=""><mark class="highlight-yellow">Conclusão</mark></h2></div><div style="display:contents" dir="auto"><h3 id="344abc95-115a-8014-a6d7-f2e34020644e" class="">Impacto do Trabalho:</h3></div><div style="display:contents" dir="auto"><p id="344abc95-115a-8025-861c-f8432638c5fc" class="">O Yampa evoluiu de um sistema de controle financeiro para uma plataforma de transformação financeira. Esse caminho só foi possível porque houve uma estrutura de pesquisa e design por trás de cada decisão — e uma entrega que vai além do diagnóstico, incluindo código como extensão do processo criativo.</p></div><div style="display:contents" dir="auto"><h3 id="344abc95-115a-8018-9c22-f3d8d4f3bab2" class="">O que me define como Product Designer:</h3></div><div style="display:contents" dir="auto"><ol type="1" id="344abc95-115a-802c-9143-f86ba3eafa16" class="numbered-list" start="1"><li><strong>Empatia aplicada</strong> — Não assumo, pergunto. Cada decisão passa pelo crivo da pesquisa com usuários reais.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="344abc95-115a-8093-9d4d-e52c63cc8978" class="numbered-list" start="2"><li><strong>Síntese em ação</strong> — Transformo volumes de feedback qualitativo em decisões concretas de produto.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="344abc95-115a-8028-b7bc-fc315756d670" class="numbered-list" start="3"><li><strong>Frameworks com flexibilidade</strong> — Aplico metodologias (JTBD, Jobs Stories, RICE) com adaptação ao contexto, não como fórmula rígida.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="344abc95-115a-801f-84dd-e4301894d7b1" class="numbered-list" start="4"><li><strong>Comunicação multi-expertise</strong> — Traduzo entre usuário (linguagem simples), tecnologia (PRD técnico) e negócio (proposta de valor).</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="344abc95-115a-806d-a158-eca12cd1ed9f" class="numbered-list" start="5"><li><strong>Ownership</strong> — Não espero requisitos prontos. Busco ativamente problemas para resolver e oportunidades para capturar.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="344abc95-115a-8006-b3da-da08e7d6e3ca" class="numbered-list" start="6"><li><strong>Código como ferramenta</strong> — Utilizo vibe coding para entregar valor diretamente, reduzindo gargalos. Designer que cria código entende melhor as limitações técnicas e entrega proposals mais realistas.</li></ol></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
