@@ -1,0 +1,129 @@
+{
+  "nav": {
+    "about": "About",
+    "projects": "Projects",
+    "skills": "Skills",
+    "experience": "Experience",
+    "contact": "Contact",
+    "letsTalk": "Let's talk"
+  },
+  "hero": {
+    "available": "Available for new projects",
+    "title": "AI Designer Engineer",
+    "subtitle": "& Product Designer",
+    "description": "I design experiences, validate with users, and deliver in code.",
+    "experience": "5 years of experience in Fintech · HealthTech · SaaS",
+    "viewProjects": "View projects →",
+    "linkedin": "LinkedIn ↗",
+    "yearsExp": "Years of design experience",
+    "reduction": "Reduction",
+    "productTime": "Product process time",
+    "monthly": "Appointments/month impacted",
+    "companies": "Companies",
+    "impacted": "Impacted"
+  },
+  "featured": {
+    "title": "Featured case",
+    "viewAll": "View all projects →",
+    "yampa": "yampa 2.0 — Fintech SaaS",
+    "role": "Product Design · Design Engineer · 2023–2026",
+    "headline": "From financial control to transformation platform",
+    "description": "Yampa is a financial management platform for Brazilian SMBs. I led the complete redesign — from navigation architecture to production code — transforming a traditional ERP into an AI-driven platform.",
+    "description2": "I created two AI agents with distinct personalities (Yago and Yana) and implemented a financial diagnostic system (ISF 2.0) that contextualizes business health for each user.",
+    "viewCase": "View full case ↗",
+    "results": {
+      "title": "Results",
+      "frontend": "Reduction in front-end delivery time (5 days → 1-2 days)",
+      "companies": "Active client companies across Brazil",
+      "impacted": "Entrepreneurs impacted by the platform"
+    }
+  },
+  "phases": {
+    "phase1": "Discovery",
+    "phase1Desc": "Interviews, AI sentiment analysis, insight clustering",
+    "phase2": "Synthesis & PRD",
+    "phase2Desc": "JTBD, Jobs Stories, RICE/MoSCoW — PRD with acceptance criteria",
+    "phase3": "Ideation",
+    "phase3Desc": "Navigation architecture by \"Areas of Action\" — mental journey",
+    "phase4": "Validation",
+    "phase4Desc": "Usability testing with Figma prototype",
+    "phase5": "Vibe Coding",
+    "phase5Desc": "Direct delivery in TypeScript, React and Tailwind",
+    "phase6": "Launch",
+    "phase6Desc": "Metrics monitoring and next Discovery cycle"
+  },
+  "skills": {
+    "title": "Tools & Skills",
+    "subtitle": "What I use daily"
+  },
+  "cta": {
+    "title": "Let's create something amazing?",
+    "description": "Open to freelance projects, full-time opportunities, and interesting collaborations in Fintech, HealthTech and SaaS.",
+    "action": "Get in touch →"
+  },
+  "about": {
+    "location": "Fortaleza/CE — Brazil",
+    "education": "Design — UFC",
+    "language": "English B2",
+    "speaker": "Speaker TDC Recife 2023",
+    "stats": {
+      "years": "Years of experience",
+      "reduction": "Process time reduction",
+      "schedules": "Appointments/month impacted",
+      "entrepreneurs": "Entrepreneurs impacted"
+    },
+    "aboutMe": "About me",
+    "name": "Silas Vasques",
+    "bio": "I'm a Product Designer with 8+ years of experience, working in digital product design — I design, validate, and deliver in code.",
+    "bio2": "I work at the intersection of design and engineering: I design experiences, validate with users, and deliver in code — eliminating handoff bottlenecks and accelerating time-to-market.",
+    "bio3": "At Yampa, I reduced front-end delivery time by 75% by implementing interfaces directly in TypeScript, React and Tailwind, with AI agent orchestration.",
+    "experience": "Experience",
+    "formation": "Education",
+    "degrees": {
+      "design": "Bachelor's in Design",
+      "ufc": "Federal University of Ceará — 2014 to 2019",
+      "uxCert": "Professional UX Design Certificate",
+      "google": "Google/Coursera — 2023",
+      "uxCourse": "UX Certificate (120h)",
+      "udemy": "Udemy — 2021-2022"
+    }
+  },
+  "projects": {
+    "title": "Projects",
+    "subtitle": "Product Design case studies in Fintech, HealthTech and SaaS"
+  },
+  "projectDetail": {
+    "back": "← Back to projects",
+    "overview": "Overview",
+    "challenge": "Challenge",
+    "solution": "Solution",
+    "process": "Process",
+    "results": "Results",
+    "gallery": "Gallery",
+    "backToList": "Back to list →"
+  },
+  "contact": {
+    "title": "Let's create something amazing?",
+    "description": "Open to freelance projects, full-time opportunities, and interesting collaborations in Fintech, HealthTech and SaaS.",
+    "form": {
+      "title": "Send message",
+      "subtitle": "Fill in the details below and I'll get back to you soon.",
+      "name": "Name",
+      "namePlaceholder": "Your name",
+      "email": "Email",
+      "emailPlaceholder": "your@email.com",
+      "message": "Message",
+      "messagePlaceholder": "Your message…",
+      "submit": "Send message",
+      "sending": "Sending…",
+      "sent": {
+        "title": "Message sent!",
+        "subtitle": "I'll get back to you soon.",
+        "button": "Send another message"
+      },
+      "error": "Error sending. Try again or email me directly."
+    },
+    "contact": "Ways to contact",
+    "linkedin": "LinkedIn ↗"
+  }
+}

@@ -28,16 +28,16 @@ export default function About() {
               </div>
               <div className="space-y-3 mt-8">
                 <div className="flex items-center gap-3 text-sm text-[#7878a0]">
-                  📍 <span className="text-[#e8e8f4]">{d.about.location}</span>
+                  <span className="text-[#e8e8f4]">{d.about.location}</span>
                 </div>
                 <div className="flex items-center gap-3 text-sm text-[#7878a0]">
-                  🎓 <span className="text-[#e8e8f4]">{d.about.education}</span>
+                  <span className="text-[#e8e8f4]">{d.about.education}</span>
                 </div>
                 <div className="flex items-center gap-3 text-sm text-[#7878a0]">
-                  🌐 <span className="text-[#e8e8f4]">{d.about.language}</span>
+                  <span className="text-[#e8e8f4]">{d.about.language}</span>
                 </div>
                 <div className="flex items-center gap-3 text-sm text-[#7878a0]">
-                  🎤 <span className="text-[#e8e8f4]">{d.about.speaker}</span>
+                  <span className="text-[#e8e8f4]">{d.about.speaker}</span>
                 </div>
               </div>
             </ScrollAnimate>

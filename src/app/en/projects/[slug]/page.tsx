@@ -14,7 +14,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const project = projects.find((p) => p.slug === slug);
 
   if (!project) {
-    return { title: "Projeto não encontrado" };
+    return { title: "Project not found" };
   }
 
   return {
@@ -32,5 +32,5 @@ export default async function ProjectPage(props: { params: Promise<{ slug: strin
     notFound();
   }
 
-  return <ProjectContent project={project} lang="pt" />;
+  return <ProjectContent project={project} lang="en" />;
 }

@@ -8,12 +8,12 @@ export default function Skills() {
   const d = useDictionary();
 
   const skillData = [
-    { name: "Figma", pct: "Expert", level: 97, cat: "Design Systems · Prototipação" },
-    { name: "TypeScript · React", pct: "Avançado", level: 80, cat: "Implementação de UI em código" },
-    { name: "Tailwind CSS", pct: "Expert", level: 92, cat: "Design Systems com conformidade" },
-    { name: "AI Orchestration", pct: "Avançado", level: 85, cat: "Claude Code · LLMs" },
-    { name: "UX Research", pct: "Expert", level: 93, cat: "JTBD · Entrevistas · Testes de usabilidade" },
-    { name: "AI Design de Agentes", pct: "Avançado", level: 82, cat: "UX para produtos de IA" },
+    { name: "Figma", pct: "Expert", level: 97, cat: "Design Systems · Prototyping" },
+    { name: "TypeScript · React", pct: "Advanced", level: 80, cat: "UI implementation in code" },
+    { name: "Tailwind CSS", pct: "Expert", level: 92, cat: "Design Systems with compliance" },
+    { name: "AI Orchestration", pct: "Advanced", level: 85, cat: "Claude Code · LLMs" },
+    { name: "UX Research", pct: "Expert", level: 93, cat: "JTBD · Interviews · Usability testing" },
+    { name: "AI Agent Design", pct: "Advanced", level: 82, cat: "UX for AI products" },
   ];
 
   return (
