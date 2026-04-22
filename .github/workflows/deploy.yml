@@ -12,7 +12,6 @@ permissions:
 
 concurrency:
   group: "pages"
-  cancels-in-progress: false
 
 jobs:
   build:
