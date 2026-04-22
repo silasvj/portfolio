@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Silas Vasques — AI Designer Engineer</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#08080f;--bg2:#10101a;--bg3:#18182a;
+  --accent:#7c6fff;--accent2:#00e5ff;--accent3:#a78bfa;
+  --text:#e8e8f4;--muted:#7878a0;--border:rgba(124,111,255,0.18);
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:'Segoe UI',system-ui,sans-serif;overflow-x:hidden}
+body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(var(--border) 1px,transparent 1px),linear-gradient(90deg,var(--border) 1px,transparent 1px);background-size:60px 60px;pointer-events:none;z-index:0;opacity:.3}
+
+.cursor{position:fixed;width:22px;height:22px;border:1.5px solid var(--accent);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:transform .15s}
+.cdot{position:fixed;width:5px;height:5px;background:var(--accent2);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%)}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1rem 3rem;display:flex;justify-content:space-between;align-items:center;background:rgba(8,8,15,.88);backdrop-filter:blur(14px);border-bottom:1px solid var(--border)}
+.logo{font-size:1rem;font-weight:800;letter-spacing:.06em;background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.nav-links{display:flex;gap:1.8rem;list-style:none}
+.nav-links a{color:var(--muted);text-decoration:none;font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;transition:color .2s}
+.nav-links a:hover{color:var(--accent2)}
+
+section{position:relative;z-index:1}
+
+/* HERO */
+#hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:7rem 2rem 4rem}
+.badge{display:inline-flex;align-items:center;gap:.5rem;padding:.35rem 1.1rem;border:1px solid rgba(0,229,255,.3);border-radius:99px;font-size:.72rem;letter-spacing:.12em;color:var(--accent2);text-transform:uppercase;margin-bottom:1.6rem;background:rgba(0,229,255,.05)}
+.badge-dot{width:7px;height:7px;border-radius:50%;background:var(--accent2);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+h1{font-size:clamp(2.4rem,6.5vw,4.8rem);font-weight:800;line-height:1.06;letter-spacing:-.025em;margin-bottom:1.2rem}
+.g{background:linear-gradient(135deg,#fff 20%,var(--accent) 60%,var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hero-sub{font-size:1rem;color:var(--muted);max-width:540px;margin:0 auto 2.5rem;line-height:1.75}
+.hero-sub strong{color:var(--text)}
+.cta-row{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+.btn{padding:.7rem 1.8rem;border-radius:8px;font-size:.88rem;font-weight:600;cursor:pointer;text-decoration:none;transition:all .2s;display:inline-flex;align-items:center;gap:.45rem}
+.btn-p{background:var(--accent);color:#fff;border:none}
+.btn-p:hover{background:#9388ff;transform:translateY(-2px)}
+.btn-o{background:transparent;color:var(--text);border:1px solid var(--border)}
+.btn-o:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-2px)}
+.hero-stats{display:flex;gap:3rem;justify-content:center;margin-top:4rem;flex-wrap:wrap}
+.stat{text-align:center}
+.stat-n{font-size:2rem;font-weight:800;background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.stat-l{font-size:.75rem;color:var(--muted);letter-spacing:.06em;margin-top:.2rem}
+.divider{width:1px;background:var(--border);height:40px;margin-top:.6rem}
+.scroll-line{width:1px;height:55px;background:linear-gradient(var(--accent),transparent);margin:4rem auto 0}
+
+/* SECTION COMMON */
+.sw{padding:6rem 2rem;max-width:1100px;margin:0 auto}
+.sl{font-size:.72rem;letter-spacing:.15em;color:var(--accent2);text-transform:uppercase;margin-bottom:.6rem}
+.st{font-size:clamp(1.7rem,3.5vw,2.5rem);font-weight:700;margin-bottom:.8rem}
+.sline{width:50px;height:2px;background:linear-gradient(90deg,var(--accent),transparent);margin-bottom:2.8rem}
+
+/* SOBRE */
+.sobre-grid{display:grid;grid-template-columns:1fr 1.5fr;gap:4rem;align-items:start}
+.avatar{width:260px;height:260px;border-radius:20px;background:var(--bg3);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:5rem;position:relative;overflow:hidden}
+.avatar::before{content:'SV';position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:4rem;font-weight:800;background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.sobre-text p{color:var(--muted);line-height:1.8;margin-bottom:.9rem;font-size:.93rem}
+.sobre-text p strong{color:var(--text)}
+.chips{display:flex;flex-wrap:wrap;gap:.45rem;margin-top:1.4rem}
+.chip{padding:.28rem .85rem;background:rgba(124,111,255,.1);border:1px solid var(--border);border-radius:99px;font-size:.75rem;color:var(--accent)}
+.info-row{display:flex;flex-direction:column;gap:.5rem;margin-top:1.4rem}
+.info-item{display:flex;align-items:center;gap:.6rem;font-size:.82rem;color:var(--muted)}
+.info-item span{color:var(--text)}
+
+/* PROJETO DESTAQUE */
+#projetos{background:var(--bg2);border-top:1px solid var(--border)}
+.proj-hero{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center;margin-bottom:3rem}
+.proj-text .ptag{font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--accent2);margin-bottom:.6rem}
+.proj-text h3{font-size:1.8rem;font-weight:700;margin-bottom:.8rem;line-height:1.2}
+.proj-text p{color:var(--muted);line-height:1.75;font-size:.9rem;margin-bottom:1.2rem}
+.proj-img{border-radius:16px;overflow:hidden;border:1px solid var(--border);background:var(--bg3);aspect-ratio:16/9;display:flex;align-items:center;justify-content:center;position:relative}
+.proj-img-inner{width:100%;height:100%;background:linear-gradient(135deg,#0f0a2e,#1a0a60,#0a1a40);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:.5rem;padding:2rem}
+.proj-img-label{font-size:1.1rem;font-weight:700;color:#fff;text-align:center}
+.proj-img-sub{font-size:.75rem;color:rgba(255,255,255,.5);text-align:center}
+.results-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin:2rem 0}
+.res-card{background:var(--bg3);border:1px solid var(--border);border-radius:12px;padding:1.1rem;text-align:center}
+.res-n{font-size:1.8rem;font-weight:800;background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.res-l{font-size:.75rem;color:var(--muted);margin-top:.3rem;line-height:1.4}
+.phases{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:2rem}
+.phase{background:var(--bg);border:1px solid var(--border);border-radius:12px;padding:1rem 1.1rem;transition:border-color .2s}
+.phase:hover{border-color:var(--accent)}
+.phase-n{font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--accent2);margin-bottom:.4rem}
+.phase-t{font-size:.88rem;font-weight:600;margin-bottom:.4rem}
+.phase-d{font-size:.78rem;color:var(--muted);line-height:1.55}
+
+/* SKILLS */
+.skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem}
+.sk{background:var(--bg2);border:1px solid var(--border);border-radius:12px;padding:1.2rem;transition:border-color .2s}
+.sk:hover{border-color:var(--accent)}
+.sk-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:.8rem}
+.sk-name{font-size:.88rem;font-weight:600}
+.sk-pct{font-size:.75rem;color:var(--accent2)}
+.sk-bar{height:3px;background:rgba(255,255,255,.07);border-radius:99px;overflow:hidden;margin-bottom:.6rem}
+.sk-fill{height:100%;border-radius:99px;background:linear-gradient(90deg,var(--accent),var(--accent2))}
+.sk-cat{font-size:.7rem;color:var(--muted)}
+
+/* EXPERIÊNCIA */
+#exp{background:var(--bg2);border-top:1px solid var(--border)}
+.exp-list{display:flex;flex-direction:column;gap:1.2rem}
+.exp-item{background:var(--bg);border:1px solid var(--border);border-radius:14px;padding:1.4rem 1.6rem;transition:border-color .2s}
+.exp-item:hover{border-color:var(--accent)}
+.exp-header{display:flex;justify-content:space-between;align-items:start;flex-wrap:wrap;gap:.5rem;margin-bottom:.6rem}
+.exp-role{font-size:1rem;font-weight:700}
+.exp-company{font-size:.85rem;color:var(--accent2);margin-top:.1rem}
+.exp-period{font-size:.75rem;color:var(--muted);text-align:right}
+.exp-sector{font-size:.7rem;color:var(--muted);padding:.2rem .7rem;border:1px solid var(--border);border-radius:99px;display:inline-block;margin-bottom:.7rem}
+.exp-desc{font-size:.84rem;color:var(--muted);line-height:1.7}
+.exp-result{margin-top:.7rem;padding:.5rem .9rem;background:rgba(0,229,255,.06);border-left:2px solid var(--accent2);border-radius:0 6px 6px 0;font-size:.8rem;color:var(--text)}
+
+/* CONTATO */
+.contact-wrap{text-align:center;max-width:580px;margin:0 auto;padding:6rem 2rem}
+.contact-email{display:inline-block;font-size:1.2rem;font-weight:700;color:var(--accent2);text-decoration:none;margin:1.8rem 0;border-bottom:1px solid transparent;transition:border-color .2s}
+.contact-email:hover{border-color:var(--accent2)}
+.social-row{display:flex;gap:.8rem;justify-content:center;flex-wrap:wrap;margin-top:1.2rem}
+.soc{padding:.55rem 1.3rem;border:1px solid var(--border);border-radius:8px;color:var(--muted);text-decoration:none;font-size:.82rem;transition:all .2s}
+.soc:hover{border-color:var(--accent);color:var(--accent)}
+footer{text-align:center;padding:1.5rem;font-size:.78rem;color:var(--muted);position:relative;z-index:1}
+
+@media(max-width:700px){
+  nav{padding:1rem 1.2rem}.nav-links{gap:1rem}
+  .sobre-grid,.proj-hero{grid-template-columns:1fr}
+  .results-grid,.phases{grid-template-columns:1fr 1fr}
+}
+</style>
+</head>
+<body>
+
+<div class="cursor" id="cur"></div>
+<div class="cdot" id="cdot"></div>
+
+<nav>
+  <div class="logo">SV.</div>
+  <ul class="nav-links">
+    <li><a href="#sobre">Sobre</a></li>
+    <li><a href="#projetos">Projetos</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#exp">Experiência</a></li>
+    <li><a href="#contato">Contato</a></li>
+  </ul>
+</nav>
+
+<section id="hero">
+  <div>
+    <div class="badge"><span class="badge-dot"></span>Disponível para novos projetos</div>
+    <h1><span class="g">AI Designer Engineer</span><br>& Product Designer</h1>
+    <p class="hero-sub">Projeto experiências, valido com usuários e <strong>entrego no código.</strong><br>8 anos de experiência em Fintech · HealthTech · SaaS</p>
+    <div class="cta-row">
+      <a href="#projetos" class="btn btn-p">Ver projetos →</a>
+      <a href="https://linkedin.com/in/silasvasques" target="_blank" class="btn btn-o">LinkedIn ↗</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat"><div class="stat-n">8+</div><div class="stat-l">Anos de experiência</div></div>
+      <div class="divider"></div>
+      <div class="stat"><div class="stat-n">75%</div><div class="stat-l">Redução no tempo de entrega</div></div>
+      <div class="divider"></div>
+      <div class="stat"><div class="stat-n">15k</div><div class="stat-l">Agendamentos/mês impactados</div></div>
+      <div class="divider"></div>
+      <div class="stat"><div class="stat-n">28k</div><div class="stat-l">Empresários impactados</div></div>
+    </div>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<section id="sobre">
+  <div class="sw">
+    <div class="sobre-grid">
+      <div>
+        <div class="avatar"></div>
+        <div class="info-row" style="margin-top:1.2rem">
+          <div class="info-item">📍 <span>Fortaleza/CE — Brasil</span></div>
+          <div class="info-item">🎓 <span>Design — UFC</span></div>
+          <div class="info-item">🌐 <span>Inglês B2</span></div>
+          <div class="info-item">🎤 <span>Palestrante TDC Recife 2023</span></div>
+        </div>
+      </div>
+      <div class="sobre-text">
+        <div class="sl">Sobre mim</div>
+        <h2 class="st">Silas Vasques</h2>
+        <div class="sline"></div>
+        <p>Sou <strong>Product Designer com 8 anos de experiência</strong>, sendo 5 deles em produtos digitais complexos de Fintech e HealthTech.</p>
+        <p>Atuo na <strong>interseção entre design e engenharia</strong>: projeto experiências, valido com usuários e entrego no código — eliminando gargalos de handoff e acelerando o time-to-market.</p>
+        <p>No yampa, reduzi o tempo de entrega de front-end em <strong>75%</strong> implementando interfaces diretamente em TypeScript, React e Tailwind, com orquestração de agentes de IA (Claude Code, Lovable).</p>
+        <div class="chips">
+          <span class="chip">Product Design</span>
+          <span class="chip">AI Design Engineer</span>
+          <span class="chip">Design Systems</span>
+          <span class="chip">TypeScript · React</span>
+          <span class="chip">UX Research</span>
+          <span class="chip">Figma</span>
+          <span class="chip">Fintech</span>
+          <span class="chip">HealthTech</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="projetos">
+  <div class="sw">
+    <div class="sl">Case em destaque</div>
+    <h2 class="st">yampa 2.0 — Fintech SaaS</h2>
+    <div class="sline"></div>
+    <div class="proj-hero">
+      <div class="proj-text">
+        <div class="ptag">Product Design · Design Engineer · 2023–2026</div>
+        <h3>De controle financeiro a plataforma de transformação</h3>
+        <p>O yampa é uma plataforma de gestão financeira para PMEs brasileiras. Liderei o redesign completo — da arquitetura de navegação ao código em produção — transformando um ERP tradicional em uma plataforma orientada por inteligência artificial.</p>
+        <p>Criei dois agentes de IA com personalidades distintas (Yago e Yana) e implementei um sistema de diagnóstico financeiro (ISF 2.0) que contextualiza a saúde do negócio para cada usuário.</p>
+        <a href="https://silasvj.notion.site/Portf-lio-Silas-Vasques-e3513e4b53964d17a461813f30896c5a" target="_blank" class="btn btn-o" style="margin-top:.5rem">Ver case completo ↗</a>
+      </div>
+      <div class="proj-img">
+        <div class="proj-img-inner">
+          <div style="font-size:2.5rem">💵</div>
+          <div class="proj-img-label">yampa app</div>
+          <div class="proj-img-sub">Gestão financeira para PMEs · Mobile First · IA integrada</div>
+          <div style="margin-top:1rem;display:flex;gap:.5rem;flex-wrap:wrap;justify-content:center">
+            <span style="padding:.25rem .7rem;background:rgba(124,111,255,.2);border-radius:99px;font-size:.7rem;color:#a78bfa">TypeScript</span>
+            <span style="padding:.25rem .7rem;background:rgba(0,229,255,.15);border-radius:99px;font-size:.7rem;color:#00e5ff">React</span>
+            <span style="padding:.25rem .7rem;background:rgba(124,111,255,.2);border-radius:99px;font-size:.7rem;color:#a78bfa">Tailwind</span>
+            <span style="padding:.25rem .7rem;background:rgba(0,229,255,.15);border-radius:99px;font-size:.7rem;color:#00e5ff">Figma</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="results-grid">
+      <div class="res-card"><div class="res-n">75%</div><div class="res-l">Redução no tempo de entrega de front-end (5 dias → 1-2 dias)</div></div>
+      <div class="res-card"><div class="res-n">3k+</div><div class="res-l">Empresas clientes ativas em todo o Brasil</div></div>
+      <div class="res-card"><div class="res-n">28k+</div><div class="res-l">Empresários impactados pela plataforma</div></div>
+    </div>
+
+    <div class="phases">
+      <div class="phase"><div class="phase-n">Fase 1</div><div class="phase-t">Discovery</div><div class="phase-d">Entrevistas, análise de sentimentos com IA, clusterização de insights (FasterWhisper + LLMs)</div></div>
+      <div class="phase"><div class="phase-n">Fase 2</div><div class="phase-t">Síntese & PRD</div><div class="phase-d">JTBD, Jobs Stories, RICE/MoSCoW — PRD com critérios de aceitação claros</div></div>
+      <div class="phase"><div class="phase-n">Fase 3</div><div class="phase-t">Ideação</div><div class="phase-d">Arquitetura de navegação por "Áreas de Atuação" — alinhada à jornada mental do usuário</div></div>
+      <div class="phase"><div class="phase-n">Fase 4</div><div class="phase-t">Validação</div><div class="phase-d">Testes de usabilidade com protótipo Figma · critério "Teste do Sem Manual"</div></div>
+      <div class="phase"><div class="phase-n">Fase 5</div><div class="phase-t">Vibe Coding</div><div class="phase-d">Entrega direta em TypeScript, React e Tailwind — PRs no GitHub sem gargalo de handoff</div></div>
+      <div class="phase"><div class="phase-n">Fase 6</div><div class="phase-t">Lançamento</div><div class="phase-d">Monitoramento de métricas, coleta contínua e próximo ciclo de Discovery</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="sw">
+    <div class="sl">Ferramentas & Skills</div>
+    <h2 class="st">O que uso no dia a dia</h2>
+    <div class="sline"></div>
+    <div class="skills-grid">
+      <div class="sk"><div class="sk-top"><span class="sk-name">Figma</span><span class="sk-pct">Expert</span></div><div class="sk-bar"><div class="sk-fill" style="width:97%"></div></div><div class="sk-cat">Design Systems · Prototipação</div></div>
+      <div class="sk"><div class="sk-top"><span class="sk-name">TypeScript · React</span><span class="sk-pct">Avançado</span></div><div class="sk-bar"><div class="sk-fill" style="width:80%"></div></div><div class="sk-cat">Implementação de UI em código</div></div>
+      <div class="sk"><div class="sk-top"><span class="sk-name">Tailwind CSS</span><span class="sk-pct">Expert</span></div><div class="sk-bar"><div class="sk-fill" style="width:92%"></div></div><div class="sk-cat">Design Systems com conformidade Tailwind</div></div>
+      <div class="sk"><div class="sk-top"><span class="sk-name">AI Orchestration</span><span class="sk-pct">Avançado</span></div><div class="sk-bar"><div class="sk-fill" style="width:85%"></div></div><div class="sk-cat">Claude Code · Lovable · LLMs</div></div>
+      <div class="sk"><div class="sk-top"><span class="sk-name">UX Research</span><span class="sk-pct">Expert</span></div><div class="sk-bar"><div class="sk-fill" style="width:93%"></div></div><div class="sk-cat">JTBD · Entrevistas · Testes de usabilidade</div></div>
+      <div class="sk"><div class="sk-top"><span class="sk-name">AI Design de Agentes</span><span class="sk-pct">Avançado</span></div><div class="sk-bar"><div class="sk-fill" style="width:82%"></div></div><div class="sk-cat">UX para produtos de IA</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="exp">
+  <div class="sw">
+    <div class="sl">Trajetória</div>
+    <h2 class="st">Experiência profissional</h2>
+    <div class="sline"></div>
+    <div class="exp-list">
+      <div class="exp-item">
+        <div class="exp-header">
+          <div><div class="exp-role">Design Engineer</div><div class="exp-company">YampaFin</div></div>
+          <div class="exp-period">Jan 2026 — Abr 2026</div>
+        </div>
+        <span class="exp-sector">Fintech · SaaS</span>
+        <p class="exp-desc">Implementei interfaces diretamente no código (TypeScript, React, Tailwind), eliminando revisões visuais e reduzindo o atrito no handoff. Orquestrei agentes de IA para entrega de código pronto para produção e automatizei o processo de Discovery com clusterização e análise de sentimentos.</p>
+        <div class="exp-result">⚡ Redução de 75% no tempo de entrega de front-end — de ~5 dias para 1-2 dias por funcionalidade</div>
+      </div>
+      <div class="exp-item">
+        <div class="exp-header">
+          <div><div class="exp-role">Product Designer</div><div class="exp-company">yampa</div></div>
+          <div class="exp-period">Jun 2023 — Dez 2025</div>
+        </div>
+        <span class="exp-sector">Fintech · SaaS</span>
+        <p class="exp-desc">Concebi e projetei dois Agentes de IA (Yago e Yana) com personalidades distintas. Liderei a migração completa do sistema legado para arquitetura Mobile First. Geri e evoluí o Design System no Figma com conformidade estrita aos padrões Tailwind e acessibilidade.</p>
+        <div class="exp-result">✓ Migração bem-sucedida com aumento na adoção por clientes veteranos e retenção de novos clientes</div>
+      </div>
+      <div class="exp-item">
+        <div class="exp-header">
+          <div><div class="exp-role">Product Designer</div><div class="exp-company">Meetz</div></div>
+          <div class="exp-period">Jun 2022 — Abr 2023</div>
+        </div>
+        <span class="exp-sector">MarTech · SaaS B2B</span>
+        <p class="exp-desc">Conduzi o processo de Continuous Discovery e levantamento de requisitos para plataforma unificada de prospecção (Pipefy + Apollo + Pipedrive em um só lugar). Entrevistas qualitativas, mapeamento de User Flows, prototipação de alta fidelidade e testes de usabilidade no Figma.</p>
+        <div class="exp-result">✓ Entrega do MVP com redução de custos operacionais e aumento de capacidade produtiva</div>
+      </div>
+      <div class="exp-item">
+        <div class="exp-header">
+          <div><div class="exp-role">Product Designer</div><div class="exp-company">SiMCo — Healthcare</div></div>
+          <div class="exp-period">Set 2021 — Fev 2022</div>
+        </div>
+        <span class="exp-sector">HealthTech · Rede de clínicas</span>
+        <p class="exp-desc">Atuei em duas squads simultâneas — app mobile de saúde digital e sistema de atendimento para call center. Discovery, entrevistas com stakeholders, UI e testes de usabilidade com Adobe XD.</p>
+        <div class="exp-result">✓ +22% de atendimentos · 15 mil agendamentos mensais · lançamento de produto de saúde mental</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contato" style="background:var(--bg2);border-top:1px solid var(--border)">
+  <div class="contact-wrap">
+    <div class="sl">Contato</div>
+    <h2 class="st">Vamos criar algo incrível?</h2>
+    <div class="sline" style="margin:1.2rem auto"></div>
+    <p style="color:var(--muted);line-height:1.7;font-size:.9rem">Aberto a projetos freelance, oportunidades de tempo integral e colaborações interessantes em Fintech, HealthTech e SaaS.</p>
+    <a href="mailto:silasvj@gmail.com" class="contact-email">silasvj@gmail.com</a>
+    <div class="social-row">
+      <a href="https://linkedin.com/in/silasvasques" target="_blank" class="soc">LinkedIn ↗</a>
+      <a href="https://silasvj.notion.site/Portf-lio-Silas-Vasques-e3513e4b53964d17a461813f30896c5a" target="_blank" class="soc">Portfólio UX/UI ↗</a>
+      <a href="tel:+5585984007775" class="soc">+55 85 98400-7775</a>
+    </div>
+  </div>
+</section>
+
+<footer>Silas Vasques da Justa · AI Designer Engineer · Fortaleza/CE · 2026</footer>
+
+<script>
+const cur=document.getElementById('cur'),cdot=document.getElementById('cdot');
+let mx=0,my=0,cx=0,cy=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cdot.style.left=mx+'px';cdot.style.top=my+'px'});
+(function anim(){cx+=(mx-cx)*.12;cy+=(my-cy)*.12;cur.style.left=cx+'px';cur.style.top=cy+'px';requestAnimationFrame(anim)})();
+document.querySelectorAll('.btn,.exp-item,.sk,.phase,.soc,.nav-links a').forEach(el=>{
+  el.addEventListener('mouseenter',()=>cur.style.transform='translate(-50%,-50%) scale(1.7)');
+  el.addEventListener('mouseleave',()=>cur.style.transform='translate(-50%,-50%) scale(1)');
+});
+const obs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.style.opacity='1';e.target.style.transform='translateY(0)'}})},{threshold:.08});
+document.querySelectorAll('.exp-item,.sk,.phase,.res-card').forEach(el=>{
+  el.style.opacity='0';el.style.transform='translateY(24px)';el.style.transition='opacity .55s ease,transform .55s ease';
+  obs.observe(el);
+});
+</script>
+</body>
+</html>

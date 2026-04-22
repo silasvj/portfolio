@@ -1,0 +1,774 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Plataforma de Atendimento para Call Center</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+
+	table.collection-content {
+		width: 100%;
+		table-layout: fixed;
+	}
+
+	table.collection-content th,
+	table.collection-content td {
+		overflow-wrap: anywhere;
+	}
+
+	table.collection-content td > .user,
+	table.collection-content td > time {
+		white-space: pre-wrap;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content-wrapper {
+	overflow-x: auto;
+}
+
+@media only print {
+	.collection-content-wrapper {
+		overflow-x: visible;
+	}
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	gap: 46px;
+}
+
+.column {
+	min-width: 0;
+	overflow: hidden;
+}
+
+.column > *:first-child {
+	margin-top: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+table {
+	border-collapse: collapse;
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol.numbered-list.numbered-list-digits-2 {
+	padding-inline-start: 2em;
+}
+
+ol.numbered-list.numbered-list-digits-3plus {
+	padding-inline-start: 2.4em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="e3bad68a-e239-4f65-a978-3f7d7af2d3c9" class="page sans"><header><img class="page-cover-image" src="https://www.notion.so/images/page-cover/gradients_8.png" style="object-position:center 70%"/><div class="page-header-icon page-header-icon-with-cover"><span class="icon">🏥</span></div><h1 class="page-title" dir="auto"><strong><strong>Plataforma de Atendimento para Call Center</strong></strong></h1><p class="page-description" dir="auto"></p><table class="properties"><tbody><tr class="property-row property-row-text"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/description_gray.svg" style="width:14px;height:14px;display:block"/></span>Project Overview</th><td>Recebemos o desafio de entender a rotina de atendimento do call center de uma clínica de saúde e buscar soluções para melhorar o atendimento e o trabalho dos seus colaboradores.</td></tr><tr class="property-row property-row-select"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/arrow-circle-down_gray.svg" style="width:14px;height:14px;display:block"/></span>Category</th><td><span class="selected-value select-value-color-blue">Web Design</span></td></tr><tr class="property-row property-row-date"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/calendar_gray.svg" style="width:14px;height:14px;display:block"/></span>Date</th><td><time>23 de fevereiro de 2022</time></td></tr><tr class="property-row property-row-multi_select"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/list_gray.svg" style="width:14px;height:14px;display:block"/></span>My Role</th><td><span class="selected-value select-value-color-gray">UI Design</span><span class="selected-value select-value-color-gray">UX Design</span></td></tr></tbody></table></header><div class="page-body"><div style="display:contents" dir="ltr"><figure id="babb880e-76ad-4eb3-a76e-e091ea5b9e7d" class="image"><a href="1_ZPV0VV5jQfaezZF5EAe28w.gif"><img style="width:623.96875px" src="1_ZPV0VV5jQfaezZF5EAe28w.gif"/></a><figcaption>Reação de uma colaboradora em uma das apresentações da plataforma desenvolvida.</figcaption></figure></div><div style="display:contents" dir="auto"><h2 id="f8bfc736-3c38-42c6-bd20-38da1611ae33" class="block-color-yellow"><strong><strong>A necessidade</strong></strong></h2></div><div style="display:contents" dir="auto"><p id="05bd2d57-93d4-493e-baf0-775a99d5c201" class="">
+</p></div><div style="display:contents" dir="auto"><p id="f15309e6-59cd-4668-ba4a-b128a2ce8ddf" class="">A Squad foi formada com o objetivo de melhorar a experiência de agendamento no call center da empresa.</p></div><div style="display:contents" dir="auto"><p id="9d63ba4f-b35f-4602-a17a-970d3f143522" class="">Call center sempre é considerado um local complicado, por diversos fatores, mas chegamos à conclusão de que a melhor estratégia seria reformular o software utilizado no dia a dia.</p></div><div style="display:contents" dir="auto"><p id="be9821df-d821-4014-b3e2-385c428b6d64" class="">
+</p></div><div style="display:contents" dir="auto"><h2 id="2db47974-3d45-4dca-9e41-ca09d7c17883" class="block-color-yellow"><strong><strong>Meu papel</strong></strong></h2></div><div style="display:contents" dir="auto"><p id="60f98aa5-682f-499f-a48e-9fc44cd0bbc2" class="">
+</p></div><div style="display:contents" dir="auto"><p id="b6d0bcfe-bdba-4acd-a128-e7b698acbc29" class="">Atuei como UX e UI designer, além dos papéis em todas as cerimônias ágeis.</p></div><div style="display:contents" dir="auto"><p id="9c7a2d4f-1cc7-459a-96fb-58d0c8d89628" class="">
+</p></div><div style="display:contents" dir="auto"><blockquote id="d4a6bac3-cc21-46b4-bed6-5b8523d144ff" class="">Meu principal desafio aqui foi conduzir o usuário no fluxo de trabalho desejado, em meio a uma quantidade grande de informações e funcionalidades.</blockquote></div><div style="display:contents" dir="auto"><p id="92029439-03cb-4cc7-9998-a75144e92312" class="">
+</p></div><div style="display:contents" dir="auto"><h2 id="28f306de-fcde-4ae7-8193-fce950675391" class="block-color-yellow"><strong><strong>Resultados</strong></strong></h2></div><div style="display:contents" dir="auto"><p id="958f61b0-0461-4ec2-b9c0-1cde0214487e" class="">
+</p></div><div style="display:contents" dir="auto"><p id="6ce8fcac-98f3-4176-ad1e-fe1b465b223c" class="">Em quase 6 meses, conseguimos entregar uma nova forma de trabalho para o call center. Os elogios por parte dos operadores eram constantes e a empolgação a respeito das novas funcionalidades era visível. Além disso, tivemos <strong>redução do tempo médio de atendimento em mais de 50%, aumento em 22% do número de orçamentos gerados, volume de 15 mil agendamentos por mês</strong> e outros ganhos intangíveis dentro da operação.</p></div><div style="display:contents" dir="auto"><p id="99c27029-8829-4bc1-b62c-87563eb245bd" class="">
+</p></div><div style="display:contents" dir="auto"><h3 id="942117e4-1929-4f5e-bfae-55253d129858" class="block-color-yellow">Métricas:</h3></div><div style="display:contents" dir="auto"><p id="1152a318-b2b2-42a3-83c3-aa4a6fbe928c" class="">Atendimentos de orçamentos; atendimentos de agendamentos; pagamento adiantado; no-show; tempo médio de atendimento.</p></div><div style="display:contents" dir="auto"><h2 id="70196c6a-0017-4da7-86a0-01404c0bd822" class="block-color-yellow"><strong><strong>História</strong></strong></h2></div><div style="display:contents" dir="auto"><p id="30f118a3-f9ed-45f0-85b6-6b5f7fd9e522" class="">
+</p></div><div style="display:contents" dir="auto"><p id="e597dd21-1c16-43aa-a8ef-c1cb8f35a396" class="">Aqui eu vou detalhar o trabalho nessa squad…</p></div><div style="display:contents" dir="auto"><p id="746beeb0-c473-4983-a5ce-534516b3ff1b" class="">Para iniciar a conversa, vamos mostrar o antes:</p></div><div style="display:contents" dir="auto"><div id="b1c914ab-a814-418f-93d0-2610d2652f8f" class="column-list"><div style="display:contents" dir="auto"><div id="3f2ed027-d0ba-4ac7-9c83-4aa226e1c243" style="width:50%" class="column"><div style="display:contents" dir="ltr"><figure id="2d866580-2d4c-4140-88a8-d19555af61ca" class="image"><a href="Untitled.png"><img style="width:1100px" src="Untitled.png"/></a><figcaption>Tela de agendamento</figcaption></figure></div><div style="display:contents" dir="ltr"><figure id="59aab80d-c08a-4d12-a178-c8f11430440b" class="image"><a href="Untitled%201.png"><img style="width:1200px" src="Untitled%201.png"/></a><figcaption>Tela de filtros</figcaption></figure></div><div style="display:contents" dir="auto"><p id="96ad6b8d-34ed-4cdb-a719-b10ef1c8ea50" class="">
+</p></div></div></div><div style="display:contents" dir="auto"><div id="1c04dacb-eb98-4af1-9de8-466985c16a14" style="width:50%" class="column"><div style="display:contents" dir="ltr"><figure id="0da38624-6ac8-46c6-9fb4-bf3d8db40f3e" class="image"><a href="Untitled%202.png"><img style="width:1100px" src="Untitled%202.png"/></a><figcaption>Tela de agendamento</figcaption></figure></div><div style="display:contents" dir="ltr"><figure id="7a25e00a-0aea-4138-bd17-11a384512a30" class="image"><a href="Untitled%203.png"><img style="width:1100px" src="Untitled%203.png"/></a><figcaption>PDF de orçamento</figcaption></figure></div></div></div></div></div><div style="display:contents" dir="auto"><p id="2c277bc5-67fc-4fef-9668-8db89d17cc60" class="">Como dito no resumo, call center sempre foi visto como um lugar complicado, por diversos fatores. Algumas dores estão ‘fora do escopo’ de atuação de uma squad, são mais relacionadas a negócios, mas nosso time focou na melhoria da velocidade do atendimento dos operadores.</p></div><div style="display:contents" dir="auto"><p id="5abbb816-cc6f-450a-8348-8dd55d3c9eaa" class="">
+</p></div><div style="display:contents" dir="auto"><blockquote id="c171eae9-8dc1-4ff3-99f0-1a156f6d3a11" class=""><em>Afinal, uma pessoa que consegue fazer um atendimento satisfatório rapidamente, tem menos stress, gera mais satisfação nos clientes, ganha mais comissão, sente-se mais feliz no trabalho. Mas essas são coisas intangíveis.</em></blockquote></div><div style="display:contents" dir="auto"><p id="1973ade3-f005-4c92-8b16-35c70adb5b50" class="">
+</p></div><div style="display:contents" dir="ltr"><figure id="e68dc1d4-7125-4a7b-acf4-931266578b1a" class="image"><a href="Untitled%204.png"><img style="width:691.96875px" src="Untitled%204.png"/></a><figcaption>Notas sobre as entrevistas com operadores</figcaption></figure></div><div style="display:contents" dir="auto"><p id="cf6b3487-d6dd-49c2-8eb7-dfa64a43856f" class="">
+</p></div><div style="display:contents" dir="auto"><p id="e1eec0ac-98f2-4b07-bd33-336072c1bb8a" class="">Fizemos uma <em>inception</em>, com reuniões diárias, levantamento de dados, com registro em um quadro no Miro e entrevistas com os usuários para descobrir os principais pontos de dores.</p></div><div style="display:contents" dir="auto"><p id="58dea776-ec00-4955-8dde-00a406fee624" class="">
+</p></div><div style="display:contents" dir="auto"><div id="12bf8cd3-3b82-4db5-9781-28b515e56111" class="column-list"><div style="display:contents" dir="auto"><div id="2a85b3ba-66a5-47d1-b8d6-6d83a9fea13d" style="width:33.333333333333336%" class="column"><div style="display:contents" dir="ltr"><figure id="e78ae8e6-3be7-4e27-8e2a-361eac04d5a4" class="image"><a href="Untitled%205.png"><img style="width:868px" src="Untitled%205.png"/></a><figcaption>Visualização de oportunidade</figcaption></figure></div></div></div><div style="display:contents" dir="auto"><div id="7a005944-fc9a-4edc-90fb-3d86634a578b" style="width:33.333333333333336%" class="column"><div style="display:contents" dir="ltr"><figure id="0181e9c5-fb1d-4d3b-a026-de3d8ef65329" class="image"><a href="Untitled%206.png"><img style="width:759px" src="Untitled%206.png"/></a><figcaption>Levantamento de dificuldades encontradas</figcaption></figure></div><div style="display:contents" dir="auto"><p id="3b6b5a08-cc32-406b-8292-69ba6120737e" class="">
+</p></div></div></div><div style="display:contents" dir="auto"><div id="8435b21c-786f-4d09-8b23-52919ea7686a" style="width:33.33333333333333%" class="column"><div style="display:contents" dir="ltr"><figure id="b82bc65a-3d9a-4935-8326-45a178cb8ca9" class="image"><a href="Untitled%207.png"><img style="width:612px" src="Untitled%207.png"/></a><figcaption>Product backlog</figcaption></figure></div></div></div></div></div><div style="display:contents" dir="auto"><p id="99e038c1-043e-4a90-a105-af159433271e" class="">
+</p></div><div style="display:contents" dir="auto"><p id="f32badec-9ea2-44e0-8964-095bd672a8ad" class="">Nosso backlog estava planejado de forma simples: 31% dos atendimentos diziam respeito à pesquisa de preço. Fazia total sentido atacar isso primeiro. Em menos de 2 meses fizemos a área de login, “carrinho de compras” e geração do PDF de orçamento.</p></div><div style="display:contents" dir="auto"><p id="9544c75a-49f6-496d-a2c4-42d792f3ad9e" class="">
+</p></div><div style="display:contents" dir="ltr"><figure id="6eb97b7e-cc7a-432b-b46a-f3d2cb60fd74" class="image"><a href="Untitled%208.png"><img style="width:691.96875px" src="Untitled%208.png"/></a><figcaption>Fluxo de geração de orçamento</figcaption></figure></div><div style="display:contents" dir="auto"><p id="cbd0c47e-ab93-4b57-ac7a-2193476a4b2a" class="">
+</p></div><div style="display:contents" dir="auto"><p id="fe3fb8f6-32f9-45f0-bc30-07cdf74a4df2" class="">Precisei desenhar o fluxo desejado para a geração de orçamentos, depois validei com nosso PO e em seguida, tome tela!</p></div><div style="display:contents" dir="auto"><p id="c72f60e7-172a-4725-98ef-c73444d93c9d" class="">A ideia de carrinho de compras veio para atender duas heurísticas de usabilidade: “Correspondência entre o sistema e o mundo real” e “Consistência e padrões”. Quando se quer um orçamento, geralmente, se busca item por item, junta todos em um mesmo local e depois é feita a soma total, com a possibilidade de consultar o valor de cada item. Também poderíamos aproveitar a familiaridade com o funcionamento de outros sites de <em>e-commerce</em>, no mesmo modo do carrinho de compras.</p></div><div style="display:contents" dir="auto"><p id="d008780f-4ab0-49f9-804f-1a12f767d0a6" class="">
+</p></div><div style="display:contents" dir="auto"><div id="d323080a-c6b2-461b-80a5-c6809ae014db" class="column-list"><div style="display:contents" dir="auto"><div id="cc6e0738-b8ef-4600-8645-20660a3a28bf" style="width:50%" class="column"><div style="display:contents" dir="ltr"><figure id="6e8f44f8-a7ab-46b9-8196-312478b88d6c" class="image"><a href="Untitled%209.png"><img style="width:336px" src="Untitled%209.png"/></a><figcaption>Primeiras telas de seleção de procedimentos</figcaption></figure></div></div></div><div style="display:contents" dir="auto"><div id="f8843ec8-95ee-4a3b-ada0-71cdf25b0a49" style="width:50%" class="column"><div style="display:contents" dir="ltr"><figure id="64e737d4-71f0-4090-b696-d4eec81cd5c7" class="image"><a href="Untitled%2010.png"><img style="width:1326px" src="Untitled%2010.png"/></a><figcaption>Resumo de orçamento</figcaption></figure></div></div></div></div></div><div style="display:contents" dir="auto"><p id="0aa66773-3b40-45ca-aaa7-6a244cb5db49" class="">
+</p></div><div style="display:contents" dir="auto"><p id="f92e452f-3851-41af-9701-46f772fe6214" class="">O primeiro resultado ‘prático’ foi o PDF de orçamento. Vou deixar a imagem falar por si só, mas teve bastante mudança de layout e hierarquia de informações:</p></div><div style="display:contents" dir="auto"><p id="ea6a40cd-719a-48ad-9ed9-94a28b9fcc82" class="">
+</p></div><div style="display:contents" dir="auto"><div id="a5fbf6af-f4a7-4907-af24-3651e1e27667" class="column-list"><div style="display:contents" dir="auto"><div id="7a938204-dbab-4c25-85c6-53792bf5ce97" style="width:50%" class="column"><div style="display:contents" dir="ltr"><figure id="5c52fa6b-e5ee-4e0e-85e2-ddd058ca7b7c" class="image"><a href="Untitled%2011.png"><img style="width:1138px" src="Untitled%2011.png"/></a><figcaption>O antes do PDF de orçamento</figcaption></figure></div></div></div><div style="display:contents" dir="auto"><div id="edc81b73-cb98-4dab-8105-467014e3512e" style="width:50%" class="column"><div style="display:contents" dir="ltr"><figure id="dc8861a0-5f2b-4923-bf48-30704ac4e36c" class="image"><a href="Untitled%2012.png"><img style="width:314.984375px" src="Untitled%2012.png"/></a><figcaption>O depois do PDF de orçamento</figcaption></figure></div></div></div></div></div><div style="display:contents" dir="auto"><p id="cc8b9adc-8a4a-4fa6-a5b7-ba69b8882d48" class="">A seguir vieram as demandas de agendamento, tela do paciente com todo o resumo sobre ele, link de pagamento adiantado para redução de <em>no show</em>, agendamento de pacotes, dashboard para o operador conferir seus resultados e até localização das clínicas para auxiliar no atendimento.</p></div><div style="display:contents" dir="auto"><p id="d88354fc-f648-4b3a-930a-df56361bf93f" class="">
+</p></div><div style="display:contents" dir="auto"><div id="b1438831-0496-44c4-b4fe-890c7acfb6d9" class="column-list"><div style="display:contents" dir="auto"><div id="83f57f91-1887-4459-879c-dd9869b50796" style="width:50%" class="column"><div style="display:contents" dir="ltr"><figure id="14d5e592-f1ca-47e1-9bcb-2ae6917e8b2e" class="image"><a href="Untitled%2013.png"><img style="width:1100px" src="Untitled%2013.png"/></a></figure></div></div></div><div style="display:contents" dir="auto"><div id="96d4f771-b402-466d-84cb-58e08fa34b8a" style="width:50%" class="column"><div style="display:contents" dir="ltr"><figure id="76d661e8-d5d0-4150-995c-85f0257bf1b9" class="image"><a href="Untitled%2014.png"><img style="width:1106px" src="Untitled%2014.png"/></a></figure></div></div></div></div></div><div style="display:contents" dir="auto"><p id="c8a4d7ed-bcad-401c-89a0-be2dd6696b64" class="">
+</p></div><div style="display:contents" dir="auto"><p id="cc7f414e-0813-4b4e-9480-05aaca6b95d8" class="">A tela do paciente era das mais importantes, pois trazia todas as informações sobre a pessoa: agendamentos (urgências de agenda bloqueada, agendamentos e confirmações, link de pagamento e histórico), orçamentos feitos, pacotes comprados e retornos disponíveis. Tudo com indicação através de <em>badges</em> e indicadores em tela, com destaque nos itens mais importantes.</p></div><div style="display:contents" dir="auto"><p id="5d995854-0cfd-40af-8327-482860dada53" class="">
+</p></div><div style="display:contents" dir="auto"><div id="94e645d8-3818-4c82-8267-4f151dadcf14" class="column-list"><div style="display:contents" dir="auto"><div id="d51148ed-4521-439f-b677-c7cf935837bf" style="width:50%" class="column"><div style="display:contents" dir="ltr"><figure id="ec768ac4-c8cb-481c-80a1-5c10f5de8173" class="image"><a href="Untitled%2015.png"><img style="width:1242px" src="Untitled%2015.png"/></a><figcaption>Dashboard do operador antes</figcaption></figure></div></div></div><div style="display:contents" dir="auto"><div id="76b97160-4d50-45ff-917f-12cf5f2d8d46" style="width:50%" class="column"><div style="display:contents" dir="ltr"><figure id="7b3d390f-d6f6-463c-82d3-30bdebba3c61" class="image"><a href="Untitled%2016.png"><img style="width:1100px" src="Untitled%2016.png"/></a><figcaption>Dashboard do operador depois</figcaption></figure></div></div></div></div></div><div style="display:contents" dir="auto"><p id="b9a843aa-1c95-427c-952a-e703b3424e68" class="">Outro destaque que trago é a tela de dashboard do operador, que veio pra substituir o uso de planilhas e um outro sistema que foi descontinuado. Mais uma vez o desafio foi de mostrar uma quantidade grande de informações em números de forma visualmente agradável.</p></div><div style="display:contents" dir="auto"><p id="96734c6d-a1c2-4ec7-a85a-b7d9102fe32f" class="">Mais uma tela que não pode ficar de fora é o resumo do agendamento: nela, temos todas as informações a respeito do agendamento de forma consolidada, no ponto de enviar para o paciente.</p></div><div style="display:contents" dir="auto"><p id="9f7f94db-f531-4884-9f2d-c24f56198c20" class="">
+</p></div><div style="display:contents" dir="ltr"><figure id="4fdaa0ec-c381-43f3-8958-a64041eff622" class="image"><a href="Untitled%2017.png"><img style="width:608.984375px" src="Untitled%2017.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="a383a563-3c43-4259-a8f9-756ccbec6c08" class="">
+</p></div><div style="display:contents" dir="auto"><p id="951f86c1-c04b-41bb-bc2a-bf5e69fd3661" class="">E, quase terminando, também atacamos a necessidade de ajudar os operadores que precisavam informar o local das clínicas para pessoas de outros estados, ou que ele apenas não soubesse como instruir. A ideia aqui seria de colocar informações sobre a clínica mais próxima, distância e pontos de referência.</p></div><div style="display:contents" dir="auto"><p id="71ab33e6-8eb2-423f-bd2b-13b8b6bfaa48" class="">
+</p></div><div style="display:contents" dir="auto"><div id="5354afe1-caee-483a-a1ea-be1e2a3134e4" class="column-list"><div style="display:contents" dir="auto"><div id="5578f676-f98c-4abd-8760-9d1611c87cdc" style="width:33.333333333333336%" class="column"><div style="display:contents" dir="ltr"><figure id="3c8120df-f03e-47e0-85e8-7eec5d4c80de" class="image"><a href="Untitled%2018.png"><img style="width:1100px" src="Untitled%2018.png"/></a></figure></div></div></div><div style="display:contents" dir="auto"><div id="2f241d4c-a61f-44be-abab-bb2008da3e69" style="width:33.333333333333336%" class="column"><div style="display:contents" dir="ltr"><figure id="4a154c70-6358-4256-98e1-50ab849ea1b5" class="image"><a href="Untitled%2019.png"><img style="width:626px" src="Untitled%2019.png"/></a></figure></div></div></div><div style="display:contents" dir="auto"><div id="2de9e48c-c5ec-4423-aced-32684a0ccd9f" style="width:33.33333333333333%" class="column"><div style="display:contents" dir="ltr"><figure id="8ba2a677-238d-4aed-b2bc-44cd0618c5c7" class="image"><a href="Untitled%2020.png"><img style="width:612px" src="Untitled%2020.png"/></a></figure></div></div></div></div></div><div style="display:contents" dir="auto"><p id="4ad58633-29e1-480d-bd6c-1f0b747d7c7a" class="">
+</p></div><div style="display:contents" dir="auto"><p id="6d3847ee-0f55-4488-a706-fed228ecf0e7" class="">Teve mais um trabalho de UX Research também! Nos meus últimos dias de empresa, o PO me fez um pedido pra planejar uma pesquisa de satisfação com os nossos usuários. Nesse questionário eu pude aplicar parte do conhecimento que obtive na leitura do livro “O Teste da Mãe: Como conversar com clientes e descobrir se sua ideia é boa, mesmo com todos mentindo para você” de <a href="https://www.amazon.com.br/Rob-Fitzpatrick/e/B00J77JH5G/ref=dp_byline_cont_ebooks_1">Rob Fitzpatrick</a>. Infelizmente não deu tempo de colher as respostas :(</p></div><div style="display:contents" dir="auto"><p id="204aa66d-6ec6-41fa-a308-66f944314315" class="">
+</p></div><div style="display:contents" dir="ltr"><figure id="eb493fd3-607b-4f3d-a4d1-5d75bc74b5d8" class="image"><a href="Untitled%2021.png"><img style="width:288px" src="Untitled%2021.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="61e343af-8e35-4cb8-8f6b-d352389514d5" class="">
+</p></div><div style="display:contents" dir="auto"><hr id="414e4903-adeb-43ca-a01c-ca846773fa7a"/></div><div style="display:contents" dir="auto"><div id="a4b0e666-bf31-4ef4-b18d-698fc612f45c" class="column-list"><div style="display:contents" dir="auto"><div id="f7de7b86-755d-4ecb-a4f8-f5c8d2014b5e" style="width:50%" class="column"><div style="display:contents" dir="ltr"><figure id="59c6cf4d-bdfd-4994-8dde-7126d1ea0014" class="image"><a href="IMG_20211125_103624.png"><img style="width:1108px" src="IMG_20211125_103624.png"/></a></figure></div></div></div><div style="display:contents" dir="auto"><div id="afa5144b-9d20-4ce8-9e6b-559b58a5c19e" style="width:50%" class="column"><div style="display:contents" dir="ltr"><figure id="32192501-cf17-4694-9bc3-ec1f243df058" class="image"><a href="IMG_20211125_104747.png"><img style="width:1092px" src="IMG_20211125_104747.png"/></a></figure></div></div></div></div></div><div style="display:contents" dir="ltr"><figure id="1d2cbd57-3fff-4727-aa5f-dfff76ef59d3" class="image"><a href="1_ZPV0VV5jQfaezZF5EAe28w.gif"><img style="width:623.96875px" src="1_ZPV0VV5jQfaezZF5EAe28w.gif"/></a><figcaption>Reação de uma colaboradora em uma das apresentações da plataforma desenvolvida.</figcaption></figure></div><div style="display:contents" dir="auto"><p id="4e749033-bdaf-484b-8906-881de29ee770" class="">
+</p></div><div style="display:contents" dir="auto"><p id="e357af01-8be5-4b6a-8619-d655b26e21d6" class="">Nem tudo que foi feito está aqui nesse texto, teve muitoooo mais coisas envolvidas. Mas aqui se encerrou a minha participação na squad. O que mais posso levar dessa experiência é como um time bem alinhado e que se dá bem é fundamental pra entregas de qualidade de forma rápida.</p></div><div style="display:contents" dir="auto"><p id="8940351c-f5b3-4a71-92b5-fe05e7a7d0ef" class="">Meus agradecimentos:</p></div><div style="display:contents" dir="auto"><p id="ed88fd62-1c14-43ff-afda-5ec45a4772f4" class="">Ao “meu PO” Pablo, que conduziu a squad de forma impecável;</p></div><div style="display:contents" dir="auto"><p id="488e4230-2430-4b84-b141-f284a47beb90" class="">Ao nosso grande SM Werbesson, que deixou tudo ágil e organizado;</p></div><div style="display:contents" dir="auto"><p id="b1a5b024-03d6-4067-9178-e929c16adccd" class="">Aos nossos analistas Vivi e Douglas, que nunca deixaram uma info fora das nossas mãos;</p></div><div style="display:contents" dir="auto"><p id="f54ec838-7709-4dcb-81c7-6cc94d1ec1b4" class="">Ao nosso front com Rafa e Franklin, nunca vi um front ser feito tão rápido;</p></div><div style="display:contents" dir="auto"><p id="40591833-dc25-4e0f-8589-473e5f3e728b" class="">Ao nosso BI com Nilberto, cheio das métricas;</p></div><div style="display:contents" dir="auto"><p id="94b8345c-de71-4b09-860b-8d190d8b94ca" class="">E, por último e menos importante (kkk), o monstro do back Gabriel, famoso Gabigod, youtuber, gamer, palestrante, presente no meta verso e tudo mais.</p></div><div style="display:contents" dir="auto"><p id="ea298bde-6177-4bf0-b56d-2f71695bad48" class="">Deus cuide das nossas ‘doras’.</p></div><div style="display:contents" dir="auto"><p id="c1b6098a-26be-4a01-b486-941e02a4cbc9" class="">Que fique registrado o amor e companheirismo que tivemos em tão pouco tempo!</p></div><div style="display:contents" dir="auto"><p id="f39b05f8-8360-4072-bf27-4bf607e4283b" class="">
+</p></div><div style="display:contents" dir="ltr"><figure id="f7da78f3-e7c8-4aa3-b21d-a84e34b31262" class="image"><a href="Untitled%2022.png"><img style="width:691.96875px" src="Untitled%2022.png"/></a></figure></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

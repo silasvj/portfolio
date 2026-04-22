@@ -1,0 +1,101 @@
+name: modern-dark
+description: Contemporary dark UI — Linear/Vercel aesthetic, ambient blobs, mouse-tracking spotlights
+tags: [modern, dark, cinematic, linear, vercel]
+
+tokens:
+  color:
+    background: "#050506"
+    foreground: "#FAFAFA"
+    card: "rgba(255,255,255,0.03)"
+    card-foreground: "#FAFAFA"
+    popover: "rgba(255,255,255,0.03)"
+    popover-foreground: "#FAFAFA"
+    primary: "#5E6AD2"
+    primary-foreground: "#FFFFFF"
+    secondary: "#EC4899"
+    secondary-foreground: "#FFFFFF"
+    accent: "#06B6D4"
+    accent-foreground: "#000000"
+    muted: "#A1A1AA"
+    muted-foreground: "#71717A"
+    destructive: "#EF4444"
+    border: "rgba(255,255,255,0.06)"
+    input: "rgba(255,255,255,0.06)"
+    ring: "#5E6AD2"
+
+  typography:
+    font-family-primary: "Inter, Geist Sans, system-ui, sans-serif"
+    font-family-mono: "Geist Mono, JetBrains Mono, monospace"
+    font-family-heading: "Caveat, cursive"
+    font-weight-heading: 600
+    font-weight-body: 400
+
+  shape:
+    border-radius-sm: "8px"
+    border-radius-md: "16px"
+    border-radius-lg: "24px"
+    border-width: "1px"
+
+  elevation:
+    shadow-sm: "0 0 0 1px rgba(255,255,255,0.06), 0 2px 20px rgba(0,0,0,0.4)"
+    shadow-md: "0 0 0 1px rgba(255,255,255,0.06), 0 4px 30px rgba(0,0,0,0.5)"
+    shadow-lg: "0 0 0 1px rgba(255,255,255,0.06), 0 8px 40px rgba(0,0,0,0.6)"
+
+  spacing:
+    base: 8
+    scale: [4, 8, 12, 16, 24, 32, 48, 64, 96]
+
+  motion:
+    duration-fast: "200ms"
+    duration-normal: "300ms"
+    easing: "cubic-bezier(0.16, 1, 0.3, 1)"
+
+intensity:
+  variance: 6
+  motion: 8
+  density: 5
+
+patterns:
+  card:
+    background: "bg-gradient-to-b from-white/[0.08] to-white/[0.02]"
+    border: "1px solid rgba(255,255,255,0.06)"
+    shadow: "multi-layer"
+    radius: "md"
+    hover: "border brightens to white/10, spotlight tracks mouse"
+  button-primary:
+    background: "primary"
+    radius: "sm"
+    hover: "brightness increase, subtle glow"
+  button-secondary:
+    background: "rgba(255,255,255,0.05)"
+    border: "none"
+    radius: "sm"
+    hover: "bg-white/[0.08]"
+  nav:
+    background: "bg-background/95 backdrop-blur-xl"
+    border: "border-b border-white/[0.06]"
+  layout:
+    section-spacing: "py-20 to py-24"
+    grid-gap: "gap-4 to gap-8"
+
+constraints:
+  never:
+    - "flat single-color backgrounds"
+    - "pure black (#000000)"
+    - "large hover movements"
+  always:
+    - "layered gradients"
+    - "noise texture overlay"
+    - "near-black backgrounds"
+
+effects:
+  interaction-vocabulary: [spotlight-track, glow-intensify, precision-lift]
+  hover:
+    card: "spotlight-track"
+    button-primary: "glow-intensify"
+  transition: "200-300ms cubic-bezier(0.16, 1, 0.3, 1)"
+  ambient:
+    - "fade-up-stagger"
+
+compatibility: [minimal-dark, glassmorphism]
+clashes: [flat-design, retro, neubrutalism]
