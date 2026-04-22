@@ -41,7 +41,7 @@ export default function Home() {
 
             <ScrollAnimate delay={300}>
               <div className="flex gap-4 justify-center flex-wrap mb-16">
-                <Link href="/projects" className="btn btn-primary">
+                <Link href="/en/projects" className="btn btn-primary">
                   {d.hero.viewProjects}
                 </Link>
                 <a 
@@ -68,7 +68,7 @@ export default function Home() {
                 </div>
                 <div className="w-px bg-[rgba(124,111,255,0.18)]" />
                 <div className="text-center">
-                  <div className="text-3xl fw-bold text-gradient">15k /mês</div>
+                  <div className="text-3xl fw-bold text-gradient">15k /month</div>
                   <div className="text-xs text-[#7878a0] uppercase tracking-wider mt-1">{d.hero.monthly}</div>
                 </div>
                 <div className="w-px bg-[rgba(124,111,255,0.18)]" />
@@ -83,11 +83,11 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Case em Destaque - Yampa */}
-      <section id="projetos" className="py-24 bg-[#10101a] border-t border-[rgba(124,111,255,0.18)]">
+      {/* Featured Case - Yampa */}
+      <section id="projects" className="py-24 bg-[#10101a] border-t border-[rgba(124,111,255,0.18)]">
         <div className="container mx-auto px-4 max-w-5xl">
           <div className="mb-8">
-            <Link href="/projects" className="btn btn-outline">
+            <Link href="/en/projects" className="btn btn-outline">
               {d.featured.viewAll}
             </Link>
           </div>
@@ -127,7 +127,7 @@ export default function Home() {
                 <div className="text-center">
                   <div className="text-5xl mb-4">💵</div>
                   <div className="text-lg fw-bold text-white">yampa app</div>
-                  <div className="text-sm text-white/50 mt-2">Gestão financeira para PMEs · Mobile First · IA integrada</div>
+                  <div className="text-sm text-white/50 mt-2">Financial management for SMBs · Mobile First · AI integrated</div>
                   <div className="flex gap-2 justify-center flex-wrap mt-4">
                     <span className="text-xs px-3 py-1 rounded-full bg-[rgba(124,111,255,0.2)] text-[#a78bfa]">TypeScript</span>
                     <span className="text-xs px-3 py-1 rounded-full bg-[rgba(0,229,255,0.15)] text-[#00e5ff]">React</span>
@@ -194,12 +194,12 @@ export default function Home() {
 
           <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
             {[
-              { name: "Figma", pct: "Expert", level: 97, cat: "Design Systems · Prototipação" },
-              { name: "TypeScript · React", pct: "Avançado", level: 80, cat: "Implementação de UI em código" },
-              { name: "Tailwind CSS", pct: "Expert", level: 92, cat: "Design Systems com conformidade" },
-              { name: "AI Orchestration", pct: "Avançado", level: 85, cat: "Claude Code · LLMs" },
-              { name: "UX Research", pct: "Expert", level: 93, cat: "JTBD · Entrevistas" },
-              { name: "AI Design de Agentes", pct: "Avançado", level: 82, cat: "UX para produtos de IA" },
+              { name: "Figma", pct: "Expert", level: 97, cat: "Design Systems · Prototyping" },
+              { name: "TypeScript · React", pct: "Advanced", level: 80, cat: "UI implementation in code" },
+              { name: "Tailwind CSS", pct: "Expert", level: 92, ps: "Design Systems with compliance" },
+              { name: "AI Orchestration", pct: "Advanced", level: 85, cat: "Claude Code · LLMs" },
+              { name: "UX Research", pct: "Expert", level: 93, cat: "JTBD · Interviews" },
+              { name: "AI Agent Design", pct: "Advanced", level: 82, cat: "UX for AI products" },
             ].map((skill, idx) => (
               <ScrollAnimate key={skill.name} delay={idx * 50}>
                 <div className="card p-5">
@@ -219,7 +219,7 @@ export default function Home() {
       </section>
 
       {/* CTA */}
-      <section id="contato" className="py-24 bg-[#10101a] border-t border-[rgba(124,111,255,0.18)] text-center">
+      <section id="contact" className="py-24 bg-[#10101a] border-t border-[rgba(124,111,255,0.18)] text-center">
         <div className="container mx-auto px-4 max-w-2xl">
           <ScrollAnimate>
             <p className="section-label mb-2">{d.contact.title.split(" ")[0]}</p>
@@ -229,7 +229,7 @@ export default function Home() {
             <p className="text-[#7878a0] leading-relaxed mb-8">
               {d.cta.description}
             </p>
-            <Link href="/contact" className="btn btn-primary">
+            <Link href="/en/contact" className="btn btn-primary">
               {d.cta.action}
             </Link>
           </ScrollAnimate>

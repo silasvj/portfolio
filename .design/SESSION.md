@@ -73,15 +73,19 @@ portfolio/
 - [] SEO metadata ✅
 - [] Build successful ✅
 
+## Git
+
+- **Repo**: https://github.com/silasvj/portfolio
+- **Branch**: master
+
 ## Deploy
 
 - **Preview**: https://portfolio-bhtwmedh4-silas-projects-da63668c.vercel.app
-- **Project**: silas-projects-da63668c/portfolio
+- **Vercel**: conecta via git (push trigga deploy)
 
 ## Próximo Passo
 
-1. Custom domain (opcional)
-2. Git remote para deploys automáticos
+1. Conectar repo GitHub no Vercel para deploys automáticos
 
 ## Design System Atual
 

@@ -1,0 +1,129 @@
+{
+  "nav": {
+    "about": "Sobre",
+    "projects": "Projetos",
+    "skills": "Skills",
+    "experience": "Experiência",
+    "contact": "Contato",
+    "letsTalk": "Vamos conversar"
+  },
+  "hero": {
+    "available": "Disponível para novos projetos",
+    "title": "AI Designer Engineer",
+    "subtitle": "& Product Designer",
+    "description": "Projeto experiências, valido com usuários e entrego no código.",
+    "experience": "5 anos de experiência em Fintech · HealthTech · SaaS",
+    "viewProjects": "Ver projetos →",
+    "linkedin": "LinkedIn ↗",
+    "yearsExp": "Anos de experiência em design",
+    "reduction": "Redução",
+    "productTime": "Tempo processo de produto",
+    "monthly": "Agendamentos/mês impactados",
+    "companies": "Empresas",
+    "impacted": "Impactadas"
+  },
+  "featured": {
+    "title": "Case em destaque",
+    "viewAll": "Ver todos os projetos →",
+    "yampa": "yampa 2.0 — Fintech SaaS",
+    "role": "Product Design · Design Engineer · 2023–2026",
+    "headline": "De controle financeiro a plataforma de transformação",
+    "description": "O yampa é uma plataforma de gestão financeira para PMEs brasileiras. Liderei o redesign completo — da arquitetura de navegação ao código em produção — transformando um ERP tradicional em uma plataforma orientada por inteligência artificial.",
+    "description2": "Criei dois agentes de IA com personalidades distintas (Yago e Yana) e implementei um sistema de diagnóstico financeiro (ISF 2.0) que contextualiza a saúde do negócio para cada usuário.",
+    "viewCase": "Ver case completo ↗",
+    "results": {
+      "title": "Resultados",
+      "frontend": "Redução no tempo de entrega de front-end (5 dias → 1-2 dias)",
+      "companies": "Empresas clientes ativas em todo o Brasil",
+      "impacted": "Empresários impactados pela plataforma"
+    }
+  },
+  "phases": {
+    "phase1": "Discovery",
+    "phase1Desc": "Entrevistas, análise de sentimentos com IA, clusterização de insights",
+    "phase2": "Síntese & PRD",
+    "phase2Desc": "JTBD, Jobs Stories, RICE/MoSCoW — PRD com critérios de aceitação",
+    "phase3": "Ideação",
+    "phase3Desc": "Arquitetura de navegação por \"Áreas de Atuação\" — jornada mental",
+    "phase4": "Validação",
+    "phase4Desc": "Testes de usabilidade com protótipo Figma",
+    "phase5": "Vibe Coding",
+    "phase5Desc": "Entrega direta em TypeScript, React e Tailwind",
+    "phase6": "Lançamento",
+    "phase6Desc": "Monitoramento de métricas e próximo ciclo de Discovery"
+  },
+  "skills": {
+    "title": "Ferramentas & Skills",
+    "subtitle": "O que uso no dia a dia"
+  },
+  "cta": {
+    "title": "Vamos criar algo incrível?",
+    "description": "Aberto a projetos freelance, oportunidades de tempo integral e colaborações interessantes em Fintech, HealthTech e SaaS.",
+    "action": "Entrar em contato →"
+  },
+  "about": {
+    "location": "Fortaleza/CE — Brasil",
+    "education": "Design — UFC",
+    "language": "Inglês B2",
+    "speaker": "Palestrante TDC Recife 2023",
+    "stats": {
+      "years": "Anos de experiência",
+      "reduction": "De redução do tempo de processo",
+      "schedules": "Agendamentos/mês impactados",
+      "entrepreneurs": "Empresários impactados"
+    },
+    "aboutMe": "Sobre mim",
+    "name": "Silas Vasques",
+    "bio": "Sou Product Designer com 8+ anos de experiência, atuando em design de produto digital — projeto, valido e entrego no código.",
+    "bio2": "Atuo na interseção entre design e engenharia: projeto experiências, valido com usuários e entrego no código — eliminando gargalos de handoff e acelerando o time-to-market.",
+    "bio3": "No Yampa, reduzi o tempo de entrega de front-end em 75% implementando interfaces diretamente em TypeScript, React e Tailwind, com orquestração de agentes de IA.",
+    "experience": "Experiência",
+    "formation": "Formação",
+    "degrees": {
+      "design": "Graduação em Design",
+      "ufc": "Universidade Federal do Ceará — 2014 a 2019",
+      "uxCert": "Certificado Profissional Design de UX",
+      "google": "Google/Coursera — 2023",
+      "uxCourse": "Certificado em UX (120h)",
+      "udemy": "Udemy — 2021-2022"
+    }
+  },
+  "projects": {
+    "title": "Projetos",
+    "subtitle": "Cases de Product Design em Fintech, HealthTech e SaaS"
+  },
+  "projectDetail": {
+    "back": "← Voltar para projetos",
+    "overview": "Overview",
+    "challenge": "Desafio",
+    "solution": "Solução",
+    "process": "Processo",
+    "results": "Resultados",
+    "gallery": "Galeria",
+    "backToList": "Voltar à lista →"
+  },
+  "contact": {
+    "title": "Vamos criar algo incrível?",
+    "description": "Aberto a projetos freelance, oportunidades de tempo integral e colaborações interessantes em Fintech, HealthTech e SaaS.",
+    "form": {
+      "title": "Enviar mensagem",
+      "subtitle": "Preencha os dados abaixo que retorno em breve.",
+      "name": "Nome",
+      "namePlaceholder": "Seu nome",
+      "email": "Email",
+      "emailPlaceholder": "seu@email.com",
+      "message": "Mensagem",
+      "messagePlaceholder": "Sua mensagem…",
+      "submit": "Enviar mensagem",
+      "sending": "Enviando…",
+      "sent": {
+        "title": "Mensagem enviada!",
+        "subtitle": "Em breve retornarei seu contato.",
+        "button": "Enviar outra mensagem"
+      },
+      "error": "Erro ao enviar. Tente novamente ou mande email diretamente."
+    },
+    "contact": "Formas de contato",
+    "linkedin": "LinkedIn ↗"
+  }
+}

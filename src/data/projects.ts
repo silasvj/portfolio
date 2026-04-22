@@ -13,14 +13,21 @@ export interface Project {
   role: string[];
   category: string;
   description: string;
+  descriptionEn?: string;
   challenge: string;
+  challengeEn?: string;
   solution: string;
+  solutionEn?: string;
   process: string;
+  processEn?: string;
   results: string;
+  resultsEn?: string;
   metrics: string[];
+  metricsEn?: string[];
   thumbnail: string;
   images: string[];
   content?: ContentBlock[];
+  contentEn?: ContentBlock[];
 }
 
 export const projects: Project[] = [
@@ -32,21 +39,37 @@ export const projects: Project[] = [
     year: "2023-2026",
     role: ["Product Designer", "UI/UX"],
     category: "Web Design",
-    description:
+description:
       "Plataforma SaaS de gestão empresarial, fluxo de caixa e conciliação bancária para PMEs.",
+    descriptionEn:
+      "SaaS platform for business management, cash flow, and bank reconciliation for SMBs.",
     challenge:
       "Desafio 1: Traduzir complexidade financeira para linguagem simples\n\nO público-alvo não tem formação financeira. Cada decisão de design precisava ser validada com usuários reais — não assumir baseado em achismo.\n\nAbordagem: \"Teste do Sem Manual\" — critério de usabilidade onde o usuário deve conseguir sair do cadastro e chegar ao primeiro dashboard guiado apenas pelo sistema, sem suporte humano.\n\n---\n\nDesafio 2: Criar arquitetura que refletisse o Método Yampa\n\nERPs são organizados por módulo (contas a pagar, contas a receber, estoque...). O Yampa precisava de um modelo que fizesse sentido para alguém que não entende de contabilidade.\n\nAbordagem: Navegação por \"Áreas de Atuação\" — Controle (onde o caos vira dados), Monitore (acompanhamento diário), Entenda (diagnóstico), Execute (ação).\n\n---\n\nDesafio 3: Escalar pesquisa sem perder qualidade\n\nEntrevistas em profundidade levam horas para analizar. Como transformer insights em ações sem gargalo na equipe de pesquisa?",
+    challengeEn:
+      "Challenge 1: Translating financial complexity into simple language\n\nThe target audience has no financial background. Every design decision needed to be validated with real users — not assumed based on hunch.\n\nApproach: \"No Manual Test\" — usability criterion where the user must be able to get from signup to first dashboard guided only by the system, without human support.\n\n---\n\nChallenge 2: Creating an architecture that reflected the Yampa Method\n\nERPs are organized by module (accounts payable, accounts receivable, inventory...). Yampa needed a model that made sense for someone who doesn't understand accounting.\n\nApproach: Navigation by \"Areas of Action\" — Control (where chaos becomes data), Monitor (daily tracking), Understand (diagnosis), Execute (action).\n\n---\n\nChallenge 3: Scaling research without losing quality\n\nIn-depth interviews take hours to analyze. How to turn insights into actions without creating a bottleneck in the research team?",
     solution:
       "1) Reformulação completa do onboarding do zero, resolvendo problemas críticos de usabilidade identificados em testes com usuários.\n\n2) Criação da arquitetura de navegação por \"Áreas de Atuação\" (Controle, Monitore, Entenda, Execute), alinhada com a jornada mental do usuário — não com estrutura técnica de ERP.\n\n3) Concepção e desenvolvimento de dois agentes de IA (Yago e Yana) com personalidades distintas, funcionando como \"assistente financeiro\" e \"consultora estratégica\".\n\n4) Implementação do sistema de permissões granulares, permitindo delegação segura de tarefas em pequenas empresas.\n\n5) Estruturação de ciclos trimestrais de pesquisa (Discovery Q1-Q4 2025) com metodologia reprodutível.\n\n6) Design do \"Importador Universal de Dados\" — funcionalidade que ingere qualquer arquivo (PDF, Excel, imagem) e classifica automaticamente.",
+    solutionEn:
+      "1) Complete overhaul of onboarding from scratch, solving critical usability problems identified in user testing.\n\n2) Creation of navigation architecture by \"Areas of Action\" (Control, Monitor, Understand, Execute), aligned with the user's mental journey — not ERP technical structure.\n\n3) Conception and development of two AI agents (Yago and Yana) with distinct personalities, functioning as \"financial assistant\" and \"strategic consultant\".\n\n4) Implementation of granular permissions system, allowing secure delegation of tasks in small businesses.\n\n5) Structuring of quarterly research cycles (Discovery Q1-Q4 2025) with reproducible methodology.\n\n6) Design of \"Universal Data Importer\" — functionality that ingests any file (PDF, Excel, image) and classifies automatically.",
     process:
       "Pesquisa qualitativa, definição de MVP, criação de componentes, protótipo, validação.",
+    processEn:
+      "Qualitative research, MVP definition, component creation, prototype, validation.",
     results: "+3.000 empresas clientes ativas",
+    resultsEn: "+3,000 active client companies",
     metrics: [
       "Taxa de conclusão do onboarding",
       "Tempo para primeiro insight (<10s)",
       "Tempo semanal no sistema (<15min)",
       "NPS",
       "Índice de uso de funcionalidades proativas",
+    ],
+    metricsEn: [
+      "Onboarding completion rate",
+      "Time to first insight (<10s)",
+      "Weekly time in system (<15min)",
+      "NPS",
+      "Proactive features usage index",
     ],
     thumbnail: "/images/yampa/image.png",
     images: [
@@ -93,20 +116,37 @@ export const projects: Project[] = [
     category: "Web Design",
     description:
       "Recebemos o desafio de entender a rotina de atendimento do call center de uma clínica de saúde e buscar soluções para melhorar o atendimento e o trabalho dos seus colaboradores.",
+    descriptionEn:
+      "We received the challenge of understanding the call center routine of a health clinic and sought solutions to improve customer service and the work of its employees.",
     challenge:
       "Conduzir o usuário no fluxo de trabalho desejado, em meio a uma quantidade grande de informações e funcionalidades.\n\nCall center sempre foi considerado um local complicado, por diversos fatores. A melhor estratégia foi reformular o software utilizado no dia a dia.",
+    challengeEn:
+      "Guiding the user through the desired workflow, amid a large amount of information and features.\n\nCall center has always been considered a complicated place, for various factors. The best strategy was to redesign the software used daily.",
     solution:
       "1) Carrinho de compras para orçamentos - atendimento similar a e-commerce, facilitando a familiaridade do usuário.\n\n2) Tela do paciente consolidada - todas as informações em um só lugar: agendamentos, orçamentos, pacotes, link de pagamento adiantado.\n\n3) Dashboard do operador - substituindo planilhas e sistemas legados.\n\n4) Localização das clínicas - para auxiliares operadores a informar locais para pacientes de outros estados.",
+    solutionEn:
+      "1) Shopping cart for quotes - e-commerce-like service, making the user's life easier.\n\n2) Consolidated patient screen - all information in one place: appointments, quotes, packages, advance payment link.\n\n3) Operator dashboard - replacing spreadsheets and legacy systems.\n\n4) Clinic location - to help operators inform locations to patients from other states.",
     process:
       "Inception, entrevistas com operadores, levantamento de dados no Miro, Product Backlog, criação de fluxos de geração de orçamento.",
+    processEn:
+      "Inception, operator interviews, data gathering in Miro, Product Backlog, creation of quote generation flows.",
     results:
       "-50% tempo médio de atendimento, +22% número de orçamentos gerados, 15 mil agendamentos/mês",
+    resultsEn:
+      "-50% average handling time, +22% number of quotes generated, 15k appointments/month",
     metrics: [
       "Atendimento de orçamentos",
       "Agendamentos",
       "Pagamento adiantado",
       "No-show",
       "Tempo médio",
+    ],
+    metricsEn: [
+      "Quote handling",
+      "Appointments",
+      "Advance payment",
+      "No-show",
+      "Average time",
     ],
     thumbnail: "/images/sim/Untitled 1.png",
     images: [
@@ -209,15 +249,26 @@ export const projects: Project[] = [
     category: "Mobile Design",
     description:
       "A Squad foi formada com o objetivo de buscar novos produtos para a empresa. Um dos grandes desafios seria incentivar o uso diário do aplicativo. Aqui explico como e porque adicionamos uma funcionalidade de cuidado em saúde mental.",
+    descriptionEn:
+      "The Squad was formed with the goal of finding new products for the company. One of the biggest challenges would be encouraging daily app usage. Here I explain how and why we added a mental health care feature.",
     challenge:
       "Construir um diário de humor, onde o usuário pudesse registrar o dia a dia da sua saúde mental. \n\nO terreno de saúde mental é arriscado - as pessoas ainda estão se acostumando a tudo ser online, muitas sentem falta do presencial.",
+    challengeEn:
+      "Building a mood diary, where the user could record their daily mental health.\n\nThe mental health field is risky - people are still getting used to everything being online, many miss in-person.",
     solution:
       "1) Diário de humor - para acompanhamento da saúde mental ao longo do tempo.\n\n2) Agendamento para consultas presenciais e online.\n\n3) Pacotes de desconto em consultas.\n\nTudo seguindo o design system da época e com benchmarks extensivos.",
+    solutionEn:
+      "1) Mood diary - for tracking mental health over time.\n\n2) Scheduling for in-person and online consultations.\n\n3) Discount packages for consultations.\n\nAll following the design system at the time and with extensive benchmarks.",
     process:
       "Benchmark extenso de apps de diário de humor, quadro de requisitos, protótipos de baixa fidelidade, esboço de fluxo, validação com estagiárias.",
+    processEn:
+      "Extensive benchmark of mood diary apps, requirements board, low-fidelity prototypes, flow sketching, validation with interns.",
     results:
       "Funcionalidade em versão beta, visual e fluxo approved. Fui desligado antes do lançamento oficial.",
+    resultsEn:
+      "Feature in beta version, visual and flow approved. I was laid off before the official launch.",
     metrics: ["Usuários ativos", "Taxa de utilização", "Tempo de utilização", "Conversão em agendamentos"],
+    metricsEn: ["Active users", "Usage rate", "Usage time", "Appointment conversion"],
     thumbnail: "/images/simapp/Untitled.png",
     images: [
       "/images/simapp/Untitled.png",
@@ -275,13 +326,22 @@ export const projects: Project[] = [
     category: "Web Design",
     description:
       "Plataforma unificadora de prospecção ativa e qualificação de leads B2B. Substituiu Pipefy, Woodpecker, Apollo, Gmail e Pipedrive em um só lugar.",
+    descriptionEn:
+      "Unified B2B prospecting and lead qualification platform. Replaced Pipefy, Woodpecker, Apollo, Gmail and Pipedrive in one place.",
     challenge:
       "1) Por conta do uso de múltiplas plataformas, a informação ficava perdida por falta de integração.\n\n2) Falta de centralização dos processos - cada colaborador fazia à sua maneira.\n\n3) Criar interface mais atrativa que as soluções existentes.",
+    challengeEn:
+      "1) Due to the use of multiple platforms, information was lost due to lack of integration.\n\n2) Lack of process centralization - each employee did things their own way.\n\n3) Create a more attractive interface than existing solutions.",
     solution:
       "1) Metodologia Design Thinking com dual tracking - discovery seguia na frente do desenvolvimento.\n\n2) Unificação de todos os processos em um só local.\n\n3) Criação de componentes usando Minimal UI Kit (baseado em MUI).\n\n4) Pesquisa qualitativa com stakeholders, lideranças e operacionais.",
+    solutionEn:
+      "1) Design Thinking methodology with dual tracking - discovery led ahead of development.\n\n2) Unification of all processes in one place.\n\n3) Component creation using Minimal UI Kit (based on MUI).\n\n4) Qualitative research with stakeholders, leadership, and operations.",
     process:
       "Pesquisa qualitativa, definição de MVP, criação de componentes, protótipo em alta fidelidade, validação com stakeholders e usuários.",
+    processEn:
+      "Qualitative research, MVP definition, component creation, high-fidelity prototype, validation with stakeholders and users.",
     results: "Entrega do MVP, redução de custos operacionais.",
+    resultsEn: "MVP delivery, operational cost reduction.",
     metrics: [
       "No show/assertividade",
       "Índice de qualidade",
@@ -289,6 +349,14 @@ export const projects: Project[] = [
       "Upsell/renovação",
       "Clientes por BDR",
       "Tempo gasto em tarefas",
+    ],
+    metricsEn: [
+      "No show/assertiveness",
+      "Quality index",
+      "Number of appointments",
+      "Upsell/renewal",
+      "Clients per BDR",
+      "Time spent on tasks",
     ],
     thumbnail: "/images/meetz/Produto_-_2022.png",
     images: [

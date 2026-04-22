@@ -13,7 +13,7 @@ export default function Projects() {
     <div className="py-24 bg-[#08080f]">
       <div className="container mx-auto px-4">
         <ScrollAnimate className="mb-12">
-          <p className="section-label mb-2">{d.nav.letsTalk.split(" ")[0]}</p>
+          <p className="section-label mb-2">Work</p>
           <h1 className="section-title text-[#e8e8f4] mb-4">{d.projects.title}</h1>
           <p className="text-lg text-[#7878a0] max-w-xl">
             {d.projects.subtitle}
@@ -24,7 +24,7 @@ export default function Projects() {
         <div className="grid gap-6 md:grid-cols-2">
           {projects.map((project, idx) => (
             <ScrollAnimate key={project.id} delay={idx * 100}>
-              <Link href={`/projects/${project.slug}`}>
+              <Link href={`/en/projects/${project.slug}`}>
                 <article className="card overflow-hidden group h-full">
                   <div className="relative aspect-[16/9] bg-[#18182a] overflow-hidden">
                     <Image
@@ -51,7 +51,7 @@ export default function Projects() {
                       </span>
                     </div>
                     <p className="text-sm text-[#7878a0] line-clamp-2 mb-4">
-                      {project.description}
+                      {project.descriptionEn || project.description}
                     </p>
                     <div className="flex gap-2 flex-wrap">
                       {project.role.map((r) => (

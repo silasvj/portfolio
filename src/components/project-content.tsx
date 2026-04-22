@@ -5,6 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { X, ChevronLeft, ChevronRight, ZoomIn, ZoomOut } from "lucide-react";
 import { projects, ContentBlock } from "@/data/projects";
+import { useDictionary } from "@/i18n/use-dictionary";
 
 function Lightbox({
   images,
@@ -47,7 +48,7 @@ function Lightbox({
       <button
         onClick={onClose}
         className="absolute top-4 right-4 p-2 text-white/70 hover:text-white transition-colors z-10"
-        aria-label="Fechar"
+        aria-label="Close"
       >
         <X size={28} />
       </button>
@@ -55,7 +56,7 @@ function Lightbox({
       <button
         onClick={() => setCurrentIndex((prev) => (prev > 0 ? prev - 1 : images.length - 1))}
         className="absolute left-4 p-3 text-white/70 hover:text-white transition-colors bg-black/30 rounded-full hover:bg-black/50"
-        aria-label="Imagem anterior"
+        aria-label="Previous image"
       >
         <ChevronLeft size={32} />
       </button>
@@ -63,7 +64,7 @@ function Lightbox({
       <button
         onClick={() => setCurrentIndex((prev) => (prev < images.length - 1 ? prev + 1 : 0))}
         className="absolute right-4 p-3 text-white/70 hover:text-white transition-colors bg-black/30 rounded-full hover:bg-black/50"
-        aria-label="Próxima imagem"
+        aria-label="Next image"
       >
         <ChevronRight size={32} />
       </button>
@@ -90,7 +91,7 @@ function Lightbox({
           <button
             onClick={(e) => { e.stopPropagation(); setZoom((z) => Math.max(z - 0.5, 1)); }}
             className="absolute bottom-4 right-4 p-2 text-white/70 hover:text-white transition-colors bg-black/50 rounded-full"
-            aria-label="Diminuir zoom"
+            aria-label="Zoom out"
           >
             <ZoomOut size={24} />
           </button>
@@ -100,7 +101,7 @@ function Lightbox({
           <button
             onClick={(e) => { e.stopPropagation(); setZoom((z) => Math.min(z + 0.5, 3)); }}
             className="absolute bottom-4 right-16 p-2 text-white/70 hover:text-white transition-colors bg-black/50 rounded-full"
-            aria-label="Aumentar zoom"
+            aria-label="Zoom in"
           >
             <ZoomIn size={24} />
           </button>
@@ -217,9 +218,20 @@ function ContentRenderer({
   return <div className="space-y-4">{elements}</div>;
 }
 
-export function ProjectContent({ project }: { project: typeof projects[0] }) {
+export function ProjectContent({ project, lang = "pt" }: { project: typeof projects[0]; lang?: "pt" | "en" }) {
+  const d = useDictionary();
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [lightboxIndex, setLightboxIndex] = useState(0);
+
+  const isEn = lang === "en";
+  
+  const description = isEn && project.descriptionEn ? project.descriptionEn : project.description;
+  const challenge = isEn && project.challengeEn ? project.challengeEn : project.challenge;
+  const solution = isEn && project.solutionEn ? project.solutionEn : project.solution;
+  const process = isEn && project.processEn ? project.processEn : project.process;
+  const results = isEn && project.resultsEn ? project.resultsEn : project.results;
+  const metrics = isEn && project.metricsEn ? project.metricsEn : project.metrics;
+  const content = isEn && project.contentEn ? project.contentEn : project.content;
 
   const handleContentImageClick = (src: string) => {
     const idx = project.images.findIndex((img) => img === src);
@@ -239,15 +251,18 @@ export function ProjectContent({ project }: { project: typeof projects[0] }) {
     alt: `${project.title} - ${idx + 1}`,
   }));
 
+  const projectsLink = lang === "en" ? "/en/projects" : "/projects";
+  const projectLink = lang === "en" ? `/en/projects/${project.slug}` : `/projects/${project.slug}`;
+
   return (
     <>
       <article className="py-20 bg-[#08080f]">
         <div className="container mx-auto px-4">
           <Link
-            href="/projects"
+            href={projectsLink}
             className="inline-flex items-center gap-2 text-[#7878a0] hover:text-[#7c6fff] transition-colors mb-8"
           >
-            ← Voltar para projetos
+            ← {d.projectDetail.back}
           </Link>
 
           <header className="mb-8">
@@ -274,39 +289,39 @@ export function ProjectContent({ project }: { project: typeof projects[0] }) {
 
           <div className="max-w-2xl mx-auto space-y-8">
             <section>
-              <h2 className="section-label mb-3">Overview</h2>
-              <p className="text-base text-[#e8e8f4] leading-relaxed">{project.description}</p>
+              <h2 className="section-label mb-3">{d.projectDetail.overview}</h2>
+              <p className="text-base text-[#e8e8f4] leading-relaxed">{description}</p>
             </section>
 
             <section>
-              <h2 className="section-label mb-3">Desafio</h2>
-              <div className="text-[#7878a0] whitespace-pre-line leading-relaxed">{project.challenge}</div>
+              <h2 className="section-label mb-3">{d.projectDetail.challenge}</h2>
+              <div className="text-[#7878a0] whitespace-pre-line leading-relaxed">{challenge}</div>
             </section>
 
             <section>
-              <h2 className="section-label mb-3">Solução</h2>
-              <div className="text-[#7878a0] whitespace-pre-line leading-relaxed">{project.solution}</div>
+              <h2 className="section-label mb-3">{d.projectDetail.solution}</h2>
+              <div className="text-[#7878a0] whitespace-pre-line leading-relaxed">{solution}</div>
             </section>
 
             <section>
-              <h2 className="section-label mb-3">Processo</h2>
-              <p className="text-[#7878a0]">{project.process}</p>
+              <h2 className="section-label mb-3">{d.projectDetail.process}</h2>
+              <p className="text-[#7878a0]">{process}</p>
             </section>
 
             <section className="card p-6">
-              <h2 className="section-label mb-4">Resultados</h2>
-              <p className="text-xl fw-semibold text-gradient mb-4">{project.results}</p>
+              <h2 className="section-label mb-4">{d.projectDetail.results}</h2>
+              <p className="text-xl fw-semibold text-gradient mb-4">{results}</p>
               <div className="flex gap-2 flex-wrap">
-                {project.metrics.map((metric) => (
+                {metrics.map((metric) => (
                   <span key={metric} className="chip">{metric}</span>
                 ))}
               </div>
             </section>
 
-            {project.content && project.content.length > 0 && (
+            {content && content.length > 0 && (
               <section className="border-t border-[rgba(124,111,255,0.18)] pt-8">
                 <ContentRenderer
-                  content={project.content}
+                  content={content}
                   onImageClick={handleContentImageClick}
                 />
               </section>
@@ -314,7 +329,7 @@ export function ProjectContent({ project }: { project: typeof projects[0] }) {
 
             {project.images.length > 1 && (
               <section className="border-t border-[rgba(124,111,255,0.18)] pt-8">
-                <h2 className="section-label mb-4">Galeria</h2>
+                <h2 className="section-label mb-4">{d.projectDetail.gallery}</h2>
                 <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
                   {project.images.map((img, idx) => (
                     <div
@@ -337,8 +352,8 @@ export function ProjectContent({ project }: { project: typeof projects[0] }) {
             )}
 
             <nav className="flex justify-between gap-4 pt-8 border-t border-[rgba(124,111,255,0.18)]">
-              <Link href="/projects" className="text-sm text-[#7878a0] hover:text-[#7c6fff] transition-colors">
-                Voltar à lista →
+              <Link href={projectsLink} className="text-sm text-[#7878a0] hover:text-[#7c6fff] transition-colors">
+                {d.projectDetail.backToList}
               </Link>
             </nav>
           </div>
