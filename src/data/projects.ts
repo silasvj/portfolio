@@ -138,9 +138,7 @@ description:
       { type: "text", content: "Proactive features usage index — Do users interact with AI agents? Do they use alerts?" },
       { type: "text", content: "+3,000 active client companies across Brazil." },
     ],
-tivas — Usuários interagem com os agentes de IA? Usam os alertas?" },
-      { type: "text", content: "+3.000 empresas clientes ativas em todo o Brasil." },
-    ],
+
   },
 {
     id: "2",
