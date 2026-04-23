@@ -9,7 +9,7 @@ export default function About() {
   const [showGlow, setShowGlow] = useState(false);
 
   useEffect(() => {
-    if (window.location.hash === "#contato") {
+    if (window.location.hash === "#contact") {
       setTimeout(() => {
         setShowGlow(true);
         setTimeout(() => setShowGlow(false), 2000);
@@ -62,7 +62,7 @@ export default function About() {
                 </p>
               </ScrollAnimate>
 
-              <div id="contato" className={showGlow ? "contact-glow" : ""}>
+              <div id="contact" className={showGlow ? "contact-glow" : ""}>
                 <ScrollAnimate delay={350}>
                   <p className="section-label mb-6">{d.contact.contact}</p>
                   <div className="flex gap-4 flex-wrap items-center">

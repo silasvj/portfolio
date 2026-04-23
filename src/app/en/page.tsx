@@ -1,8 +1,7 @@
 "use client";
 
-"use client";
-
 import Link from "next/link";
+
 import Image from "next/image";
 import { projects } from "@/data/projects";
 import { ScrollAnimate } from "@/components/scroll-animate";
@@ -190,7 +189,8 @@ export default function Home() {
 
       {/* Skills Section */}
       <section id="skills" className="py-24">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-4 max-w-5xl">
+
           <ScrollAnimate className="mb-12">
             <p className="section-label mb-2">{d.skills.title}</p>
             <h2 className="section-title text-[#e8e8f4]">{d.skills.subtitle}</h2>

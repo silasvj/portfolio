@@ -69,7 +69,7 @@ export function Header() {
         <div className="flex items-center gap-4">
           <LanguageSwitcher />
           <Link
-            href={isEn ? "/en/about#contact" : "/about#contact"}
+            href={isEn ? "/en/about#contact" : "/about#contato"}
             className="btn btn-primary text-sm py-2 px-4"
           >
             {isEn ? "Let's talk" : "Fale comigo"}

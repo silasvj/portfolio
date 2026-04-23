@@ -19,7 +19,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 
   return {
     title: `${project.title} | Silas Vasques`,
-    description: project.description,
+    description: project.descriptionEn || project.description,
   };
 }
 
