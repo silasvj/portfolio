@@ -5,6 +5,8 @@ import Image from "next/image";
 import { projects } from "@/data/projects";
 import { ScrollAnimate } from "@/components/scroll-animate";
 import { useDictionary } from "@/i18n/use-dictionary";
+import { getImagePath } from "@/utils/get-image-path";
+
 
 export default function Projects() {
   const d = useDictionary();
@@ -28,8 +30,9 @@ export default function Projects() {
                 <article className="card overflow-hidden group h-full">
                   <div className="relative aspect-[16/9] bg-[#18182a] overflow-hidden">
                     <Image
-                      src={project.thumbnail}
+                      src={getImagePath(project.thumbnail)}
                       alt={project.title}
+
                       fill
                       sizes="(max-width: 768px) 100vw, 50vw"
                       loading="lazy"

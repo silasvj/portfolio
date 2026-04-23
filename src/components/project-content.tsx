@@ -6,6 +6,8 @@ import Image from "next/image";
 import { X, ChevronLeft, ChevronRight, ZoomIn, ZoomOut } from "lucide-react";
 import { projects, ContentBlock } from "@/data/projects";
 import { useDictionary } from "@/i18n/use-dictionary";
+import { getImagePath } from "@/utils/get-image-path";
+
 
 function Lightbox({
   images,
@@ -78,8 +80,9 @@ function Lightbox({
           style={{ transform: `scale(${zoom})` }}
         >
           <Image
-            src={currentImage.src}
+            src={getImagePath(currentImage.src)}
             alt={currentImage.alt}
+
             width={1200}
             height={800}
             className="max-w-[90vw] max-h-[75vh] w-auto h-auto object-contain"
@@ -166,8 +169,9 @@ function ContentRenderer({
           >
             <div className="relative aspect-video bg-[#10101a] rounded-lg overflow-hidden">
               <Image
-                src={block.content}
+                src={getImagePath(block.content)}
                 alt={block.caption || ""}
+
                 fill
                 sizes="(max-width: 768px) 100vw, 672px"
                 className="object-contain hover:scale-105 transition-transform duration-300"
@@ -198,8 +202,9 @@ function ContentRenderer({
               >
                 <div className="relative aspect-video bg-[#10101a] rounded-lg overflow-hidden">
                   <Image
-                    src={imgBlock.content}
+                    src={getImagePath(imgBlock.content)}
                     alt={imgBlock.caption || ""}
+
                     fill
                     sizes={`(max-width: 768px) ${100/gridCols}vw, ${672/gridCols}px`}
                     className="object-cover hover:scale-105 transition-transform duration-300"
@@ -279,8 +284,9 @@ export function ProjectContent({ project, lang = "pt" }: { project: typeof proje
             onClick={() => handleGalleryClick(0)}
           >
             <Image
-              src={project.images[0]}
+              src={getImagePath(project.images[0])}
               alt={project.title}
+
               fill
               sizes="(max-width: 768px) 100vw, 1200px"
               className="object-contain hover:scale-[1.02] transition-transform duration-500"
@@ -338,8 +344,9 @@ export function ProjectContent({ project, lang = "pt" }: { project: typeof proje
                       onClick={() => handleGalleryClick(idx)}
                     >
                       <Image
-                        src={img}
+                        src={getImagePath(img)}
                         alt={`${project.title} - ${idx + 1}`}
+
                         fill
                         sizes="(max-width: 768px) 50vw, 33vw"
                         loading="lazy"
