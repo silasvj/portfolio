@@ -64,15 +64,14 @@ export default function About() {
               <div id="contato" className={showGlow ? "contact-glow" : ""}>
                 <ScrollAnimate delay={350}>
                   <p className="section-label mb-6">{d.contact.contact}</p>
-                  <div className="flex gap-4 flex-wrap">
+                  <div className="flex gap-4 flex-wrap items-center">
                     <a
                       href="mailto:silasvj@gmail.com"
                       className="text-[#00e5ff] hover:text-[#7c6fff] transition-colors text-lg font-semibold"
                     >
                       silasvj@gmail.com
                     </a>
-                  </div>
-                  <div className="flex gap-4 flex-wrap mt-4">
+                    <span className="text-[#7878a0]">|</span>
                     <a
                       href="https://linkedin.com/in/silasvasques"
                       target="_blank"
@@ -82,6 +81,7 @@ export default function About() {
                       {d.contact.linkedin}
                     </a>
                   </div>
+
                 </ScrollAnimate>
               </div>
 
