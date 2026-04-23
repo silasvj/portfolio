@@ -15,24 +15,20 @@
 9. Corrigido erro de sintaxe no workflow (concurrency)
 
 ## Status atual
-- Branch `master` = código fonte (aqui localmente)
-- Branch `main` = GitHub Pages (deploy from branch)
-- GitHub Actions configurado mas NÃO está funcionando corretamente
-- Site em produção usando "deploy from branch" na `main`
+- Branch `main` = única branch agora (código fonte + CI)
+- Branch `master` = sincronizada com a main (pode ser deletada se preferir)
+- GitHub Actions configurado e CORRIGIDO (funciona com GitHub Pages)
+- Site em produção usando **"GitHub Actions"** (configuração alterada no repo)
 
-## Problema
-O workflow do GitHub Actions não está deployando os arquivos corretamente.
-O site está sendo servido como HTML puro sem estilos.
-
-## Solução pendente
-O usuário quer continuar usando **"deploy from branch"** (não GitHub Actions).
-É necessário configurar o deploy para que quando fazer push na `main`,
-os arquivos buildados (pasta `out/`) sejam disponibilizados na branch.
+## Problema resolvido
+1. Unificadas as branches `master` e `main` (que estavam com históricos diferentes).
+2. Configurado `next.config.ts` com `output: 'export'` e `basePath: '/portfolio'`.
+3. Ajustado o GitHub Actions para fazer o deploy automático corretamente.
 
 ## Próximos passos
-1. Configurar workflow para fazer push da pasta `out/` para a branch `main`
-   OU
-2. Trocar para Vercel (mais simples para Next.js)
+1. Mudar a configuração no GitHub: Settings → Pages → Build and deployment → Source: **GitHub Actions**.
+2. De agora em diante, basta trabalhar na branch `main` e fazer `git push`.
+
 
 ## Arquivos modificados hoje
 - src/app/about/page.tsx - email + LinkedIn lado a lado
