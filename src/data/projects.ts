@@ -74,12 +74,19 @@ description:
     thumbnail: "/images/yampa/image.png",
     images: [
       "/images/yampa/image.png",
+      "/images/yampa/yampa-hero.png",
       "/images/yampa/80bb8dae-9482-4f77-8a3b-06797c3ddd33.png",
+      "/images/yampa/TELA_LOGIN.png",
+      "/images/yampa/TELA_RESUMO_FINANCEIRO.png",
+      "/images/yampa/TELA_ANALISE.png",
+      "/images/yampa/TELA_INTEGRACAO.png",
       "/images/yampa/Captura_de_tela_2026-04-16_161552-horz.png",
       "/images/yampa/582901726_18137054659462405_7238560801657388066_n-horz.png",
+
     ],
     content: [
-      { type: "image", content: "/images/yampa/80bb8dae-9482-4f77-8a3b-06797c3ddd33.png" },
+      { type: "image", content: "/images/yampa/yampa-hero.png" },
+
       { type: "text", content: "Feitos Realizados" },
       { type: "text", content: "Reformulação completa do onboarding do zero, resolvendo problemas críticos de usabilidade identificados em testes com usuários." },
       { type: "text", content: "Criação da arquitetura de navegação por \"Áreas de Atuação\" (Controle, Monitore, Entenda, Execute), alinhada com a jornada mental do usuário — não com estrutura técnica de ERP." },

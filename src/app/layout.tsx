@@ -5,9 +5,10 @@ import { CursorProvider } from "@/components/cursor-provider";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Silas Vasques — AI Designer Engineer",
+  title: "Silas Vasques — AI Design Engineer",
   description: "Product Designer com 8 anos de experiência. Projeto, valido e entrego no código.",
 };
+
 
 export default function RootLayout({
   children,

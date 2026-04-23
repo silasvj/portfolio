@@ -22,10 +22,12 @@ function Lightbox({
 }) {
   const [currentIndex, setCurrentIndex] = useState(initialIndex);
   const [zoom, setZoom] = useState(1);
+  const [mousePos, setMousePos] = useState({ x: 50, y: 50 });
 
   useEffect(() => {
     setCurrentIndex(initialIndex);
     setZoom(1);
+    setMousePos({ x: 50, y: 50 });
   }, [initialIndex, isOpen]);
 
   useEffect(() => {
@@ -45,88 +47,103 @@ function Lightbox({
 
   const currentImage = images[currentIndex];
 
+  const handleMouseMove = (e: React.MouseEvent) => {
+    if (zoom <= 1) return;
+    const rect = e.currentTarget.getBoundingClientRect();
+    const x = ((e.clientX - rect.left) / rect.width) * 100;
+    const y = ((e.clientY - rect.top) / rect.height) * 100;
+    setMousePos({ x, y });
+  };
+
   return (
-    <div className="fixed inset-0 z-50 bg-black/95 flex items-center justify-center">
+    <div 
+      className="fixed inset-0 z-[100] bg-black/95 flex items-center justify-center cursor-zoom-out"
+      onClick={onClose}
+    >
+
+      {/* Botão de Fechar mais visível */}
       <button
-        onClick={onClose}
-        className="absolute top-4 right-4 p-2 text-white/70 hover:text-white transition-colors z-10"
+        onClick={(e) => { e.stopPropagation(); onClose(); }}
+        className="absolute top-24 right-6 p-3 text-white/70 hover:text-white transition-all z-10 bg-white/10 hover:bg-white/20 rounded-full border border-white/10"
         aria-label="Close"
       >
-        <X size={28} />
+
+        <X size={32} />
       </button>
 
       <button
-        onClick={() => setCurrentIndex((prev) => (prev > 0 ? prev - 1 : images.length - 1))}
-        className="absolute left-4 p-3 text-white/70 hover:text-white transition-colors bg-black/30 rounded-full hover:bg-black/50"
+        onClick={(e) => { e.stopPropagation(); setCurrentIndex((prev) => (prev > 0 ? prev - 1 : images.length - 1)); }}
+        className="absolute left-6 p-4 text-white/70 hover:text-white transition-all bg-black/40 rounded-full hover:bg-black/60 border border-white/5 z-10"
         aria-label="Previous image"
       >
-        <ChevronLeft size={32} />
+        <ChevronLeft size={36} />
       </button>
 
       <button
-        onClick={() => setCurrentIndex((prev) => (prev < images.length - 1 ? prev + 1 : 0))}
-        className="absolute right-4 p-3 text-white/70 hover:text-white transition-colors bg-black/30 rounded-full hover:bg-black/50"
+        onClick={(e) => { e.stopPropagation(); setCurrentIndex((prev) => (prev < images.length - 1 ? prev + 1 : 0)); }}
+        className="absolute right-6 p-4 text-white/70 hover:text-white transition-all bg-black/40 rounded-full hover:bg-black/60 border border-white/5 z-10"
         aria-label="Next image"
       >
-        <ChevronRight size={32} />
+        <ChevronRight size={36} />
       </button>
 
       <div
-        className="relative w-full h-full max-w-[90vw] max-h-[85vh] flex items-center justify-center overflow-hidden"
-        onClick={() => setZoom((z) => Math.min(z + 0.5, 3))}
+        className={`relative w-full h-full max-w-[90vw] max-h-[85vh] flex items-center justify-center overflow-hidden transition-cursor ${zoom > 1 ? "cursor-move" : "cursor-zoom-in"}`}
+        onClick={(e) => {
+          e.stopPropagation();
+          setZoom((z) => (z === 1 ? 2.5 : 1));
+        }}
+        onMouseMove={handleMouseMove}
       >
         <div
-          className="relative transition-transform duration-200"
-          style={{ transform: `scale(${zoom})` }}
+          className="relative transition-transform duration-200 ease-out"
+          style={{ 
+            transform: `scale(${zoom})`,
+            transformOrigin: `${mousePos.x}% ${mousePos.y}%`
+          }}
         >
           <Image
             src={getImagePath(currentImage.src)}
             alt={currentImage.alt}
-
             width={1200}
             height={800}
-            className="max-w-[90vw] max-h-[75vh] w-auto h-auto object-contain"
+            className="max-w-[90vw] max-h-[75vh] w-auto h-auto object-contain pointer-events-none"
             priority
           />
         </div>
 
         {zoom > 1 && (
-          <button
-            onClick={(e) => { e.stopPropagation(); setZoom((z) => Math.max(z - 0.5, 1)); }}
-            className="absolute bottom-4 right-4 p-2 text-white/70 hover:text-white transition-colors bg-black/50 rounded-full"
-            aria-label="Zoom out"
-          >
-            <ZoomOut size={24} />
-          </button>
-        )}
-
-        {zoom < 3 && (
-          <button
-            onClick={(e) => { e.stopPropagation(); setZoom((z) => Math.min(z + 0.5, 3)); }}
-            className="absolute bottom-4 right-16 p-2 text-white/70 hover:text-white transition-colors bg-black/50 rounded-full"
-            aria-label="Zoom in"
-          >
-            <ZoomIn size={24} />
-          </button>
+          <div className="absolute bottom-10 right-10 flex gap-2">
+            <button
+              onClick={(e) => { e.stopPropagation(); setZoom(1); }}
+              className="p-2 text-white/70 hover:text-white transition-colors bg-black/50 rounded-full border border-white/10"
+              aria-label="Reset zoom"
+            >
+              <ZoomOut size={24} />
+            </button>
+          </div>
         )}
       </div>
 
-      <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex items-center gap-2">
+      <div 
+        className="absolute bottom-6 left-1/2 -translate-x-1/2 flex items-center gap-3 p-2 bg-black/20 backdrop-blur-md rounded-full border border-white/5"
+        onClick={(e) => e.stopPropagation()}
+      >
         {images.map((_, idx) => (
           <button
             key={idx}
-            onClick={() => setCurrentIndex(idx)}
-            className={`w-2 h-2 rounded-full transition-all ${
-              idx === currentIndex ? "bg-white w-6" : "bg-white/40 hover:bg-white/60"
+            onClick={(e) => { e.stopPropagation(); setCurrentIndex(idx); }}
+            className={`h-2 rounded-full transition-all duration-300 ${
+              idx === currentIndex ? "bg-white w-8" : "bg-white/20 w-2 hover:bg-white/40"
             }`}
           />
         ))}
       </div>
 
       {currentImage.caption && (
-        <div className="absolute top-4 left-1/2 -translate-x-1/2 text-center">
-          <p className="text-white/80 text-sm">{currentImage.caption}</p>
-          <p className="text-white/50 text-xs mt-1">
+        <div className="absolute top-8 left-1/2 -translate-x-1/2 text-center pointer-events-none">
+          <p className="text-white/90 text-base font-medium">{currentImage.caption}</p>
+          <p className="text-white/40 text-xs mt-1 uppercase tracking-widest">
             {currentIndex + 1} / {images.length}
           </p>
         </div>
@@ -135,6 +152,8 @@ function Lightbox({
   );
 }
 
+
+
 function ContentRenderer({
   content,
   onImageClick,
@@ -142,6 +161,7 @@ function ContentRenderer({
   content: typeof projects[0]["content"];
   onImageClick: (src: string) => void;
 }) {
+
   const blocks = content || [];
   const elements: ReactElement[] = [];
   
@@ -262,7 +282,8 @@ export function ProjectContent({ project, lang = "pt" }: { project: typeof proje
   return (
     <>
       <article className="py-20 bg-[#08080f]">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-4 max-w-5xl">
+
           <Link
             href={projectsLink}
             className="inline-flex items-center gap-2 text-[#7878a0] hover:text-[#7c6fff] transition-colors mb-8"
@@ -293,7 +314,8 @@ export function ProjectContent({ project, lang = "pt" }: { project: typeof proje
             />
           </div>
 
-          <div className="max-w-2xl mx-auto space-y-8">
+          <div className="max-w-3xl mx-auto space-y-8">
+
             <section>
               <h2 className="section-label mb-3">{d.projectDetail.overview}</h2>
               <p className="text-base text-[#e8e8f4] leading-relaxed">{description}</p>

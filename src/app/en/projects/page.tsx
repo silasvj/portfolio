@@ -5,13 +5,16 @@ import Image from "next/image";
 import { projects } from "@/data/projects";
 import { ScrollAnimate } from "@/components/scroll-animate";
 import { useDictionary } from "@/i18n/use-dictionary";
+import { getImagePath } from "@/utils/get-image-path";
+
 
 export default function Projects() {
   const d = useDictionary();
 
   return (
     <div className="py-24 bg-[#08080f]">
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-4 max-w-5xl">
+
         <ScrollAnimate className="mb-12">
           <p className="section-label mb-2">Work</p>
           <h1 className="section-title text-[#e8e8f4] mb-4">{d.projects.title}</h1>
@@ -28,7 +31,8 @@ export default function Projects() {
                 <article className="card overflow-hidden group h-full">
                   <div className="relative aspect-[16/9] bg-[#18182a] overflow-hidden">
                     <Image
-                      src={project.thumbnail}
+                      src={getImagePath(project.thumbnail)}
+
                       alt={project.title}
                       fill
                       sizes="(max-width: 768px) 100vw, 50vw"

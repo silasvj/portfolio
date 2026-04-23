@@ -61,7 +61,8 @@ export default function Experience() {
   return (
     <div id="exp" className="py-24 bg-[#08080f]">
       <div className="container mx-auto px-4">
-        <div className="max-w-4xl">
+        <div className="max-w-5xl mx-auto">
+
           <ScrollAnimate className="mb-12">
             <p className="section-label mb-2">{d.about.experience}</p>
             <h1 className="section-title text-[#e8e8f4] mb-6">Experience</h1>

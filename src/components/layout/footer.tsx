@@ -15,11 +15,11 @@ export function Footer() {
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row justify-between items-center gap-8">
           <div className="flex flex-col items-center md:items-start gap-2 text-center md:text-left">
-            <Link href="/" className="text-lg font-bold tracking-wider text-gradient">
-              SV.
+            <Link href="/" className="text-xl font-bold tracking-wider text-gradient">
+              Silas Vasques
             </Link>
             <p className="text-sm text-[#7878a0]">
-              AI Designer Engineer · Fortaleza/CE · {currentYear}
+              Product Designer | AI Design Engineer · Fortaleza/CE · {currentYear}
             </p>
           </div>
           <div className="flex gap-6">
@@ -32,7 +32,7 @@ export function Footer() {
               LinkedIn ↗
             </a>
             <a
-              href="https://silasvj.notion.site/Portf-lio-Silas-Vasques"
+              href="https://www.notion.so/silasvj/Silas-Vasques-Meu-Portf-lio-como-Designer-e3513e4b53964d17a461813f30896c5a"
               target="_blank"
               rel="noopener noreferrer"
               className="text-sm text-[#7878a0] hover:text-[#7c6fff] transition-colors"
@@ -47,12 +47,8 @@ export function Footer() {
             </a>
           </div>
         </div>
-        <div className="mt-8 pt-8 border-t border-[rgba(124,111,255,0.18)] text-center">
-          <p className="text-sm text-[#7878a0]">
-            Silas Vasques · AI Designer Engineer · {currentYear}
-          </p>
-        </div>
       </div>
     </footer>
+
   );
 }

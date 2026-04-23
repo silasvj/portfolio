@@ -13,7 +13,8 @@ export default function Projects() {
 
   return (
     <div className="py-24 bg-[#08080f]">
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-4 max-w-5xl">
+
         <ScrollAnimate className="mb-12">
           <p className="section-label mb-2">{d.nav.letsTalk.split(" ")[0]}</p>
           <h1 className="section-title text-[#e8e8f4] mb-4">{d.projects.title}</h1>

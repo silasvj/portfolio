@@ -86,17 +86,21 @@ export default function Home() {
       {/* Featured Case - Yampa */}
       <section id="projects" className="py-24 bg-[#10101a] border-t border-[rgba(124,111,255,0.18)]">
         <div className="container mx-auto px-4 max-w-5xl">
-          <div className="mb-8">
-            <Link href="/en/projects" className="btn btn-outline">
-              {d.featured.viewAll}
-            </Link>
+          <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-4 mb-8">
+            <ScrollAnimate>
+              <p className="section-label mb-2">{d.featured.title}</p>
+              <h2 className="section-title text-[#e8e8f4] mb-0">{d.featured.yampa}</h2>
+            </ScrollAnimate>
+            <ScrollAnimate delay={100}>
+              <Link href="/en/projects" className="btn btn-outline">
+                {d.featured.viewAll}
+              </Link>
+            </ScrollAnimate>
           </div>
-
           <ScrollAnimate>
-            <p className="section-label mb-2">{d.featured.title}</p>
-            <h2 className="section-title text-[#e8e8f4]">{d.featured.yampa}</h2>
             <div className="section-line mb-8" />
           </ScrollAnimate>
+
 
           <div className="grid md:grid-cols-2 gap-8 items-center mb-12">
             <ScrollAnimate delay={100}>
@@ -112,7 +116,7 @@ export default function Home() {
                   {d.featured.description2}
                 </p>
                 <a 
-                  href="https://silasvj.notion.site/Portf-lio-Silas-Vasques-e3513e4b53964d17a461813f30896c5a" 
+                  href="https://www.notion.so/silasvj/Silas-Vasques-Meu-Portf-lio-como-Designer-e3513e4b53964d17a461813f30896c5a" 
                   target="_blank" 
                   rel="noopener noreferrer" 
                   className="btn btn-outline"
@@ -164,13 +168,14 @@ export default function Home() {
           {/* Phases */}
           <div className="grid md:grid-cols-3 gap-4">
             {[
-              { n: d.phases.phase1, t: "Discovery", d: d.phases.phase1Desc },
-              { n: d.phases.phase2, t: "Synthesis & PRD", d: d.phases.phase2Desc },
-              { n: d.phases.phase3, t: "Ideation", d: d.phases.phase3Desc },
-              { n: d.phases.phase4, t: "Validation", d: d.phases.phase4Desc },
-              { n: d.phases.phase5, t: "Vibe Coding", d: d.phases.phase5Desc },
-              { n: d.phases.phase6, t: "Launch", d: d.phases.phase6Desc },
+              { n: "Phase 1", t: d.phases.phase1, d: d.phases.phase1Desc },
+              { n: "Phase 2", t: d.phases.phase2, d: d.phases.phase2Desc },
+              { n: "Phase 3", t: d.phases.phase3, d: d.phases.phase3Desc },
+              { n: "Phase 4", t: d.phases.phase4, d: d.phases.phase4Desc },
+              { n: "Phase 5", t: d.phases.phase5, d: d.phases.phase5Desc },
+              { n: "Phase 6", t: d.phases.phase6, d: d.phases.phase6Desc },
             ].map((phase, idx) => (
+
               <ScrollAnimate key={phase.n} delay={450 + idx * 50}>
                 <div className="card p-4">
                   <p className="text-xs uppercase tracking-wider text-[#00e5ff] mb-2">{phase.n}</p>

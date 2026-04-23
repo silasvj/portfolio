@@ -18,7 +18,8 @@ export default function Skills() {
 
   return (
     <div id="skills" className="py-24 bg-[#08080f]">
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-4 max-w-5xl">
+
         <ScrollAnimate className="mb-12">
           <p className="section-label mb-2">{d.skills.title}</p>
           <h1 className="section-title text-[#e8e8f4] mb-6">Skills</h1>

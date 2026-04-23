@@ -20,7 +20,8 @@ export default function About() {
   return (
     <div id="about" className="py-24 bg-[#08080f]">
       <div className="container mx-auto px-4">
-        <div className="max-w-4xl">
+        <div className="max-w-5xl mx-auto">
+
           <div className="grid md:grid-cols-[260px_1fr] gap-16 items-start">
             <ScrollAnimate className="mb-12 md:mb-0">
               <div className="w-[260px] h-[260px] rounded-2xl bg-[#18182a] border border-[rgba(124,111,255,0.18)] flex items-center justify-center relative">
