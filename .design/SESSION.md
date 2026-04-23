@@ -1,111 +1,50 @@
-# Session Context — Portfolio Silas Vasques
+# Session - Portfolio Build
 
-> Este arquivo resume o estado atual do projeto e pode ser usado para continuar em outra sessão.
+## Última atualização
+22/04/2026
 
-## Estado do Projeto
+## O que fizemos hoje
+1. Adicionado i18n (português/inglês) com dicionários JSON
+2. Criadas versões EN de todas as páginas
+3. Adicionado seletor de idioma no header
+4. Unificado /about e /contact (removida página de contato)
+5. Adicionado /experience com conteúdo do currículo
+6. Ajuste de espaçamento entre botão LinkedIn e tags de skills (mt-16)
+7. LinkedIn ao lado do email com separador "|"
+8. Configurado GitHub Actions para build e deploy automático
+9. Corrigido erro de sintaxe no workflow (concurrency)
 
-**Phase:** Planejamento completo — pronto para implementação
+## Status atual
+- Branch `master` = código fonte (aqui localmente)
+- Branch `main` = GitHub Pages (deploy from branch)
+- GitHub Actions configurado mas NÃO está funcionando corretamente
+- Site em produção usando "deploy from branch" na `main`
 
-## Decisões Tomadas
+## Problema
+O workflow do GitHub Actions não está deployando os arquivos corretamente.
+O site está sendo servido como HTML puro sem estilos.
 
-- Stack: Next.js + TypeScript + Tailwind CSS
-- Hospedagem: Vercel + GitHub
-- Seções: Home, Projetos, Sobre, Skills, Contato
-- Nome do projeto: Pendente (sugestão necessária)
-- Conteúdo: Extraído e organizado
+## Solução pendente
+O usuário quer continuar usando **"deploy from branch"** (não GitHub Actions).
+É necessário configurar o deploy para que quando fazer push na `main`,
+os arquivos buildados (pasta `out/`) sejam disponibilizados na branch.
 
-## Conteúdo Coletado
+## Próximos passos
+1. Configurar workflow para fazer push da pasta `out/` para a branch `main`
+   OU
+2. Trocar para Vercel (mais simples para Next.js)
 
-### Currículo/LinkedIn
-- Status: ✅ Preenchido (via currículo.md)
-- Experiências: Yampa (Design Engineer), Meetz (Product Designer), SiMCo (Product/UX Designer)
-- Formação: Design — UFC, Certificações Google/UX
+## Arquivos modificados hoje
+- src/app/about/page.tsx - email + LinkedIn lado a lado
+- src/app/en/about/page.tsx - mesma modificação
+- src/i18n/pt.json, src/i18n/en.json - traduções
+- src/components/layout/header.tsx - language switcher
+- .github/workflows/deploy.yml - GitHub Actions
 
-### Projetos (4 casos)
-1. **Saúde Mental** — SiMCo (Mobile App) — 2022
-2. **Plataforma Call Center** — SiMCo (Web) — 2022
-3. **Plataforma Prospecção** — Meetz (Web) — 2023
-4. **Yampa 2.0** — Yampa (Fintech) — 2023-2026
+## Configuração GitHub Pages
+- Settings → Pages → Source: **Deploy from a branch**
+- Branch: **main** (/ (root))
 
-### Imagens
-- Status: ✅ Presentes em `.conteudo/`
-- Total: ~50+ imagens organizadas por projeto
-
-## Estrutura de Arquivos
-
-```
-portfolio/
-├── .gitignore                    # Ignora .design/
-├── .design/                      # Documentação (NÃO vai para GitHub)
-│   ├── SPEC.md                  # Especificação completa do site
-│   ├── LINKEDIN-DATA.md         # Template para dados do LinkedIn
-│   ├── NOTION-DATA.md           # Checklist de projetos do Notion
-│   └── SESSION.md               # Este arquivo de contexto
-└── (futuro: código React...)
-```
-
-## Pendências
-
-- [x] Definir nome do projeto: "portfolio silas vasques"
-- [ ] Definir referências visuais
-- [x] Criar .gitignore com `.design/`
-- [x] Setup Next.js + Tailwind
-- [x] Implementar páginas
-
-## Stack Técnica
-
-- Next.js 16.2.4 (App Router)
-- TypeScript
-- Tailwind CSS v4
-- shadcn/ui
-- Vercel (deploy)
-
-## Implementação Concluída
-
-- [] Layout base (Header, Footer) ✅
-- [] Home (/): Hero, projetos em destaque, CTA ✅
-- [] /projects: Galeria de projetos ✅
-- [] /projects/[slug]: Case study individual ✅
-- [] /about: Sobre, experiência ✅
-- [] /skills: Habilidades ✅
-- [] /contact: Formulário + links ✅
-- [] API de contato (/api/contact) ✅
-- [] SEO metadata ✅
-- [] Build successful ✅
-
-## Git
-
-- **Repo**: https://github.com/silasvj/portfolio
-- **Branch**: master
-
-## Deploy
-
-- **Preview**: https://portfolio-bhtwmedh4-silas-projects-da63668c.vercel.app
-- **Vercel**: conecta via git (push trigga deploy)
-
-## Próximo Passo
-
-1. Conectar repo GitHub no Vercel para deploys automáticos
-
-## Design System Atual
-
-- **File**: DESIGN.md (atualizado com estilo dark completo)
-- **Palette**: #08080f (bg), #7c6fff (purple), #00e5ff (cyan), #e8e8f4 (text)
-- **Effects**: Custom cursor lerp, Grid pattern, Glassmorphism nav, Scroll animations
-- **Components**: Cards (12px), Chips pill, Skill bars gradient, Exp accent border-left cyan
-
----
-
-## Histórico da Sessão
-
-**Data:** 2026-04-17
-**Usuário:** Silas Vasques (Product/UX/UI Designer)
-**Stack pretendida:** Next.js, TypeScript, Tailwind
-
-**Perguntas feitas:**
-- Nome do projeto → Precisa de sugestão
-- Seções → Projetos + Sobre + Skills + Contato
-- Branding → Tem referências (pendentes)
-- Conteúdo → LinkedIn + Notion (pendentes acesso)
-
-**Resultado:** Arquivos organizados em `.design/`, esperando preenchimento de dados.
+## URLs do site
+- Produção: https://silasvj.github.io/portfolio/
+- Repo: https://github.com/silasvj/portfolio
