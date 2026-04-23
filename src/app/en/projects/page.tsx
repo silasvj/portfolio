@@ -48,7 +48,7 @@ export default function Projects() {
                   <div className="p-6">
                     <div className="flex justify-between items-start mb-3">
                       <h2 className="text-xl fw-semibold text-[#e8e8f4] group-hover:text-[#7c6fff] transition-colors">
-                        {project.title}
+                        {project.titleEn || project.title}
                       </h2>
                       <span className="text-xs px-3 py-1 rounded border border-[rgba(124,111,255,0.18)] text-[#7878a0]">
                         {project.year}

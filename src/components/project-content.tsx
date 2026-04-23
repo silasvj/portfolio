@@ -250,7 +250,9 @@ export function ProjectContent({ project, lang = "pt" }: { project: typeof proje
 
   const isEn = lang === "en";
   
+  const title = isEn && project.titleEn ? project.titleEn : project.title;
   const description = isEn && project.descriptionEn ? project.descriptionEn : project.description;
+
   const challenge = isEn && project.challengeEn ? project.challengeEn : project.challenge;
   const solution = isEn && project.solutionEn ? project.solutionEn : project.solution;
   const process = isEn && project.processEn ? project.processEn : project.process;
@@ -273,8 +275,9 @@ export function ProjectContent({ project, lang = "pt" }: { project: typeof proje
 
   const lightboxImages = project.images.map((src, idx) => ({
     src,
-    alt: `${project.title} - ${idx + 1}`,
+    alt: `${title} - ${idx + 1}`,
   }));
+
 
   const projectsLink = lang === "en" ? "/en/projects" : "/projects";
   const projectLink = lang === "en" ? `/en/projects/${project.slug}` : `/projects/${project.slug}`;
@@ -296,7 +299,8 @@ export function ProjectContent({ project, lang = "pt" }: { project: typeof proje
               <span className="text-xs px-3 py-1 rounded bg-[#10101a] text-[#00e5ff]">{project.year}</span>
               <span className="text-xs px-3 py-1 rounded border border-[rgba(124,111,255,0.18)] text-[#7878a0]">{project.category}</span>
             </div>
-            <h1 className="text-4xl md:text-5xl fw-bold text-[#e8e8f4] mb-3">{project.title}</h1>
+            <h1 className="text-4xl md:text-5xl fw-bold text-[#e8e8f4] mb-3">{title}</h1>
+
             <p className="text-lg text-[#7878a0]">{project.company}</p>
           </header>
 

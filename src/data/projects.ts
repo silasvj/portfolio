@@ -8,7 +8,9 @@ export interface Project {
   id: string;
   slug: string;
   title: string;
+  titleEn?: string;
   company: string;
+
   year: string;
   role: string[];
   category: string;
@@ -35,6 +37,8 @@ export const projects: Project[] = [
     id: "4",
     slug: "yampa-2",
     title: "Yampa 2.0",
+    titleEn: "Yampa 2.0",
+
     company: "Yampa (Fintech)",
     year: "2023-2026",
     role: ["Product Designer", "UI/UX"],
@@ -144,6 +148,8 @@ description:
     id: "2",
     slug: "plataforma-call-center",
     title: "Plataforma de Atendimento para Call Center",
+    titleEn: "Call Center Service Platform",
+
     company: "SiMCo — Healthcare",
     year: "2022",
     role: ["UI Design", "UX Design"],
@@ -341,6 +347,8 @@ description:
     id: "1",
     slug: "saude-mental",
     title: "Saúde Mental",
+    titleEn: "Mental Health",
+
     company: "SiMCo — Healthcare",
     year: "2022",
     role: ["UI Design", "UX Design"],
@@ -451,6 +459,8 @@ description:
     id: "3",
     slug: "plataforma-prospeccao",
     title: "Plataforma de Operações de Prospecção",
+    titleEn: "Prospecting Operations Platform",
+
     company: "Meetz (MarTech)",
     year: "2023",
     role: ["UI Design", "UX Design"],
