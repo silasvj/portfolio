@@ -208,7 +208,9 @@ export default function Home() {
               { name: "Tailwind CSS", pct: "Expert", level: 92, cat: "Design Systems com conformidade" },
               { name: "AI Orchestration", pct: "Avançado", level: 85, cat: "Claude Code · LLMs" },
               { name: "UX Research", pct: "Expert", level: 93, cat: "JTBD · Entrevistas" },
-              { name: "AI Design de Agentes", pct: "Avançado", level: 82, cat: "UX para produtos de IA" },
+              { name: "AI Agents Design", pct: "Avançado", level: 82, cat: "UX para produtos de IA" },
+              { name: "UX Writing", pct: "Avançado", level: 78, cat: "Conteúdo focado no usuário" },
+              { name: "Discovery & JTBD", pct: "Expert", level: 90, cat: "Research qualitativa" },
             ].map((skill, idx) => (
               <ScrollAnimate key={skill.name} delay={idx * 50}>
                 <div className="card p-5">

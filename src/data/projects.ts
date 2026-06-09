@@ -626,10 +626,14 @@ export const skills = {
     "Design Systems",
     "Front-end Development (TypeScript, React, Tailwind)",
     "AI-Driven Design",
+    "AI Agents Design",
     "Figma",
+    "Figma Make",
     "Prototyping",
+    "UX Writing",
     "Usability Testing",
     "Qualitative Research",
+    "Discovery & JTBD",
   ],
   soft: [
     "Creativity",
@@ -640,7 +644,7 @@ export const skills = {
     "Leadership",
     "Collaboration",
   ],
-  languages: ["English B2"],
+  languages: ["English (Professional Working)"],
 };
 
 export const experience = [
@@ -657,8 +661,16 @@ export const experience = [
     role: "Product Designer",
     period: "06/2023 - 12/2025",
     description:
-      "Conception of AI Agents integrated into the platform, mobile first migration, Design System.",
+      "Conception of AI Agents (Yago & Yana) integrated into the platform, mobile first migration, Design System, Product Analytics.",
     results: "Successful legacy system migration with increased adoption.",
+  },
+  {
+    company: "SiMCo",
+    role: "Design Assistant",
+    period: "03/2021 - 08/2021",
+    description:
+      "HealthTech / Marketing campaigns, usability monitoring, heuristic analysis.",
+    results: "",
   },
   {
     company: "SiMCo",

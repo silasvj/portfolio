@@ -111,6 +111,14 @@ export default function About() {
                     <p className="fw-semibold text-[#e8e8f4]">{d.about.degrees.uxCourse}</p>
                     <p className="text-[#7878a0]">{d.about.degrees.udemy}</p>
                   </div>
+                  <div>
+                    <p className="fw-semibold text-[#e8e8f4]">{d.about.degrees.usp}</p>
+                    <p className="text-[#7878a0]">{d.about.degrees.uspSchool}</p>
+                  </div>
+                  <div>
+                    <p className="fw-semibold text-[#e8e8f4]">{d.about.degrees.origamid}</p>
+                    <p className="text-[#7878a0]">{d.about.degrees.origamidSchool}</p>
+                  </div>
                 </div>
               </ScrollAnimate>
             </div>

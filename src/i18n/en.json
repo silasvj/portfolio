@@ -64,8 +64,8 @@
   "about": {
     "location": "Fortaleza/CE — Brazil",
     "education": "Design — UFC",
-    "language": "English B2",
-    "speaker": "Speaker TDC Recife 2023",
+    "language": "English (Professional Working)",
+    "speaker": "Speaker TDC Recife 2023 — Accessibility, UX and Ethics",
     "stats": {
       "years": "Years of experience",
       "reduction": "Process time reduction",
@@ -85,7 +85,11 @@
       "uxCert": "Professional UX Design Certificate",
       "google": "Google/Coursera — 2023",
       "uxCourse": "UX Certificate (120h)",
-      "udemy": "Udemy — 2021-2022"
+      "udemy": "Udemy — 2021-2022",
+      "usp": "UX/UI: Fundamentals",
+      "uspSchool": "USP",
+      "origamid": "UX/UI and Basic Front End",
+      "origamidSchool": "Origamid"
     }
   },
   "projects": {
