@@ -46,19 +46,6 @@ const experienceData = [
     results: "Entrega do MVP da plataforma unificada, resultando na redução dos custos da operação.",
   },
   {
-    role: "Assistente de Design e UX",
-    company: "SiMCo - Healthcare",
-    period: "03/2021 - 08/2021",
-    description: "HealthTech / Rede de clínicas médicas com foco em democratização do acesso à saúde.",
-    bullets: [
-      "Executei campanhas de marketing online e offline, produzindo conteúdo visual e audiovisual.",
-      "Participei de tomadas de decisão estratégicas e de campanhas, colaborando com equipes multidisciplinares.",
-      "Monitorei feedbacks de usabilidade utilizando Hotjar e Google Analytics.",
-      "Realizei análise heurística de interfaces e checkout para identificação de oportunidades de melhoria.",
-    ],
-    results: "",
-  },
-  {
     role: "Product Designer",
     company: "SiMCo - Healthcare",
     period: "09/2021 - 02/2022",
@@ -72,6 +59,19 @@ const experienceData = [
       "Implementei argumento de venda estratégico — 'desconto equivalente a X meses de mensalidade' — transformando custo em valor percebido.",
     ],
     results: "+22% em atendimentos de orçamentos | 15 mil agendamentos mensais | Aumento significativo em assinaturas de cartão de benefícios | Lançamento de produto digital de saúde mental.",
+  },
+  {
+    role: "Assistente de Design e UX",
+    company: "SiMCo - Healthcare",
+    period: "03/2021 - 08/2021",
+    description: "HealthTech / Rede de clínicas médicas com foco em democratização do acesso à saúde.",
+    bullets: [
+      "Executei campanhas de marketing online e offline, produzindo conteúdo visual e audiovisual.",
+      "Participei de tomadas de decisão estratégicas e de campanhas, colaborando com equipes multidisciplinares.",
+      "Monitorei feedbacks de usabilidade utilizando Hotjar e Google Analytics.",
+      "Realizei análise heurística de interfaces e checkout para identificação de oportunidades de melhoria.",
+    ],
+    results: "",
   },
 ];
 

@@ -46,19 +46,6 @@ const experienceData = [
     results: "MVP delivery of the unified platform, resulting in reduced operational costs.",
   },
   {
-    role: "Design and UX Assistant",
-    company: "SiMCo - Healthcare",
-    period: "03/2021 - 08/2021",
-    description: "HealthTech / Network of medical clinics focused on democratizing health access.",
-    bullets: [
-      "Executed online and offline marketing campaigns, producing visual and audiovisual content.",
-      "Participated in strategic and campaign decision-making, collaborating with multidisciplinary teams.",
-      "Monitored usability feedback using Hotjar and Google Analytics.",
-      "Conducted heuristic analysis of interfaces and checkout to identify improvement opportunities.",
-    ],
-    results: "",
-  },
-  {
     role: "Product Designer",
     company: "SiMCo - Healthcare",
     period: "09/2021 - 02/2022",
@@ -72,6 +59,19 @@ const experienceData = [
       "Implemented a strategic sales argument — 'discount equivalent to X months of membership' — turning cost into perceived value.",
     ],
     results: "+22% increase in quote handling | 15k monthly appointments | Significant growth in benefits card subscriptions | Mental health digital product launch.",
+  },
+  {
+    role: "Design and UX Assistant",
+    company: "SiMCo - Healthcare",
+    period: "03/2021 - 08/2021",
+    description: "HealthTech / Network of medical clinics focused on democratizing health access.",
+    bullets: [
+      "Executed online and offline marketing campaigns, producing visual and audiovisual content.",
+      "Participated in strategic and campaign decision-making, collaborating with multidisciplinary teams.",
+      "Monitored usability feedback using Hotjar and Google Analytics.",
+      "Conducted heuristic analysis of interfaces and checkout to identify improvement opportunities.",
+    ],
+    results: "",
   },
 ];
 
