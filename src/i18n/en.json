@@ -40,7 +40,7 @@
   },
   "phases": {
     "phase1": "Discovery",
-    "phase1Desc": "Interviews, AI sentiment analysis, insight clustering",
+    "phase1Desc": "Continuous Discovery: automatic collection of in-app comments and feedback, AI-powered theme categorization, and recurrence-based prioritization",
     "phase2": "Synthesis & PRD",
     "phase2Desc": "JTBD, Jobs Stories, RICE/MoSCoW — PRD with acceptance criteria",
     "phase3": "Ideation",

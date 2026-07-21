@@ -12,7 +12,7 @@ const experienceData = [
     bullets: [
       "I implemented interfaces directly in code (TypeScript, React, Tailwind), eliminating visual review stages and reducing friction in design-engineering handoff.",
       "I orchestrated AI agents (Claude Code, Lovable) for production-ready code delivery.",
-      "I automated the Discovery process with clustering and sentiment analysis in client and stakeholder interviews.",
+      "I automated Continuous Discovery: automatic collection of in-app comments and feedback, AI-powered theme categorization, and recurrence-based prioritization — generating periodic summaries with direct input for the product roadmap.",
     ],
     results: "75% reduction in front-end delivery time from ~5 days to 1-2 days per average feature.",
   },

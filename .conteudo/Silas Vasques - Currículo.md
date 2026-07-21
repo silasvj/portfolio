@@ -23,7 +23,7 @@ Na SiMCo (HealthTech), liderei o design de uma plataforma que resultou em \+22% 
 
 O que eu faço bem:
 
-\- Discovery orientado a dados: entrevistas, análise de sentimentos com IA, clusterização de insights
+\- Discovery Contínuo: coleta automática de comentários do app e feedback in-app, separação por temas com IA, e priorização baseada em recorrência — gerando resumos periódicos com insumos diretos para o roadmap
 
 \- Design Systems escaláveis no Figma com conformidade Tailwind e acessibilidade
 
@@ -44,7 +44,7 @@ Atuei como Design Engineer em um Software Financeiro SaaS (Fintech) focado em ge
 
 \- Orquestrei agentes de IA (Claude Code, Lovable) para entrega de código pronto para produção.
 
-\- Automatizei o processo de Discovery com clusterização e análise de sentimentos em entrevistas com clientes e stakeholders.
+\- Automatizei o processo de Discovery Contínuo: coleta automática de comentários do app e feedback in-app, separação por temas com IA, e priorização baseada em recorrência — gerando resumos periódicos com insumos diretos para o roadmap de funcionalidades.
 
 Resultados: Redução de 75% no tempo de entrega de front-end de \~5 dias para 1-2 dias por funcionalidade média, acelerando diretamente o Time-to-Market do produto.
 
