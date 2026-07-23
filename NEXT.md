@@ -8,7 +8,7 @@
 🚀 SEO              ██████████ 100%  ✅
 🎨 Animações        ██████████ 100%  ✅
 🖼️ Imagens          ██████████ 100%  ✅
-♿ Acessibilidade   ██████████ 100%  ✅
+♿ Acessibilidade   █████░░░░░  50%  🔶
 🧹 Housekeeping     ██████████ 100%  ✅
 📱 Responsivo       ██████████ 100%  ✅
 🧪 Testes           ██████████ 100%  ✅
@@ -95,17 +95,31 @@
 
 ### 🔥 Prioridade Alta
 
-1. **OG Image real (PNG 1200×630)** — Substituir placeholder SVG por PNG real com preview visual dos projetos. Usar `satori` + `resvg` ou gerar manualmente no Figma.
-2. **Favicon .ico** — Gerar `favicon.ico` a partir do SVG para compatibilidade com browsers antigos (IE, legacy Chrome). Converter com `sharp` ou ferramenta online.
+1. **♿ Acessibilidade — corrigir achados da auditoria de 23/07/2026** (auditoria completa, nada corrigido ainda):
+
+   **Bloqueadores**
+   - Não existe menu mobile — nav do header é `hidden md:flex` (`header.tsx:53`), sem hamburger/toggle em lugar nenhum. Abaixo de ~768px, Projetos/Experiência/Skills/Sobre ficam inacessíveis.
+   - Lightbox sem semântica de modal — falta `role="dialog"` + `aria-modal`, foco não é movido pra dentro ao abrir, dá pra tabular por trás dele.
+   - Dots de paginação do lightbox sem `aria-label` (`lightbox.tsx:130-141`) e com área de toque de 8×8 (abaixo do mínimo de 24×24).
+
+   **Moderados**
+   - Imagens clicáveis (hero, galeria, imagens do conteúdo) são `<div>`/`<figure> onClick` sem `tabIndex`/`role`/`onKeyDown` — não abrem em tela cheia via teclado (`project-content.tsx`, `content-renderer.tsx`).
+   - Hierarquia de heading pula de h1 pra h3 em todo lugar (section labels nunca viram `<h2>` de verdade).
+   - `<li>` de bullets/numerados fora de um `<ul>/<ol>` em `content-renderer.tsx:152-168`.
+   - Contraste no modo claro: `--muted-foreground` (~4.44:1) e `--secondary` em texto pequeno (~3.38:1) abaixo do mínimo AA de 4.5:1 / 4.5:1.
+   - Tap targets abaixo de 44×44 (e alguns abaixo de 24×24): language switcher, links do footer, links do nav do header, theme toggle (32×32), botão "Fale comigo" (~32px altura).
+
+   **Menores**
+   - `AnimatedCounter` e cursor customizado ignoram `prefers-reduced-motion`.
+   - Emojis decorativos (📍🎓🌐🎤 em `about`, ⚡ em `experience`) sem `aria-hidden`.
+   - Alt text genérico/vazio em algumas imagens de galeria e conteúdo.
+   - `<html lang="pt-BR">` fixo no layout, nunca muda em `/en/*` (falha WCAG 3.1.1).
+   - `experience/page.tsx` tem h1 **"Experience" hardcoded em inglês na rota PT** (dicionário já tem "Experiência" certo ali do lado).
+
+2. **OG Image real (PNG 1200×630)** — Substituir placeholder SVG por PNG real com preview visual dos projetos. Usar `satori` + `resvg` ou gerar manualmente no Figma.
+3. **Favicon .ico** — Gerar `favicon.ico` a partir do SVG para compatibilidade com browsers antigos (IE, legacy Chrome). Converter com `sharp` ou ferramenta online.
 
 ### 🧪 Prioridade Média
-
-3. **Testes automatizados (smoke tests)** — Vitest + Testing Library para componentes principais:
-   - `ScrollAnimate` (render, intersection mock)
-   - `ThemeToggle` (toggle dark/light)
-   - `ProjectContent` (render com dados mock)
-   - `Header` (navegação, language switcher)
-   - 404 pages (render + links)
 
 4. **Blog / "Design Notes"** — Seções curtas de artigos sobre design/IA para posicionamento como thought leader:
    - Rota `/blog` ou `/notes` (PT + EN)
