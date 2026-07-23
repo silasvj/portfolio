@@ -61,6 +61,12 @@
     "description": "Aberto a projetos freelance, oportunidades de tempo integral e colaborações interessantes em Fintech, HealthTech e SaaS.",
     "action": "Entrar em contato →"
   },
+  "stats": {
+    "years": "Anos de experiência",
+    "reduction": "Redução no tempo de entrega",
+    "monthly": "Agendamentos/mês",
+    "impacted": "Empresários impactados"
+  },
   "about": {
     "location": "Fortaleza/CE — Brasil",
     "education": "Design — UFC",

@@ -79,41 +79,48 @@ export default function Experience() {
   const d = useDictionary();
 
   return (
-    <div id="exp" className="py-24 bg-[#08080f]">
+    <div id="exp" className="py-24">
       <div className="container mx-auto px-4">
         <div className="max-w-5xl mx-auto">
 
           <ScrollAnimate className="mb-12">
             <p className="section-label mb-2">{d.about.experience}</p>
-            <h1 className="section-title text-[#e8e8f4] mb-6">Experience</h1>
+            <h1 className="section-title mb-6">Experience</h1>
             <div className="section-line mb-12" />
           </ScrollAnimate>
 
-          <div className="space-y-8">
+          <div className="timeline-wrapper space-y-12">
             {experienceData.map((exp, index) => (
               <ScrollAnimate key={index} delay={index * 100}>
-                <div className="card p-6">
-                  <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-4">
-                    <div>
-                      <h3 className="text-lg fw-semibold text-[#e8e8f4]">{exp.role}</h3>
-                      <p className="text-[#00e5ff]">{exp.company}</p>
-                    </div>
-                    <span className="text-sm text-[#7878a0] text-right">{exp.period}</span>
+                <div className="relative flex items-start gap-6">
+                  {/* Timeline dot */}
+                  <div className="hidden md:flex flex-col items-center">
+                    <div className="timeline-dot" />
                   </div>
-                  <p className="text-[#7878a0] mb-4 leading-relaxed">{exp.description}</p>
-                  <ul className="space-y-2 mb-4">
-                    {exp.bullets.map((bullet, i) => (
-                      <li key={i} className="text-[#7878a0] leading-relaxed flex gap-2">
-                        <span className="text-[#00e5ff]">•</span>
-                        <span>{bullet}</span>
-                      </li>
-                    ))}
-                  </ul>
-                  {exp.results && (
-                    <div className="exp-accent">
-                      ⚡ <span className="text-[#e8e8f4]">{exp.results}</span>
+
+                  <div className="card p-6 flex-1">
+                    <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-4 gap-2">
+                      <div>
+                        <h3 className="text-lg fw-semibold">{exp.role}</h3>
+                        <p className="text-[var(--secondary)]">{exp.company}</p>
+                      </div>
+                      <span className="text-sm text-[var(--muted-foreground)] md:text-right">{exp.period}</span>
                     </div>
-                  )}
+                    <p className="text-[var(--muted-foreground)] mb-4 leading-relaxed">{exp.description}</p>
+                    <ul className="space-y-2 mb-4">
+                      {exp.bullets.map((bullet, i) => (
+                        <li key={i} className="text-[var(--muted-foreground)] leading-relaxed flex gap-2">
+                          <span className="text-[var(--secondary)] shrink-0">•</span>
+                          <span>{bullet}</span>
+                        </li>
+                      ))}
+                    </ul>
+                    {exp.results && (
+                      <div className="exp-accent">
+                        ⚡ <span className="font-medium">{exp.results}</span>
+                      </div>
+                    )}
+                  </div>
                 </div>
               </ScrollAnimate>
             ))}

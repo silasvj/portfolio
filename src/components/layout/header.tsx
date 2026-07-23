@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { ThemeToggle } from "@/components/theme-toggle";
 
 const navLinks = [
   { href: "/projects", label: "Projetos" },
@@ -19,18 +20,16 @@ const navLinksEn = [
 
 function LanguageSwitcher() {
   const pathname = usePathname();
-  
   const isEn = pathname.startsWith("/en");
-  
   const targetLang = isEn ? "PT" : "EN";
-  const targetPath = isEn 
-    ? pathname.replace("/en", "") || "/" 
+  const targetPath = isEn
+    ? pathname.replace("/en", "") || "/"
     : `/en${pathname}`;
-  
+
   return (
     <Link
       href={targetPath}
-      className="text-xs uppercase tracking-widest text-[#7878a0] hover:text-[#00e5ff] transition-colors"
+      className="text-xs uppercase tracking-widest text-[var(--muted-foreground)] hover:text-[var(--secondary)] transition-colors"
     >
       {targetLang}
     </Link>
@@ -45,7 +44,7 @@ export function Header() {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 glass">
       <div className="container mx-auto flex h-16 items-center justify-between px-4 md:px-8">
-        <Link 
+        <Link
           href={isEn ? "/en" : "/"}
           className="text-lg font-bold tracking-wider text-gradient"
         >
@@ -58,15 +57,16 @@ export function Header() {
               href={link.href}
               className={`text-xs uppercase tracking-widest transition-colors ${
                 pathname === link.href
-                  ? "text-[#00e5ff]"
-                  : "text-[#7878a0] hover:text-[#00e5ff]"
+                  ? "text-[var(--secondary)]"
+                  : "text-[var(--muted-foreground)] hover:text-[var(--secondary)]"
               }`}
             >
               {link.label}
             </Link>
           ))}
         </nav>
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-3">
+          <ThemeToggle />
           <LanguageSwitcher />
           <Link
             href={isEn ? "/en/about#contact" : "/about#contato"}

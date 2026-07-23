@@ -9,10 +9,35 @@
   --font-sans: var(--font-sans);
   --font-mono: var(--font-mono);
   --font-heading: var(--font-heading);
-  --font-handwritten: var(--font-handwritten);
 }
 
 :root {
+  /* Light mode (default) */
+  --background: #f5f5f7;
+  --foreground: #1a1a2e;
+  --card: #ffffff;
+  --card-foreground: #1a1a2e;
+  --popover: #ffffff;
+  --popover-foreground: #1a1a2e;
+  --primary: #6d5bd0;
+  --primary-foreground: #ffffff;
+  --secondary: #0891b2;
+  --secondary-foreground: #ffffff;
+  --accent: #7c6fff;
+  --accent-foreground: #ffffff;
+  --muted: #e8e8f0;
+  --muted-foreground: #6b7280;
+  --destructive: #ef4444;
+  --border: rgba(109, 91, 208, 0.18);
+  --input: #e8e8f0;
+  --ring: #6d5bd0;
+
+  --font-sans: "Inter", "Geist Sans", system-ui, sans-serif;
+  --font-mono: "Geist Mono", "JetBrains Mono", monospace;
+  --font-heading: "Inter", system-ui, sans-serif;
+}
+
+.dark {
   --background: #08080f;
   --foreground: #e8e8f4;
   --card: #10101a;
@@ -31,20 +56,21 @@
   --border: rgba(124, 111, 255, 0.18);
   --input: #10101a;
   --ring: #7c6fff;
-
-  --font-sans: "Inter", "Geist Sans", system-ui, sans-serif;
-  --font-mono: "Geist Mono", "JetBrains Mono", monospace;
-  --font-heading: "Inter", system-ui, sans-serif;
-  --font-handwritten: "Inter", system-ui, sans-serif;
 }
 
 @layer base {
   body {
     @apply bg-background text-foreground;
     font-family: var(--font-sans);
+    transition: background-color 0.2s ease, color 0.2s ease;
   }
 
   ::selection {
+    background: rgba(109, 91, 208, 0.25);
+    color: var(--foreground);
+  }
+
+  .dark ::selection {
     background: rgba(124, 111, 255, 0.3);
     color: #e8e8f4;
   }
@@ -52,9 +78,9 @@
 
 /* Grid Pattern Overlay */
 .grid-pattern {
-  background-image: 
-    linear-gradient(rgba(124, 111, 255, 0.18) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(124, 111, 255, 0.18) 1px, transparent 1px);
+  background-image:
+    linear-gradient(var(--border) 1px, transparent 1px),
+    linear-gradient(90deg, var(--border) 1px, transparent 1px);
   background-size: 60px 60px;
 }
 
@@ -88,9 +114,13 @@
 
 /* Glassmorphism */
 .glass {
-  background: rgba(8, 8, 15, 0.88);
+  background: rgba(245, 245, 247, 0.88);
   backdrop-filter: blur(14px);
   border: 1px solid var(--border);
+}
+
+.dark .glass {
+  background: rgba(8, 8, 15, 0.88);
 }
 
 /* Badge Pulse */
@@ -113,6 +143,13 @@
 
 /* Text Gradient */
 .text-gradient {
+  background: linear-gradient(135deg, #1a1a2e 20%, var(--primary) 60%, var(--secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.dark .text-gradient {
   background: linear-gradient(135deg, #ffffff 20%, var(--primary) 60%, var(--secondary));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -143,7 +180,7 @@
 
 /* Cards */
 .card {
-  background: #10101a;
+  background: var(--card);
   border: 1px solid var(--border);
   border-radius: 12px;
   transition: all 300ms cubic-bezier(0.16, 1, 0.3, 1);
@@ -151,6 +188,11 @@
 
 .card:hover {
   border-color: var(--primary);
+  box-shadow: 0 4px 20px rgba(109, 91, 208, 0.1);
+}
+
+.dark .card:hover {
+  box-shadow: 0 4px 20px rgba(124, 111, 255, 0.08);
 }
 
 .card-body {
@@ -160,9 +202,13 @@
 /* Skill Bar */
 .skill-bar {
   height: 3px;
-  background: rgba(255, 255, 255, 0.07);
+  background: rgba(0, 0, 0, 0.08);
   border-radius: 99px;
   overflow: hidden;
+}
+
+.dark .skill-bar {
+  background: rgba(255, 255, 255, 0.07);
 }
 
 .skill-fill {
@@ -174,10 +220,15 @@
 /* Chips */
 .chip {
   padding: 0.28rem 0.85rem;
-  background: rgba(124, 111, 255, 0.1);
+  background: rgba(109, 91, 208, 0.08);
   border: 1px solid var(--border);
   border-radius: 99px;
   font-size: 0.75rem;
+  color: var(--primary);
+}
+
+.dark .chip {
+  background: rgba(124, 111, 255, 0.1);
   color: var(--accent);
 }
 
@@ -185,9 +236,13 @@
 .exp-accent {
   margin-top: 0.7rem;
   padding: 0.5rem 0.9rem;
-  background: rgba(0, 229, 255, 0.06);
+  background: rgba(8, 145, 178, 0.06);
   border-left: 2px solid var(--secondary);
   border-radius: 0 6px 6px 0;
+}
+
+.dark .exp-accent {
+  background: rgba(0, 229, 255, 0.06);
 }
 
 /* Buttons */
@@ -214,7 +269,7 @@
 }
 
 .btn-primary:hover {
-  background: #9388ff;
+  background: #8578e0;
   transform: translateY(-2px);
 }
 
@@ -228,6 +283,63 @@
   border-color: var(--primary);
   color: var(--primary);
   transform: translateY(-2px);
+}
+
+/* Stat Card */
+.stat-card {
+  text-align: center;
+}
+
+.stat-value {
+  font-size: 2rem;
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  background: linear-gradient(135deg, var(--primary) 40%, var(--secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1.2;
+}
+
+.stat-label {
+  font-size: 0.7rem;
+  color: var(--muted-foreground);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-top: 0.25rem;
+}
+
+/* Timeline */
+.timeline-wrapper {
+  position: relative;
+}
+
+.timeline-wrapper::before {
+  content: '';
+  position: absolute;
+  left: 24px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: var(--border);
+}
+
+@media (min-width: 768px) {
+  .timeline-wrapper::before {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+.timeline-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--primary);
+  border: 3px solid var(--background);
+  flex-shrink: 0;
+  position: relative;
+  z-index: 2;
 }
 
 /* Typography */
@@ -268,44 +380,15 @@ h1, h2, h3, h4, h5, h6 {
   outline-offset: 2px;
 }
 
-/* View Transitions */
-:root {
-  --duration-exit: 150ms;
-  --duration-enter: 210ms;
-  --duration-move: 400ms;
-}
-
-@keyframes fade {
-  from { filter: blur(3px); opacity: 0; }
-  to { filter: blur(0); opacity: 1; }
-}
-
-@keyframes slide-y {
-  from { transform: translateY(var(--slide-y-offset, 10px)); }
-  to { transform: translateY(0); }
-}
-
-::view-transition-old(.fade-out) {
-  animation: var(--duration-exit) ease-in fade reverse;
-}
-::view-transition-new(.fade-in) {
-  animation: var(--duration-enter) ease-out var(--duration-exit) both fade;
-}
-
-::view-transition-old(.slide-down) {
-  animation: var(--duration-exit) ease-out both fade reverse, var(--duration-exit) ease-out both slide-y reverse;
-}
-::view-transition-new(.slide-up) {
-  animation: var(--duration-enter) ease-in var(--duration-exit) both fade, var(--duration-move) ease-in both slide-y;
-}
-
 @media (prefers-reduced-motion: reduce) {
-  ::view-transition-group(*),
-  ::view-transition-old(*),
-  ::view-transition-new(*) {
-    animation: none !important;
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
-  
+
   [data-animate] {
     opacity: 1 !important;
     transform: none !important;

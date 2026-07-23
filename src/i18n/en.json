@@ -61,6 +61,12 @@
     "description": "Open to freelance projects, full-time opportunities, and interesting collaborations in Fintech, HealthTech and SaaS.",
     "action": "Get in touch →"
   },
+  "stats": {
+    "years": "Years of experience",
+    "reduction": "Reduction in delivery time",
+    "monthly": "Appointments/month",
+    "impacted": "Entrepreneurs impacted"
+  },
   "about": {
     "location": "Fortaleza/CE — Brazil",
     "education": "Design — UFC",

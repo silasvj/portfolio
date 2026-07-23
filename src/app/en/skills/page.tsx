@@ -4,7 +4,7 @@ import { skills } from "@/data/projects";
 import { ScrollAnimate } from "@/components/scroll-animate";
 import { useDictionary } from "@/i18n/use-dictionary";
 
-export default function Skills() {
+export default function SkillsEn() {
   const d = useDictionary();
 
   const skillData = [
@@ -20,12 +20,12 @@ export default function Skills() {
   ];
 
   return (
-    <div id="skills" className="py-24 bg-[#08080f]">
+    <div id="skills" className="py-24">
       <div className="container mx-auto px-4 max-w-5xl">
 
         <ScrollAnimate className="mb-12">
           <p className="section-label mb-2">{d.skills.title}</p>
-          <h1 className="section-title text-[#e8e8f4] mb-6">Skills</h1>
+          <h1 className="section-title mb-6">Skills</h1>
           <div className="section-line mb-12" />
         </ScrollAnimate>
 
@@ -34,19 +34,19 @@ export default function Skills() {
             <ScrollAnimate key={skill.name} delay={idx * 50}>
               <div className="card p-5">
                 <div className="flex justify-between items-center mb-4">
-                  <span className="font-semibold text-[#e8e8f4]">{skill.name}</span>
-                  <span className="text-sm text-[#00e5ff]">{skill.pct}</span>
+                  <span className="font-semibold">{skill.name}</span>
+                  <span className="text-sm text-[var(--secondary)]">{skill.pct}</span>
                 </div>
                 <div className="skill-bar mb-3">
                   <div className="skill-fill" style={{ width: skill.level + "%" }} />
                 </div>
-                <div className="text-xs text-[#7878a0]">{skill.cat}</div>
+                <div className="text-xs text-[var(--muted-foreground)]">{skill.cat}</div>
               </div>
             </ScrollAnimate>
           ))}
         </div>
 
-        <hr className="my-12 border-[rgba(124,111,255,0.18)]" />
+        <hr className="my-12 border-[var(--border)]" />
 
         <ScrollAnimate>
           <p className="section-label mb-6">Soft Skills</p>
