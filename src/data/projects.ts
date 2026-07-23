@@ -862,6 +862,274 @@ description:
     ],
 
   },
+  {
+    id: "5",
+    slug: "agenda-escolar",
+    title: "Agenda Escolar",
+    titleEn: "School Agenda App",
+
+    company: "Projeto Autoral — Desafio de Design",
+    year: "2023",
+    role: ["UX Design", "UI Design"],
+    category: "Mobile Design",
+    description:
+      "Agenda Escolar é um desafio de design para criar um aplicativo mobile que conecta professores, alunos e responsáveis no contexto escolar. Professores registram conteúdo e atividades de aula; alunos e responsáveis acompanham tudo em tempo real, sem depender de agendas físicas ou grupos de WhatsApp.",
+    descriptionEn:
+      "Agenda Escolar is a design challenge to create a mobile app connecting teachers, students, and guardians in a school context. Teachers log lesson content and assignments; students and guardians track everything in real time, without relying on physical planners or WhatsApp groups.",
+    challenge:
+      "1. Três personas, três necessidades\n\nProfessores, alunos e responsáveis têm características e objetivos completamente diferentes dentro do mesmo produto — cada tela precisava fazer sentido para públicos distintos sem fragmentar a experiência.\n\n---\n\n2. Faixas etárias diferentes\n\nUm aluno do 9º ano e um aluno do ensino fundamental menor não interagem da mesma forma com um aplicativo — havia a possibilidade real de precisar de interfaces distintas por faixa etária.\n\n---\n\n3. Contextos escolares e regionais diversos\n\nA solução precisava funcionar para diferentes realidades de escola, não apenas para o cenário de uma única instituição.",
+    challengeEn:
+      "1. Three personas, three needs\n\nTeachers, students, and guardians have completely different characteristics and goals within the same product — every screen needed to make sense for distinct audiences without fragmenting the experience.\n\n---\n\n2. Different age groups\n\nA 9th grader and a younger student don't interact with an app the same way — there was a real possibility of needing distinct interfaces by age group.\n\n---\n\n3. Diverse school and regional contexts\n\nThe solution needed to work across different school realities, not just the scenario of a single institution.",
+    solution:
+      "1) App mobile-first com navegação por perfil (aluno, professor, responsável) — cada um com bottom navigation e conteúdo adaptado à sua função: Início, Aulas, Atividades, Avaliações e Aluno/Turma.\n\n2) Dashboard web para professores com visão consolidada de turmas, conteúdo de aulas, atividades e mídia (vídeos/materiais) por disciplina.\n\n3) Registro de aulas estruturado — cada aula com data, conteúdo e mídia associada, visível tanto para o professor que registrou quanto para alunos e responsáveis da turma.\n\n4) Design System com paleta e componentes consistentes entre a versão mobile e a versão web/desktop do produto.",
+    solutionEn:
+      "1) Mobile-first app with per-profile navigation (student, teacher, guardian) — each with bottom navigation and content adapted to their role: Home, Classes, Assignments, Grades, and Student/Class.\n\n2) Web dashboard for teachers with a consolidated view of classes, lesson content, assignments, and media (videos/materials) per subject.\n\n3) Structured lesson logging — each lesson with a date, content, and associated media, visible to both the teacher who logged it and students/guardians of that class.\n\n4) Design System with consistent palette and components between the mobile and web/desktop versions of the product.",
+    process:
+      "1. Descobrir — pesquisa de mesa (benchmarking de soluções existentes no mercado), entrevistas com professores, pais, alunos e coordenadores, e benchmarking mais profundo de concorrentes e softwares similares.\n\n2. Definir — matriz CSD (certezas, suposições e dúvidas), definição de persona (Lucas Santos, 9º ano) e mapeamento de resultados esperados com Jobs To Be Done (funcionais, emocionais e sociais).\n\n3. Desenvolver — brainstorming de ideias e criação do backlog do produto a partir das dores e oportunidades mapeadas.\n\n4. Entregar — fluxo do app, \"miroframe\" de uso, Design System e protótipo em alta fidelidade.",
+    processEn:
+      "1. Discover — desk research (benchmarking existing market solutions), interviews with teachers, parents, students, and coordinators, and deeper benchmarking of competitors and similar software.\n\n2. Define — CSD matrix (certainties, assumptions, doubts), persona definition (Lucas Santos, 9th grade), and mapping expected outcomes with Jobs To Be Done (functional, emotional, and social).\n\n3. Develop — idea brainstorming and product backlog creation from the mapped pains and opportunities.\n\n4. Deliver — app flow, usage \"miroframe\", Design System, and high-fidelity prototype.",
+    results:
+      "Protótipo em alta fidelidade cobrindo os três perfis de uso (aluno, professor e responsável), construído a partir de pesquisa qualitativa e validado com a metodologia Descobrir → Definir → Desenvolver → Entregar.",
+    resultsEn:
+      "High-fidelity prototype covering all three user profiles (student, teacher, guardian), built from qualitative research and validated with the Discover → Define → Develop → Deliver methodology.",
+    metrics: [
+      "3 perfis de usuário mapeados",
+      "Persona + Jobs To Be Done",
+      "Matriz CSD",
+      "Protótipo em alta fidelidade",
+    ],
+    metricsEn: [
+      "3 user profiles mapped",
+      "Persona + Jobs To Be Done",
+      "CSD Matrix",
+      "High-fidelity prototype",
+    ],
+    images: [
+      "/images/agenda-escolar/capa.png",
+    ],
+    content: [
+      { type: "image", content: "/images/agenda-escolar/capa.png", caption: "Agenda Escolar — visão geral das telas de aluno, professor e coordenação" },
+
+      { type: "text", content: "**Contexto**" },
+      { type: "text", content: "Esse projeto nasceu como resposta a um desafio de design: criar um produto digital mobile para um contexto escolar. O briefing pedia um aplicativo de envio de atividades, em que professores registram o conteúdo e as atividades passadas em aula e os alunos e responsáveis acompanham tudo em tempo real." },
+      { type: "text", content: "O desafio original: “criar um aplicativo de envio de atividades escolares, em que os professores conseguirão registrar o conteúdo e atividades passadas durante a aula e enviar para as turmas na qual leciona. Além disso, criar a interface em que os alunos e responsáveis terão acesso às informações enviadas pelos professores.”" },
+
+      { type: "text", content: "**Definição do Problema**" },
+      { type: "text", content: "Alunos têm dificuldade em organizar sua rotina de estudo e frequentemente perdem ou esquecem informações importantes. Professores não possuem uma ferramenta online para registrar e enviar atividades, dificultando a busca e revisão do que foi passado. Responsáveis não conseguem acompanhar os estudos por falta de acesso às informações." },
+
+      { type: "text", content: "**Descobrir — Pesquisa e Benchmarking**" },
+      { type: "text", content: "O processo começou com uma pesquisa de mesa sobre outras soluções no mercado, seguida de entrevistas com professores, pais, alunos e coordenadores para entender o contexto escolar, as dores e as necessidades de cada perfil." },
+      { type: "text", content: "• Matriz CSD (certezas, suposições e dúvidas) construída a partir do benchmarking inicial" },
+      { type: "text", content: "• Entrevistas estruturadas com roteiros distintos para cada persona" },
+      { type: "text", content: "• Benchmarking mais profundo de concorrentes e softwares de gestão de tarefas" },
+      { type: "text", content: "Esse levantamento revelou as principais funcionalidades esperadas de um app do gênero: gerenciamento de alunos, comunicação, agenda e calendário, controle financeiro, biblioteca de recursos, gestão de turmas e horários, portal do aluno e dos pais, gestão de professores, gestão de matrículas e relatórios." },
+
+      { type: "text", content: "**Definir — Persona e Jobs To Be Done**" },
+      { type: "text", content: "A partir das entrevistas, criei a persona Lucas Santos, 14 anos, aluno do 9º ano, dedicado mas com dificuldade de organizar tempo e entrega de tarefas — dores que orientaram todas as decisões seguintes de design." },
+      { type: "text", content: "Também apliquei parte do método Jobs To Be Done para entender os resultados esperados por Lucas ao usar o app: funcionais — organizar as atividades escolares e evitar atrasos nas entregas; emocionais — mais autoconfiança em provas e melhor imagem sobre si; sociais — ser visto como referência entre os colegas e gerar satisfação nos pais." },
+
+      { type: "text", content: "**Desenvolver e Entregar**" },
+      { type: "text", content: "Com o backlog priorizado a partir das dores mapeadas, o processo seguiu para o fluxo do app, um miroframe de uso, a construção do Design System e, por fim, o protótipo em alta fidelidade — cobrindo as telas de aluno, professor e responsável, com navegação por Início, Aulas, Atividades, Avaliações e Turma." },
+
+      { type: "text", content: "**Reflexão**" },
+      { type: "text", content: "Esse desafio reforçou a importância de desenhar para múltiplas personas dentro de um mesmo produto sem fragmentar a experiência. Trabalhar com professor, aluno e responsável ao mesmo tempo exige decisões diferentes das de um produto B2B ou B2C tradicional — cada tela precisa fazer sentido para quem a vê, mesmo compartilhando a mesma base de dados." },
+    ],
+    contentEn: [
+      { type: "image", content: "/images/agenda-escolar/capa.png", caption: "Agenda Escolar — overview of the student, teacher, and coordination screens" },
+
+      { type: "text", content: "**Context**" },
+      { type: "text", content: "This project started as a response to a design challenge: create a mobile digital product for a school context. The brief called for an assignment-sharing app, where teachers log the content and activities covered in class and students and guardians track everything in real time." },
+      { type: "text", content: "The original challenge: “create an app for sending school assignments, where teachers can log the content and activities covered during class and send them to the classes they teach. Additionally, create the interface where students and guardians have access to the information sent by teachers.”" },
+
+      { type: "text", content: "**Problem Definition**" },
+      { type: "text", content: "Students struggle to organize their study routine and frequently lose or forget important information. Teachers lack an online tool to log and send assignments, making it hard to search and review what was covered. Guardians can't track their students' studies due to lack of access to information." },
+
+      { type: "text", content: "**Discover — Research and Benchmarking**" },
+      { type: "text", content: "The process started with desk research on other market solutions, followed by interviews with teachers, parents, students, and coordinators to understand the school context, pain points, and needs of each profile." },
+      { type: "text", content: "• CSD matrix (certainties, assumptions, doubts) built from the initial benchmarking" },
+      { type: "text", content: "• Structured interviews with distinct scripts for each persona" },
+      { type: "text", content: "• Deeper benchmarking of competitors and task-management software" },
+      { type: "text", content: "This research revealed the key features expected from an app of this kind: student management, communication, agenda and calendar, financial control, resource library, class and schedule management, student and parent portal, teacher management, enrollment management, and reports." },
+
+      { type: "text", content: "**Define — Persona and Jobs To Be Done**" },
+      { type: "text", content: "From the interviews, I created the persona Lucas Santos, 14, a 9th grader, dedicated but struggling to organize his time and assignment delivery — pain points that guided every following design decision." },
+      { type: "text", content: "I also applied part of the Jobs To Be Done method to understand the outcomes Lucas expects from the app: functional — organizing schoolwork and avoiding late deliveries; emotional — more confidence during exams and a better self-image; social — being seen as a reference among peers and making his parents proud." },
+
+      { type: "text", content: "**Develop and Deliver**" },
+      { type: "text", content: "With the backlog prioritized from the mapped pain points, the process moved to the app flow, a usage miroframe, building the Design System, and finally the high-fidelity prototype — covering student, teacher, and guardian screens, with navigation across Home, Classes, Assignments, Grades, and Class." },
+
+      { type: "text", content: "**Reflection**" },
+      { type: "text", content: "This challenge reinforced how important it is to design for multiple personas within the same product without fragmenting the experience. Working with teacher, student, and guardian at once requires different decisions than a typical B2B or B2C product — every screen needs to make sense to whoever is looking at it, even while sharing the same underlying data." },
+    ],
+  },
+  {
+    id: "6",
+    slug: "redesign-app",
+    title: "Redesign de App — Hapvida",
+    titleEn: "App Redesign — Hapvida",
+
+    company: "Estudo Independente de Redesign",
+    year: "2023",
+    role: ["UX Design", "UI Design"],
+    category: "Mobile Design",
+    description:
+      "Estudo independente de redesign de aplicativo mobile, aplicado ao app da Hapvida a partir da sugestão real de um usuário insatisfeito. Todo o processo foi conduzido individualmente: mapeamento de jornada, análise heurística de usabilidade e redesign completo da interface e do fluxo de agendamento de consultas.",
+    descriptionEn:
+      "Independent mobile app redesign study, applied to the Hapvida app based on real feedback from a dissatisfied user. The entire process was conducted solo: journey mapping, heuristic usability analysis, and a full redesign of the interface and appointment scheduling flow.",
+    challenge:
+      "1. Fluxo de agendamento com 18 passos\n\nO aplicativo original levava o usuário por um fluxo de marcação de consulta longo e repetitivo, sem necessidade real para boa parte das etapas.\n\n---\n\n2. Interface sem hierarquia visual\n\nBotões de alto contraste competindo entre si, tipografia desconfortável e layouts com mau aproveitamento de espaço — sem indicação clara do que era mais importante em cada tela.\n\n---\n\n3. Violações de heurísticas básicas de usabilidade\n\nFaltava visibilidade do status do sistema, controle e liberdade para o usuário (cancelar exigia recomeçar do zero), consistência entre telas e um botão de confirmação que parecia desabilitado sem estar.",
+    challengeEn:
+      "1. An 18-step booking flow\n\nThe original app walked users through a long, repetitive appointment-booking flow, with no real need for most of the steps.\n\n---\n\n2. Interface with no visual hierarchy\n\nHigh-contrast buttons competing with each other, uncomfortable typography, and layouts with poor use of space — with no clear indication of what mattered most on each screen.\n\n---\n\n3. Violations of basic usability heuristics\n\nMissing system status visibility, no user control and freedom (cancelling meant starting over from scratch), inconsistency between screens, and a confirm button that looked disabled without being disabled.",
+    solution:
+      "1) Redesign do fluxo de agendamento de 18 para 8 passos (7 para usuários já logados), sem perda de funcionalidade.\n\n2) Mapeamento completo da jornada do usuário para a tarefa \"marcar uma consulta\", identificando oportunidades de simplificação em cada etapa.\n\n3) Análise heurística detalhada da interface original, com apontamentos específicos por tela sobre hierarquia, tipografia, Lei de Fitts, Lei de Hick e Thumb Zones.\n\n4) Design System novo em Figma — paleta baseada nas cores da marca, tipografia Red Hat Display (Google Fonts) e componentização básica de botões e campos de entrada.\n\n5) Redesign das telas principais: login, início e sequência completa de agendamento.",
+    solutionEn:
+      "1) Redesigned the booking flow from 18 to 8 steps (7 for already logged-in users), with no loss of functionality.\n\n2) Full user journey mapping for the \"book an appointment\" task, identifying simplification opportunities at each step.\n\n3) Detailed heuristic analysis of the original interface, with screen-by-screen notes on hierarchy, typography, Fitts's Law, Hick's Law, and thumb zones.\n\n4) New Design System in Figma — palette based on the brand's colors, Red Hat Display typography (Google Fonts), and basic componentization of buttons and input fields.\n\n5) Redesign of the main screens: login, home, and the full booking sequence.",
+    process:
+      "1. Planejamento de pesquisa — roteiros de entrevista pensados tanto para a empresa (visão de negócio) quanto para o usuário (comportamento real).\n\n2. Mapeamento de jornada — análise da tarefa de marcar uma consulta no fluxo atual, identificação de oportunidades e desenho do novo fluxo simplificado.\n\n3. Análise da interface — avaliação heurística tela a tela, cruzando usabilidade (Lei de Fitts, Lei de Hick, Thumb Zones) com as heurísticas de Nielsen.\n\n4. Design System — construção de paleta, tipografia e componentes básicos no Figma.\n\n5. Redesign — aplicação de tudo nas telas finais de login, início e agendamento.",
+    processEn:
+      "1. Research planning — interview scripts designed for both the company (business vision) and the user (real behavior).\n\n2. Journey mapping — analysis of the appointment-booking task in the current flow, identifying opportunities and designing the new simplified flow.\n\n3. Interface analysis — screen-by-screen heuristic evaluation, cross-referencing usability (Fitts's Law, Hick's Law, thumb zones) with Nielsen's heuristics.\n\n4. Design System — building palette, typography, and basic components in Figma.\n\n5. Redesign — applying everything to the final login, home, and booking screens.",
+    results:
+      "Redução do fluxo de agendamento de 18 para 8 passos (7 para quem já está logado). Como estudo independente, não houve medição real de impacto em produção — o processo definiu um conjunto de métricas para validar o ganho em um cenário real: tempo para marcar uma consulta, número de pessoas que precisam de ajuda, taxa de conclusão da tarefa e NPS.",
+    resultsEn:
+      "Reduced the booking flow from 18 to 8 steps (7 for already logged-in users). As an independent study, there was no real production impact measurement — the process defined a set of metrics to validate the gain in a real scenario: time to book an appointment, number of people needing help, task completion rate, and NPS.",
+    metrics: [
+      "18 → 8 passos no agendamento",
+      "Análise heurística completa",
+      "Design System (cores, tipografia, componentes)",
+      "Protótipo navegável no Figma",
+    ],
+    metricsEn: [
+      "18 → 8 steps to book",
+      "Full heuristic analysis",
+      "Design System (colors, type, components)",
+      "Navigable Figma prototype",
+    ],
+    images: [
+      "/images/redesign-app/capa.png",
+      "/images/redesign-app/fluxo-atual.png",
+      "/images/redesign-app/mapa-jornada.png",
+      "/images/redesign-app/novo-fluxo.png",
+      "/images/redesign-app/heuristica-1.png",
+      "/images/redesign-app/heuristica-2.png",
+      "/images/redesign-app/heuristica-3.png",
+      "/images/redesign-app/heuristica-4.png",
+      "/images/redesign-app/heuristica-5.png",
+      "/images/redesign-app/heuristica-6.png",
+      "/images/redesign-app/ds-cores.png",
+      "/images/redesign-app/ds-tipografia.png",
+      "/images/redesign-app/ds-componentes.png",
+      "/images/redesign-app/redesign-login.png",
+      "/images/redesign-app/redesign-agendamento.png",
+    ],
+    content: [
+      { type: "image", content: "/images/redesign-app/capa.png", caption: "Redesign do app Hapvida — visão geral do estudo" },
+
+      { type: "text", content: "**Contexto**" },
+      { type: "text", content: "Em vez de escolher um app do meu dia a dia, perguntei a algumas pessoas se usavam algum aplicativo — de preferência da área de saúde — no cotidiano. Recebi sugestões como Doctoralia, Unimed Fortaleza, Meu CartãoSiM e Hapvida." },
+      { type: "text", content: "Escolhi o Hapvida por dois motivos: a empresa por trás do teste que originou este exercício o tinha como cliente real, e a pessoa que sugeriu o app foi um detrator — afirmou que nunca conseguiu usá-lo sem sentir raiva." },
+
+      { type: "text", content: "**O Plano**" },
+      { type: "text", content: "1. Mapeamento de jornada do usuário — entender contexto, objetivo de uso e possibilidade de simplificar o fluxo." },
+      { type: "text", content: "2. Análise da interface — heurísticas, usabilidade (microinterações, Lei de Fitts, Lei de Hick, Thumb Zones) e simplificação do design." },
+      { type: "text", content: "3. Planejamento de pesquisa e entrevista, Design System e métricas de impacto, na medida do possível dentro do escopo do estudo." },
+      { type: "text", content: "4. Redesign." },
+
+      { type: "text", content: "**Planejamento de Pesquisa**" },
+      { type: "text", content: "Mesmo sem executar entrevistas reais dentro do escopo deste estudo, defini roteiros de perguntas — um voltado à empresa, para entender a visão de negócio por trás do produto, e outro ao usuário, para entender o que ele realmente faz diante de uma necessidade de saúde, não o que a gente imagina que ele faça." },
+
+      { type: "text", content: "**Mapeamento de Jornada**" },
+      { type: "text", content: "Escolhi uma tarefa básica — marcar uma consulta — e mapeei como ela acontecia no app original." },
+      { type: "image", content: "/images/redesign-app/fluxo-atual.png", caption: "As telas do fluxo atual" },
+      { type: "text", content: "Na prática, o app funcionava como um agregador de links: cada botão abria uma página no navegador. Ainda assim, mapeei a jornada como se essa limitação não existisse, imaginando alguém em dúvida sobre sua saúde tentando marcar uma consulta." },
+      { type: "image", content: "/images/redesign-app/mapa-jornada.png", caption: "Mapeamento da jornada de agendamento — oportunidades identificadas em cada etapa" },
+      { type: "text", content: "As oportunidades encontradas apontavam diretamente para mudanças na interface do app. O fluxo original tinha 18 passos para marcar uma consulta; o novo fluxo simplificou para 8 passos, sem perda de funcionalidade — 7 para quem já estava logado." },
+      { type: "image", content: "/images/redesign-app/novo-fluxo.png", caption: "Novo fluxo de agendamento — de 18 para 8 passos" },
+
+      { type: "text", content: "**Análise da Interface**" },
+      { type: "text", content: "A maioria dos problemas de interface eram fáceis de visualizar sem grande aprofundamento." },
+      { type: "image", content: "/images/redesign-app/heuristica-1.png", caption: "Uso exagerado das cores da marca, sem hierarquia entre os botões" },
+      { type: "image", content: "/images/redesign-app/heuristica-2.png", caption: "Botão de menu deslocado e botões com peso visual excessivo" },
+      { type: "image", content: "/images/redesign-app/heuristica-3.png", caption: "Informações cortadas e excesso de dados de contato" },
+      { type: "text", content: "Na primeira tela, a aplicação exagerada das cores da marca cria botões de alto contraste agrupados, sem hierarquia de informações — a repetição visual dispersa a atenção do usuário. Na segunda, o botão de menu fica em um local pouco usual e os botões, apesar de terem hierarquia nos tipos, têm tamanho exagerado e peso visual semelhante entre si. Na terceira, as informações aparecem cortadas, e logo abaixo há uma quantidade exagerada de dados de contato." },
+      { type: "image", content: "/images/redesign-app/heuristica-4.png", caption: "Layout apertado com mau aproveitamento do espaço" },
+      { type: "image", content: "/images/redesign-app/heuristica-5.png", caption: "Textos de ajuda posicionados antes do login, invertendo a prioridade da tela" },
+      { type: "image", content: "/images/redesign-app/heuristica-6.png", caption: "Setas de calendário confusas e botão de confirmação com aparência de desabilitado" },
+      { type: "text", content: "Na quarta tela, o layout é apertado, com mau aproveitamento do espaço e um texto que gera dúvida (\"médico... mais próxima\" — de quê?). Na quinta, os textos de ajuda aparecem antes da parte principal — o login — quando deveriam vir depois, para manter a tela limpa a quem já sabe usar o app. Na sexta, o calendário usa setas exageradas e confusas (duas vermelhas apontando para \"avançar\", quando vermelho sugeriria erro), e o botão \"Confirmar consulta\" aparenta estar desabilitado sem estar." },
+      { type: "text", content: "Heurísticas de usabilidade ausentes: visibilidade do status do sistema, compatibilidade entre o sistema e o mundo real, controle e liberdade do usuário, consistência e padronização, e estética e design minimalista. Faltou também aplicar a Lei de Fitts no posicionamento dos botões, a Lei de Hick para reduzir opções de decisão, e o aproveitamento das Thumb Zones." },
+
+      { type: "text", content: "**Design System**" },
+      { type: "text", content: "Toda a nova interface partiu de um Design System construído no Figma." },
+      { type: "image", content: "/images/redesign-app/ds-cores.png", caption: "Paleta de cores — baseada no logo da Hapvida, com padrões para ações positivas, de atenção, negativas e desabilitadas" },
+      { type: "image", content: "/images/redesign-app/ds-tipografia.png", caption: "Tipografia Red Hat Display — Google Fonts, com ampla variação de pesos e estilos" },
+      { type: "image", content: "/images/redesign-app/ds-componentes.png", caption: "Componentização básica — botões e campos de entrada de texto" },
+
+      { type: "text", content: "**Métricas de Uso**" },
+      { type: "text", content: "Mudanças estéticas são agradáveis, mas o que importa é se o usuário alcança seu objetivo. Como estudo independente, não houve medição real — mas o processo definiu quais dados validariam o ganho em um cenário real: tempo para marcar uma consulta antes e depois, quantas pessoas precisam de ajuda, taxa de conclusão da tarefa e NPS." },
+
+      { type: "text", content: "**O Redesign**" },
+      { type: "image", content: "/images/redesign-app/redesign-login.png", caption: "Tela de login e início" },
+      { type: "text", content: "Optei por colocar o login logo no início — tanto para diferenciar as opções por tipo de assinatura quanto para restringir o acesso a clientes e personalizar informações como resultados de exames e histórico de consultas. Na tela inicial, apenas o essencial: saudação, tipo de plano, agendamento, pronto atendimento, exames e autorizações." },
+      { type: "image", content: "/images/redesign-app/redesign-agendamento.png", caption: "Sequência de telas do novo fluxo de agendamento" },
+      { type: "text", content: "Para agendar, o usuário seleciona tipo de atendimento, especialidade, local, dia e horário, e confirma — recebendo a confirmação na lista de agendamentos. Tão simples quanto deveria ser." },
+
+      { type: "text", content: "**Reflexão**" },
+      { type: "text", content: "Esse estudo reforçou como boa parte dos problemas de usabilidade não exige pesquisa aprofundada para ser identificada — uma análise heurística bem feita já revela oportunidades claras de melhoria. Também me mostrou o valor de mapear a jornada antes de desenhar qualquer tela: o fluxo de 18 passos só fazia sentido porque ninguém tinha parado pra questionar cada etapa." },
+    ],
+    contentEn: [
+      { type: "image", content: "/images/redesign-app/capa.png", caption: "Hapvida app redesign — study overview" },
+
+      { type: "text", content: "**Context**" },
+      { type: "text", content: "Instead of picking an app from my own daily routine, I asked a few people whether they used any app — preferably in healthcare — regularly. I got suggestions like Doctoralia, Unimed Fortaleza, Meu CartãoSiM, and Hapvida." },
+      { type: "text", content: "I chose Hapvida for two reasons: the company behind the test that originated this exercise had it as a real client, and the person who suggested the app was a detractor — they said they'd never managed to use it without getting angry." },
+
+      { type: "text", content: "**The Plan**" },
+      { type: "text", content: "1. User journey mapping — understand the context, usage goal, and possibility of simplifying the flow." },
+      { type: "text", content: "2. Interface analysis — heuristics, usability (micro-interactions, Fitts's Law, Hick's Law, thumb zones), and design simplification." },
+      { type: "text", content: "3. Research and interview planning, Design System, and impact metrics, as far as the study's scope allowed." },
+      { type: "text", content: "4. Redesign." },
+
+      { type: "text", content: "**Research Planning**" },
+      { type: "text", content: "Even without running real interviews within this study's scope, I defined question scripts — one aimed at the company, to understand the business vision behind the product, and another at the user, to understand what they actually do when facing a health need, not what we assume they do." },
+
+      { type: "text", content: "**Journey Mapping**" },
+      { type: "text", content: "I picked a basic task — booking an appointment — and mapped how it happened in the original app." },
+      { type: "image", content: "/images/redesign-app/fluxo-atual.png", caption: "The current flow's screens" },
+      { type: "text", content: "In practice, the app worked as a link aggregator: every button opened a page in the browser. Even so, I mapped the journey as if that limitation didn't exist, imagining someone unsure about their health trying to book an appointment." },
+      { type: "image", content: "/images/redesign-app/mapa-jornada.png", caption: "Booking journey mapping — opportunities identified at each step" },
+      { type: "text", content: "The opportunities found pointed directly to interface changes. The original flow had 18 steps to book an appointment; the new flow simplified it to 8 steps, with no loss of functionality — 7 for users already logged in." },
+      { type: "image", content: "/images/redesign-app/novo-fluxo.png", caption: "New booking flow — from 18 to 8 steps" },
+
+      { type: "text", content: "**Interface Analysis**" },
+      { type: "text", content: "Most of the interface problems were easy to spot without much digging." },
+      { type: "image", content: "/images/redesign-app/heuristica-1.png", caption: "Exaggerated use of brand colors, with no hierarchy between buttons" },
+      { type: "image", content: "/images/redesign-app/heuristica-2.png", caption: "Displaced menu button and buttons with excessive visual weight" },
+      { type: "image", content: "/images/redesign-app/heuristica-3.png", caption: "Cut-off information and excessive contact details" },
+      { type: "text", content: "On the first screen, the exaggerated use of brand colors creates clustered high-contrast buttons with no information hierarchy — the visual repetition scatters the user's attention. On the second, the menu button sits in an unusual spot, and while the buttons have type hierarchy, they're oversized with similar visual weight to each other. On the third, information appears cut off, followed by an excessive amount of contact details." },
+      { type: "image", content: "/images/redesign-app/heuristica-4.png", caption: "Cramped layout with poor use of space" },
+      { type: "image", content: "/images/redesign-app/heuristica-5.png", caption: "Help text placed before login, inverting the screen's priority" },
+      { type: "image", content: "/images/redesign-app/heuristica-6.png", caption: "Confusing calendar arrows and a confirm button that looks disabled" },
+      { type: "text", content: "On the fourth screen, the layout is cramped, with poor use of space and copy that raises questions (\"doctor... nearest\" — nearest what?). On the fifth, the help text appears before the main content — the login — when it should come after, keeping the screen clean for users who already know the app. On the sixth, the calendar uses exaggerated, confusing arrows (two red ones pointing \"forward\", when red would suggest an error), and the \"Confirm appointment\" button looks disabled without being disabled." },
+      { type: "text", content: "Missing usability heuristics: visibility of system status, match between system and the real world, user control and freedom, consistency and standards, and aesthetic and minimalist design. It was also missing Fitts's Law for button placement, Hick's Law to reduce decision options, and proper use of thumb zones." },
+
+      { type: "text", content: "**Design System**" },
+      { type: "text", content: "The entire new interface started from a Design System built in Figma." },
+      { type: "image", content: "/images/redesign-app/ds-cores.png", caption: "Color palette — based on the Hapvida logo, with standards for positive, warning, negative, and disabled actions" },
+      { type: "image", content: "/images/redesign-app/ds-tipografia.png", caption: "Red Hat Display typography — Google Fonts, with a wide range of weights and styles" },
+      { type: "image", content: "/images/redesign-app/ds-componentes.png", caption: "Basic componentization — buttons and text input fields" },
+
+      { type: "text", content: "**Usage Metrics**" },
+      { type: "text", content: "Aesthetic changes are nice, but what matters is whether the user reaches their goal. As an independent study, there was no real measurement — but the process defined which data would validate the gain in a real scenario: time to book an appointment before and after, how many people need help, task completion rate, and NPS." },
+
+      { type: "text", content: "**The Redesign**" },
+      { type: "image", content: "/images/redesign-app/redesign-login.png", caption: "Login and home screen" },
+      { type: "text", content: "I chose to put login right at the start — both to differentiate options by subscription type and to restrict access to clients and personalize information like exam results and appointment history. On the home screen, just the essentials: greeting, plan type, booking, urgent care, exams, and authorizations." },
+      { type: "image", content: "/images/redesign-app/redesign-agendamento.png", caption: "New booking flow screen sequence" },
+      { type: "text", content: "To book, the user selects the appointment type, specialty, location, day and time, and confirms — receiving confirmation in their appointments list. As simple as it should be." },
+
+      { type: "text", content: "**Reflection**" },
+      { type: "text", content: "This study reinforced how much of usability isn't hard to spot — a solid heuristic analysis already reveals clear improvement opportunities. It also showed me the value of mapping the journey before designing any screen: the 18-step flow only made sense because nobody had stopped to question each step." },
+    ],
+  },
 ];
 
 export const skills = {

@@ -203,6 +203,84 @@ export default function HomeEn() {
         </div>
       </section>
 
+      {/* Articles */}
+      <section className="py-24 border-t border-[var(--border)]">
+        <div className="container mx-auto px-4 max-w-5xl">
+          <ScrollAnimate className="mb-12">
+            <p className="section-label mb-2">{d.articles.title}</p>
+            <h2 className="section-title">{d.articles.subtitle}</h2>
+            <div className="section-line mt-6" />
+          </ScrollAnimate>
+
+          <div className="grid gap-4 md:grid-cols-2">
+            {[
+              {
+                title: "Você está sendo manipulado! pt. 1/2",
+                tagline: "How cognitive biases like anchoring and loss aversion are used to influence your purchase decisions. (PT-BR)",
+                url: "https://silasvj.notion.site/Voc-est-sendo-manipulado-pt-1-2-148fadcdf06a4180af64192c89cb12d0",
+              },
+              {
+                title: "Você está sendo manipulado! pt. 2/2",
+                tagline: "Part two of the series on cognitive biases applied to products and purchase experiences. (PT-BR)",
+                url: "https://silasvj.notion.site/Voc-est-sendo-manipulado-pt-2-2-951e4fa153d940e8bb6ae5e27dfc286f",
+              },
+              {
+                title: "UX, Psicologia e Ética na Gestão de Produtos!",
+                tagline: "How UX, psychology, and ethics intersect in product management — and where persuasion turns into manipulation. (PT-BR)",
+                url: "https://silasvj.notion.site/UX-Psicologia-e-tica-na-Gest-o-de-Produtos-3887a51616934e01b43c8235af550e17",
+              },
+              {
+                title: "UX Research — Parte 01 — Quais perguntas eu devo fazer em uma entrevista?",
+                tagline: "How to use \"The Mom Test\" method to ask questions that reveal real behavior, not opinions. (PT-BR)",
+                url: "https://silasvj.medium.com/ux-research-parte-01-quais-perguntas-eu-devo-fazer-em-uma-entrevista-6c8f492f815b",
+              },
+              {
+                title: "UX Research — Parte 02 — Como perceber e corrigir problemas em conversas de pesquisa",
+                tagline: "How to spot and fix the most common mistakes during a user research interview. (PT-BR)",
+                url: "https://silasvj.medium.com/ux-research-parte-02-como-perceber-e-corrigir-problemas-em-conversas-de-pesquisa-38b6b37a1c45",
+              },
+              {
+                title: "Roadmap: como criar e manter o roadmap de produto",
+                tagline: "Why a roadmap should focus on product goals, not tasks — and how to structure yours. (PT-BR)",
+                url: "https://silasvj.medium.com/roadmap-como-criar-e-manter-o-roadmap-de-produto-9af99e7500e3",
+              },
+              {
+                title: "Estudo de caso: Apoiando profissionais de saúde",
+                tagline: "A case study on designing products that support healthcare professionals' daily routine. (PT-BR)",
+                url: "https://silasvj.medium.com/crise-004-apoiando-os-m%C3%A9dicos-2bbe1de2ddd2",
+              },
+              {
+                title: "O que fazer se entrar um Product Designer na minha empresa — tutorial 2022 atualizado",
+                tagline: "A (lighthearted) guide to onboarding a newly hired Product Designer into your team. (PT-BR)",
+                url: "https://silasvj.medium.com/o-que-fazer-se-entrar-um-product-designer-na-minha-empresa-tutorial-2022-atualizado-14ce8c81155a",
+              },
+              {
+                title: "Como escolher meu wifi? 🤔",
+                tagline: "A casual internal talk on how to pick the right wifi for your home. (PT-BR)",
+                url: "https://silasvj.medium.com/como-escolher-meu-wifi-de014c7f16e8",
+              },
+            ].map((article, idx) => (
+              <ScrollAnimate key={article.url} delay={idx * 50}>
+                <a
+                  href={article.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="card p-5 h-full flex flex-col justify-between group"
+                >
+                  <div>
+                    <h3 className="font-semibold mb-2 group-hover:text-[var(--primary)] transition-colors">
+                      {article.title}
+                    </h3>
+                    <p className="text-sm text-[var(--muted-foreground)]">{article.tagline}</p>
+                  </div>
+                  <span className="text-xs text-[var(--secondary)] mt-4 inline-block">Read article ↗</span>
+                </a>
+              </ScrollAnimate>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* CTA */}
       <section className="py-24 bg-[var(--muted)] border-t border-[var(--border)] text-center">
         <div className="container mx-auto px-4 max-w-2xl">
