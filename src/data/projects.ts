@@ -267,6 +267,7 @@ description:
     ],
     thumbnail: "/images/sim/Untitled 1.png",
     images: [
+      "/images/sim/Untitled 10.png",
       "/images/sim/Untitled.png",
       "/images/sim/Untitled 1.png",
       "/images/sim/Untitled 2.png",
@@ -277,7 +278,6 @@ description:
       "/images/sim/Untitled 7.png",
       "/images/sim/Untitled 8.png",
       "/images/sim/Untitled 9.png",
-      "/images/sim/Untitled 10.png",
       "/images/sim/Untitled 11.png",
       "/images/sim/Untitled 12.png",
       "/images/sim/Untitled 13.png",
@@ -705,6 +705,7 @@ description:
     ],
     thumbnail: "/images/meetz/Produto_-_2022.png",
     images: [
+      "/images/meetz/Contratos_-_Tela_base 1.png",
       "/images/meetz/Captura_de_Tela_2023-04-20_as_12.50.29.png",
       "/images/meetz/Captura_de_Tela_2023-04-20_as_12.59.52.png",
       "/images/meetz/Captura_de_Tela_2023-04-20_as_13.03.00.png",
@@ -892,6 +893,15 @@ export const skills = {
     "Emotional Intelligence",
     "Leadership",
     "Collaboration",
+  ],
+  softPt: [
+    "Criatividade",
+    "Pensamento Crítico",
+    "Resolução de Problemas",
+    "Trabalho em Equipe",
+    "Inteligência Emocional",
+    "Liderança",
+    "Colaboração",
   ],
   languages: ["English (Professional Working)"],
 };

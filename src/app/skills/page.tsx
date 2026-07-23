@@ -51,7 +51,7 @@ export default function Skills() {
         <ScrollAnimate>
           <p className="section-label mb-6">Soft Skills</p>
           <div className="flex flex-wrap gap-3">
-            {skills.soft.map((skill) => (
+            {skills.softPt.map((skill) => (
               <span key={skill} className="chip">{skill}</span>
             ))}
           </div>

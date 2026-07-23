@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { createPortal } from "react-dom";
 import Image from "next/image";
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
 import { getImagePath } from "@/utils/get-image-path";
@@ -48,7 +49,7 @@ export function Lightbox({
 
   const currentImage = images[currentIndex];
 
-  return (
+  return createPortal(
     <div
       className="fixed inset-0 z-[100] bg-black/95 flex items-center justify-center"
       onClick={onClose}
@@ -149,6 +150,7 @@ export function Lightbox({
           </span>
         </p>
       )}
-    </div>
+    </div>,
+    document.body
   );
 }

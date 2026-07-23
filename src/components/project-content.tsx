@@ -132,15 +132,22 @@ export function ProjectContent({
     }
   };
 
+  // Some content blocks reference images that aren't in project.images (the
+  // gallery list) — union both so every image on the page can open in the lightbox.
+  const contentImageSrcs = (content || [])
+    .filter((block) => block.type === "image")
+    .map((block) => block.content);
+  const allImages = Array.from(new Set([...project.images, ...contentImageSrcs]));
+
   const handleImageClick = (src: string) => {
-    const idx = project.images.findIndex((img) => img === src);
+    const idx = allImages.findIndex((img) => img === src);
     if (idx >= 0) {
       setLightboxIndex(idx);
       setLightboxOpen(true);
     }
   };
 
-  const lightboxImages = project.images.map((src, idx) => ({
+  const lightboxImages = allImages.map((src, idx) => ({
     src,
     alt: `${title} — ${idx + 1}`,
   }));
