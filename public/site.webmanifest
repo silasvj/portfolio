@@ -1,0 +1,16 @@
+{
+  "name": "Silas Vasques — AI Design Engineer & Product Designer",
+  "short_name": "Silas Vasques",
+  "description": "Portfolio de Silas Vasques — Product Designer e AI Design Engineer",
+  "start_url": "/portfolio/",
+  "display": "standalone",
+  "background_color": "#08080f",
+  "theme_color": "#6d5bd0",
+  "icons": [
+    {
+      "src": "/portfolio/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ]
+}

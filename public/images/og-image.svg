@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#08080f"/>
+      <stop offset="50%" stop-color="#10101a"/>
+      <stop offset="100%" stop-color="#18182a"/>
+    </linearGradient>
+    <linearGradient id="txt" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#7c6fff"/>
+      <stop offset="100%" stop-color="#00e5ff"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <!-- Grid pattern -->
+  <g opacity="0.08">
+    <line x1="0" y1="100" x2="1200" y2="100" stroke="#7c6fff" stroke-width="0.5"/>
+    <line x1="0" y1="200" x2="1200" y2="200" stroke="#7c6fff" stroke-width="0.5"/>
+    <line x1="0" y1="300" x2="1200" y2="300" stroke="#7c6fff" stroke-width="0.5"/>
+    <line x1="0" y1="400" x2="1200" y2="400" stroke="#7c6fff" stroke-width="0.5"/>
+    <line x1="0" y1="500" x2="1200" y2="500" stroke="#7c6fff" stroke-width="0.5"/>
+    <line x1="200" y1="0" x2="200" y2="630" stroke="#7c6fff" stroke-width="0.5"/>
+    <line x1="400" y1="0" x2="400" y2="630" stroke="#7c6fff" stroke-width="0.5"/>
+    <line x1="600" y1="0" x2="600" y2="630" stroke="#7c6fff" stroke-width="0.5"/>
+    <line x1="800" y1="0" x2="800" y2="630" stroke="#7c6fff" stroke-width="0.5"/>
+    <line x1="1000" y1="0" x2="1000" y2="630" stroke="#7c6fff" stroke-width="0.5"/>
+  </g>
+  <text x="80" y="280" font-family="system-ui, sans-serif" font-size="64" font-weight="800" fill="url(#txt)">Silas Vasques</text>
+  <text x="80" y="350" font-family="system-ui, sans-serif" font-size="36" fill="#7878a0">AI Design Engineer &amp; Product Designer</text>
+  <text x="80" y="420" font-family="system-ui, sans-serif" font-size="22" fill="#7878a0">Projeto experiências, valido com usuários e entrego no código.</text>
+  <text x="80" y="540" font-family="system-ui, sans-serif" font-size="16" fill="#7c6fff">silasvasques.com.br</text>
+  <!-- Accent bar -->
+  <rect x="0" y="0" width="6" height="630" fill="url(#txt)"/>
+</svg>

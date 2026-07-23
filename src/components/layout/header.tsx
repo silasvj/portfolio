@@ -50,7 +50,7 @@ export function Header() {
         >
           Silas Vasques
         </Link>
-        <nav className="hidden md:flex gap-6">
+        <nav className="hidden md:flex gap-6" aria-label="Main navigation">
           {links.map((link) => (
             <Link
               key={link.href}
@@ -60,6 +60,7 @@ export function Header() {
                   ? "text-[var(--secondary)]"
                   : "text-[var(--muted-foreground)] hover:text-[var(--secondary)]"
               }`}
+              aria-current={pathname === link.href ? "page" : undefined}
             >
               {link.label}
             </Link>

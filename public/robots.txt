@@ -1,0 +1,6 @@
+# Robots for Silas Vasques Portfolio
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://silasvasques.com.br/portfolio/sitemap.xml

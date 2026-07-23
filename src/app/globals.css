@@ -365,11 +365,26 @@ h1, h2, h3, h4, h5, h6 {
 /* Scroll Animations */
 [data-animate] {
   opacity: 0;
-  transform: translateY(24px);
+  transform: translate(
+    var(--animate-x, 0px),
+    var(--animate-y, 24px)
+  );
   transition: opacity 0.55s ease, transform 0.55s ease;
 }
 
 [data-animate].visible {
+  opacity: 1;
+  transform: translate(0, 0);
+}
+
+/* Stagger children animation (used by ScrollAnimate stagger mode) */
+.stagger-children > * {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.stagger-children.visible > * {
   opacity: 1;
   transform: translateY(0);
 }
@@ -392,5 +407,32 @@ h1, h2, h3, h4, h5, h6 {
   [data-animate] {
     opacity: 1 !important;
     transform: none !important;
+  }
+}
+
+/* Image loading skeleton */
+.image-skeleton {
+  position: relative;
+  overflow: hidden;
+  background: var(--muted);
+}
+
+.image-skeleton::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(124, 111, 255, 0.06) 50%,
+    transparent 100%
+  );
+  animation: shimmer 2s infinite;
+  transform: translateX(-100%);
+}
+
+@keyframes shimmer {
+  100% {
+    transform: translateX(100%);
   }
 }

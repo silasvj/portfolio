@@ -33,7 +33,7 @@ export default function Projects() {
             <ScrollAnimate key={project.id} delay={idx * 100}>
               <Link href={`/projects/${project.slug}`}>
                 <article className="card overflow-hidden group h-full">
-                  <div className="relative aspect-[16/9] bg-[var(--muted)] overflow-hidden">
+                  <div className="relative aspect-[16/9] bg-[var(--muted)] overflow-hidden image-skeleton">
                     <Image
                       src={getImagePath(project.thumbnail)}
                       alt={project.title}

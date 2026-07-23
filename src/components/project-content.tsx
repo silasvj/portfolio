@@ -1,12 +1,9 @@
 "use client";
 
-import { useState, useEffect, useRef, type ReactElement } from "react";
+import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import {
-  X,
-  ChevronLeft,
-  ChevronRight,
   Calendar,
   Briefcase,
   Building2,
@@ -14,331 +11,10 @@ import {
 } from "lucide-react";
 import { projects } from "@/data/projects";
 import { getImagePath } from "@/utils/get-image-path";
+import { AnimateIn } from "@/hooks/use-scroll-reveal";
+import { Lightbox } from "./lightbox";
+import { ContentRenderer } from "./content-renderer";
 
-// ─── Lightbox ───────────────────────────────────────────────────────────────
-
-function Lightbox({
-  images,
-  initialIndex,
-  isOpen,
-  onClose,
-}: {
-  images: { src: string; alt: string; caption?: string }[];
-  initialIndex: number;
-  isOpen: boolean;
-  onClose: () => void;
-}) {
-  const [currentIndex, setCurrentIndex] = useState(initialIndex);
-  const [zoom, setZoom] = useState(1);
-  const [mousePos, setMousePos] = useState({ x: 50, y: 50 });
-
-  useEffect(() => {
-    setCurrentIndex(initialIndex);
-    setZoom(1);
-  }, [initialIndex, isOpen]);
-
-  useEffect(() => {
-    if (!isOpen) return;
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === "Escape") onClose();
-      if (e.key === "ArrowLeft")
-        setCurrentIndex((prev) => (prev > 0 ? prev - 1 : images.length - 1));
-      if (e.key === "ArrowRight")
-        setCurrentIndex((prev) => (prev < images.length - 1 ? prev + 1 : 0));
-    };
-    window.addEventListener("keydown", handleKeyDown);
-    return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [isOpen, onClose, images.length]);
-
-  if (!isOpen || images.length === 0) return null;
-
-  const currentImage = images[currentIndex];
-
-  return (
-    <div
-      className="fixed inset-0 z-[100] bg-black/95 flex items-center justify-center"
-      onClick={onClose}
-    >
-      <button
-        onClick={(e) => { e.stopPropagation(); onClose(); }}
-        className="absolute top-6 right-6 p-3 text-white/70 hover:text-white transition-all z-10 bg-white/10 hover:bg-white/20 rounded-full"
-        aria-label="Close"
-      >
-        <X size={28} />
-      </button>
-
-      <button
-        onClick={(e) => { e.stopPropagation(); setCurrentIndex((prev) => (prev > 0 ? prev - 1 : images.length - 1)); }}
-        className="absolute left-4 z-10 p-3 text-white/70 hover:text-white transition-all bg-black/40 hover:bg-black/60 rounded-full"
-        aria-label="Previous image"
-      >
-        <ChevronLeft size={28} />
-      </button>
-      <button
-        onClick={(e) => { e.stopPropagation(); setCurrentIndex((prev) => (prev < images.length - 1 ? prev + 1 : 0)); }}
-        className="absolute right-4 z-10 p-3 text-white/70 hover:text-white transition-all bg-black/40 hover:bg-black/60 rounded-full"
-        aria-label="Next image"
-      >
-        <ChevronRight size={28} />
-      </button>
-
-      <div
-        className="relative w-full h-full max-w-[90vw] max-h-[85vh] flex items-center justify-center overflow-hidden"
-        onClick={(e) => {
-          e.stopPropagation();
-          setZoom((z) => (z === 1 ? 2.5 : 1));
-        }}
-        onMouseMove={(e) => {
-          if (zoom <= 1) return;
-          const rect = e.currentTarget.getBoundingClientRect();
-          setMousePos({
-            x: ((e.clientX - rect.left) / rect.width) * 100,
-            y: ((e.clientY - rect.top) / rect.height) * 100,
-          });
-        }}
-      >
-        <div
-          className="relative transition-transform duration-200 ease-out"
-          style={{
-            transform: `scale(${zoom})`,
-            transformOrigin: `${mousePos.x}% ${mousePos.y}%`,
-          }}
-        >
-          <Image
-            src={getImagePath(currentImage.src)}
-            alt={currentImage.alt}
-            width={1200}
-            height={800}
-            className="max-w-[90vw] max-h-[75vh] w-auto h-auto object-contain pointer-events-none"
-            priority
-          />
-        </div>
-      </div>
-
-      <div
-        className="absolute bottom-6 left-1/2 -translate-x-1/2 flex items-center gap-2 bg-black/20 backdrop-blur-md rounded-full px-3 py-2"
-        onClick={(e) => e.stopPropagation()}
-      >
-        {images.map((_, idx) => (
-          <button
-            key={idx}
-            onClick={() => { setCurrentIndex(idx); }}
-            className={`h-2 rounded-full transition-all duration-300 ${
-              idx === currentIndex ? "bg-white w-6" : "bg-white/20 w-2 hover:bg-white/40"
-            }`}
-          />
-        ))}
-      </div>
-
-      {currentImage.caption && (
-        <p className="absolute top-6 left-1/2 -translate-x-1/2 text-white/80 text-sm bg-black/40 px-4 py-1.5 rounded-full backdrop-blur-sm">
-          {currentImage.caption}
-          <span className="text-white/40 ml-2">
-            {currentIndex + 1}/{images.length}
-          </span>
-        </p>
-      )}
-    </div>
-  );
-}
-
-// ─── Scroll Reveal Hook ──────────────────────────────────────────────────────
-
-function useScrollReveal() {
-  const ref = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          el.classList.add("visible");
-          observer.unobserve(el);
-        }
-      },
-      { threshold: 0.08, rootMargin: "0px 0px -40px 0px" }
-    );
-    observer.observe(el);
-    return () => observer.disconnect();
-  }, []);
-
-  return ref;
-}
-
-function AnimateIn({ children, className = "" }: { children: React.ReactNode; className?: string }) {
-  const ref = useScrollReveal();
-  return (
-    <div ref={ref} data-animate className={className}>
-      {children}
-    </div>
-  );
-}
-
-// ─── Content Block Renderer ─────────────────────────────────────────────────
-
-function parseInlineMarkdown(text: string): ReactElement {
-  const parts = text.split(/(\*\*[^*]+\*\*)/g);
-  return (
-    <span>
-      {parts.map((part, i) => {
-        if (part.startsWith("**") && part.endsWith("**")) {
-          return <strong key={i}>{part.slice(2, -2)}</strong>;
-        }
-        return part;
-      })}
-    </span>
-  );
-}
-
-interface ContentSection {
-  type: "heading" | "text" | "bullet" | "numbered" | "image" | "empty";
-  content: string;
-  caption?: string;
-}
-
-function classifyBlock(text: string): { type: ContentSection["type"]; content: string } {
-  const trimmed = text.trim();
-  if (!trimmed) return { type: "empty", content: "" };
-  if (/^\*\*.+\*\*$/.test(trimmed)) {
-    return { type: "heading", content: trimmed.replace(/^\*\*|\*\*$/g, "") };
-  }
-  if (trimmed.startsWith("•") || trimmed.startsWith("- ")) {
-    return { type: "bullet", content: trimmed.replace(/^[•\-]\s*/, "") };
-  }
-  if (/^\d+\.\s/.test(trimmed)) {
-    return { type: "numbered", content: trimmed.replace(/^\d+\.\s/, "") };
-  }
-  return { type: "text", content: trimmed };
-}
-
-function ContentRenderer({
-  content,
-  onImageClick,
-}: {
-  content: typeof projects[0]["content"];
-  onImageClick: (src: string) => void;
-}) {
-  const blocks = content || [];
-  const elements: ReactElement[] = [];
-
-  for (let i = 0; i < blocks.length; i++) {
-    const block = blocks[i];
-
-    if (block.type === "image") {
-      const imageGroup: typeof block[] = [block];
-      let j = i + 1;
-      while (j < blocks.length && blocks[j].type === "image") {
-        imageGroup.push(blocks[j]);
-        j++;
-      }
-
-      if (imageGroup.length === 1) {
-        elements.push(
-          <AnimateIn key={i}>
-            <figure
-              className="my-10 md:my-12 cursor-zoom-in group"
-              onClick={() => onImageClick(block.content)}
-            >
-              <div className="relative aspect-video bg-[var(--muted)] rounded-xl overflow-hidden shadow-lg ring-1 ring-[var(--border)]">
-                <Image
-                  src={getImagePath(block.content)}
-                  alt={block.caption || ""}
-                  fill
-                  sizes="(max-width: 768px) 100vw, 768px"
-                  className="object-contain group-hover:scale-[1.02] transition-transform duration-500"
-                />
-              </div>
-              {block.caption && (
-                <figcaption className="text-sm text-[var(--muted-foreground)] mt-3 text-center font-medium">
-                  {parseInlineMarkdown(block.caption)}
-                </figcaption>
-              )}
-            </figure>
-          </AnimateIn>
-        );
-      } else {
-        const gridCols = imageGroup.length <= 3 ? imageGroup.length : 3;
-        elements.push(
-          <AnimateIn key={i}>
-            <div
-              className="grid gap-3 my-10"
-              style={{ gridTemplateColumns: `repeat(${gridCols}, minmax(0, 1fr))` }}
-            >
-              {imageGroup.map((imgBlock, idx) => (
-                <figure
-                  key={`${i}-${idx}`}
-                  className="cursor-zoom-in group relative overflow-hidden rounded-xl bg-[var(--muted)]"
-                  onClick={() => onImageClick(imgBlock.content)}
-                >
-                  <div className="relative aspect-video overflow-hidden">
-                    <Image
-                      src={getImagePath(imgBlock.content)}
-                      alt={imgBlock.caption || ""}
-                      fill
-                      sizes={`(max-width: 768px) 100vw, ${768 / gridCols}px`}
-                      className="object-cover group-hover:scale-105 transition-transform duration-500"
-                    />
-                  </div>
-                  {imgBlock.caption && (
-                    <figcaption className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/70 to-transparent p-3">
-                      <span className="text-white text-xs">{imgBlock.caption}</span>
-                    </figcaption>
-                  )}
-                </figure>
-              ))}
-            </div>
-          </AnimateIn>
-        );
-      }
-
-      i = j - 1;
-      continue;
-    }
-
-    const { type, content: cleanText } = classifyBlock(block.content);
-    if (type === "empty") continue;
-
-    const contentEl = parseInlineMarkdown(cleanText);
-
-    let el: ReactElement;
-    switch (type) {
-      case "heading":
-        el = (
-          <h3 className="text-2xl md:text-3xl font-bold tracking-tight text-[var(--foreground)] mt-2 mb-1">
-            {contentEl}
-          </h3>
-        );
-        break;
-      case "bullet":
-        el = (
-          <li className="flex items-start gap-3 text-[var(--muted-foreground)] leading-relaxed">
-            <span className="mt-2 w-1.5 h-1.5 rounded-full bg-[var(--primary)] flex-shrink-0" />
-            {contentEl}
-          </li>
-        );
-        break;
-      case "numbered":
-        el = (
-          <li className="flex items-start gap-3 text-[var(--muted-foreground)] leading-relaxed">
-            <span className="mt-2 text-[var(--primary)] font-bold flex-shrink-0">→</span>
-            {contentEl}
-          </li>
-        );
-        break;
-      default:
-        el = (
-          <p className="text-[var(--muted-foreground)] leading-[1.75] text-[1.05rem]">
-            {contentEl}
-          </p>
-        );
-    }
-
-    elements.push(<AnimateIn key={i}>{el}</AnimateIn>);
-  }
-
-  return <div className="space-y-5">{elements}</div>;
-}
 
 // ─── Section Nav ────────────────────────────────────────────────────────────
 
@@ -513,7 +189,7 @@ export function ProjectContent({
           {/* ── Hero Image ── */}
           <AnimateIn>
             <div
-              className="relative aspect-[16/9] bg-[var(--muted)] rounded-2xl mb-8 cursor-pointer overflow-hidden group shadow-xl ring-1 ring-[var(--border)]"
+              className="relative aspect-[16/9] bg-[var(--muted)] rounded-2xl mb-8 cursor-pointer overflow-hidden group shadow-xl ring-1 ring-[var(--border)] image-skeleton"
               onClick={() => handleImageClick(project.images[0])}
             >
               <Image
@@ -785,7 +461,7 @@ export function ProjectContent({
                     {project.images.map((img, idx) => (
                       <div
                         key={idx}
-                        className="relative aspect-square bg-[var(--muted)] rounded-xl overflow-hidden cursor-pointer group shadow-sm ring-1 ring-[var(--border)]"
+                        className="relative aspect-square bg-[var(--muted)] rounded-xl overflow-hidden cursor-pointer group shadow-sm ring-1 ring-[var(--border)] image-skeleton"
                         onClick={() => {
                           setLightboxIndex(idx);
                           setLightboxOpen(true);

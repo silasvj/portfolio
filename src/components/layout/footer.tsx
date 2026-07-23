@@ -22,7 +22,7 @@ export function Footer() {
               Product Designer | AI Design Engineer · Fortaleza/CE · {currentYear}
             </p>
           </div>
-          <div className="flex gap-6">
+          <nav className="flex gap-6" aria-label="Social and contact links">
             <a
               href="https://linkedin.com/in/silasvasques"
               target="_blank"
@@ -45,7 +45,7 @@ export function Footer() {
             >
               Email
             </a>
-          </div>
+          </nav>
         </div>
       </div>
     </footer>
