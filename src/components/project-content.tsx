@@ -437,21 +437,25 @@ export function ProjectContent({
                     ))}
                   </div>
 
-                  <div className="h-px bg-gradient-to-r from-[var(--border)] to-transparent mb-6" />
+                  {project.slug === "yampa-2" && (
+                    <>
+                      <div className="h-px bg-gradient-to-r from-[var(--border)] to-transparent mb-6" />
 
-                  <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                    {[
-                      { value: "3.000+", label: isEn ? "Active companies" : "Empresas ativas" },
-                      { value: "28.000+", label: isEn ? "Entrepreneurs" : "Empresários" },
-                      { value: "75%", label: isEn ? "Delivery reduction" : "Redução entrega" },
-                      { value: "+20pp", label: isEn ? "Activation rate" : "Taxa de ativação" },
-                    ].map((stat, si) => (
-                      <div key={si} className="text-center p-3 rounded-xl bg-[var(--muted)]/50">
-                        <p className="stat-value text-2xl">{stat.value}</p>
-                        <p className="stat-label text-[0.6rem] mt-1">{stat.label}</p>
+                      <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                        {[
+                          { value: "3.000+", label: isEn ? "Active companies" : "Empresas ativas" },
+                          { value: "28.000+", label: isEn ? "Entrepreneurs" : "Empresários" },
+                          { value: "75%", label: isEn ? "Delivery reduction" : "Redução entrega" },
+                          { value: "+20pp", label: isEn ? "Activation rate" : "Taxa de ativação" },
+                        ].map((stat, si) => (
+                          <div key={si} className="text-center p-3 rounded-xl bg-[var(--muted)]/50">
+                            <p className="stat-value text-2xl">{stat.value}</p>
+                            <p className="stat-label text-[0.6rem] mt-1">{stat.label}</p>
+                          </div>
+                        ))}
                       </div>
-                    ))}
-                  </div>
+                    </>
+                  )}
                 </div>
               </section>
             </AnimateIn>
