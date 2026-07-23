@@ -35,7 +35,7 @@ export default function Projects() {
                 <article className="card overflow-hidden group h-full">
                   <div className="relative aspect-[16/9] bg-[var(--muted)] overflow-hidden image-skeleton">
                     <Image
-                      src={getImagePath(project.thumbnail)}
+                      src={getImagePath(project.images[0])}
                       alt={project.title}
                       fill
                       sizes="(max-width: 768px) 100vw, 50vw"

@@ -65,7 +65,6 @@ const mockProject = {
   resultsEn: "Amazing results",
   metrics: ["+50%", "10x"],
   metricsEn: ["+50%", "10x"],
-  thumbnail: "/images/test.jpg",
   images: ["/images/test.jpg"],
   content: [
     { type: "text" as const, content: "Conteúdo narrativo" },

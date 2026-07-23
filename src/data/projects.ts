@@ -26,7 +26,6 @@ export interface Project {
   resultsEn?: string;
   metrics: string[];
   metricsEn?: string[];
-  thumbnail: string;
   images: string[];
   content?: ContentBlock[];
   contentEn?: ContentBlock[];
@@ -75,7 +74,6 @@ description:
       "+20pp activation rate increase",
       "Onboarding drop-off: >90% → ~70%",
     ],
-    thumbnail: "/images/yampa/yampa-hero.png",
     images: [
       "/images/yampa/yampa-hero.png",
       "/images/yampa/Captura_de_tela_2026-04-16_161552-horz.png",
@@ -265,7 +263,6 @@ description:
       "No-show",
       "Average time",
     ],
-    thumbnail: "/images/sim/Untitled 1.png",
     images: [
       "/images/sim/Untitled 10.png",
       "/images/sim/Untitled.png",
@@ -523,7 +520,6 @@ description:
       "Feature in beta version, visual and flow approved. I was laid off before the official launch.",
     metrics: ["Usuários ativos", "Taxa de utilização", "Tempo de utilização", "Conversão em agendamentos"],
     metricsEn: ["Active users", "Usage rate", "Usage time", "Appointment conversion"],
-    thumbnail: "/images/simapp/Untitled.png",
     images: [
       "/images/simapp/Untitled.png",
       "/images/simapp/Untitled 1.png",
@@ -703,7 +699,6 @@ description:
       "Clients per BDR",
       "Time spent on tasks",
     ],
-    thumbnail: "/images/meetz/Produto_-_2022.png",
     images: [
       "/images/meetz/Contratos_-_Tela_base 1.png",
       "/images/meetz/Captura_de_Tela_2023-04-20_as_12.50.29.png",
