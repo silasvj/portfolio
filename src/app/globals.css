@@ -199,6 +199,16 @@
   padding: 1.1rem;
 }
 
+/* Results grid value cards - always dark to stand out */
+.result-card {
+  background: #12121f;
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+.result-card .result-label {
+  color: #a8a8c8;
+}
+
 /* Skill Bar */
 .skill-bar {
   height: 3px;

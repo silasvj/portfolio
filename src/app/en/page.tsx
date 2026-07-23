@@ -99,14 +99,9 @@ export default function HomeEn() {
                 <p className="text-[var(--muted-foreground)] leading-relaxed mb-6">
                   {d.featured.description2}
                 </p>
-                <a
-                  href="https://www.notion.so/silasvj/Silas-Vasques-Meu-Portf-lio-como-Designer-e3513e4b53964d17a461813f30896c5a"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn btn-outline"
-                >
+                <Link href="/en/projects/yampa-2" className="btn btn-outline">
                   {d.featured.viewCase}
-                </a>
+                </Link>
               </div>
             </ScrollAnimate>
 
@@ -128,29 +123,29 @@ export default function HomeEn() {
           </div>
 
           {/* Results Grid */}
-          <div className="grid md:grid-cols-3 gap-4 mb-12">
-            <ScrollAnimate delay={300}>
-              <div className="card p-5 text-center">
+          <div className="grid md:grid-cols-3 gap-4 mb-12 items-stretch">
+            <ScrollAnimate delay={300} className="h-full">
+              <div className="card result-card h-full p-5 text-center">
                 <div className="text-2xl fw-bold text-gradient mb-2">75%</div>
-                <div className="text-sm text-[var(--muted-foreground)]">{d.featured.results.frontend}</div>
+                <div className="text-sm result-label">{d.featured.results.frontend}</div>
               </div>
             </ScrollAnimate>
-            <ScrollAnimate delay={350}>
-              <div className="card p-5 text-center">
+            <ScrollAnimate delay={350} className="h-full">
+              <div className="card result-card h-full p-5 text-center">
                 <div className="text-2xl fw-bold text-gradient mb-2">3k+</div>
-                <div className="text-sm text-[var(--muted-foreground)]">{d.featured.results.companies}</div>
+                <div className="text-sm result-label">{d.featured.results.companies}</div>
               </div>
             </ScrollAnimate>
-            <ScrollAnimate delay={400}>
-              <div className="card p-5 text-center">
+            <ScrollAnimate delay={400} className="h-full">
+              <div className="card result-card h-full p-5 text-center">
                 <div className="text-2xl fw-bold text-gradient mb-2">28k+</div>
-                <div className="text-sm text-[var(--muted-foreground)]">{d.featured.results.impacted}</div>
+                <div className="text-sm result-label">{d.featured.results.impacted}</div>
               </div>
             </ScrollAnimate>
           </div>
 
           {/* Phases */}
-          <div className="grid md:grid-cols-3 gap-4">
+          <div className="grid md:grid-cols-3 gap-4 items-stretch">
             {[
               { n: "Phase 1", t: d.phases.phase1, d: d.phases.phase1Desc },
               { n: "Phase 2", t: d.phases.phase2, d: d.phases.phase2Desc },
@@ -159,8 +154,8 @@ export default function HomeEn() {
               { n: "Phase 5", t: d.phases.phase5, d: d.phases.phase5Desc },
               { n: "Phase 6", t: d.phases.phase6, d: d.phases.phase6Desc },
             ].map((phase, idx) => (
-              <ScrollAnimate key={phase.n} delay={450 + idx * 50}>
-                <div className="card p-4">
+              <ScrollAnimate key={phase.n} delay={450 + idx * 50} className="h-full">
+                <div className="card h-full p-4">
                   <p className="text-xs uppercase tracking-wider text-[var(--secondary)] mb-2">{phase.n}</p>
                   <p className="font-semibold mb-2">{phase.t}</p>
                   <p className="text-xs text-[var(--muted-foreground)] leading-relaxed">{phase.d}</p>

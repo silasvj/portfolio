@@ -37,7 +37,7 @@ export function Footer() {
               rel="noopener noreferrer"
               className="text-sm text-[var(--muted-foreground)] hover:text-[var(--primary)] transition-colors"
             >
-              Portfolio UX/UI ↗
+              Portfólio Notion ↗
             </a>
             <a
               href="mailto:silasvj@gmail.com"
